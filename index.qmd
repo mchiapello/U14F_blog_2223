@@ -1,14 +1,12 @@
 ---
-title: "U14F_blog_2223"
+title: "PGS Foglizzese U14 Femminile"
 listing:
   contents: posts
   sort: "date desc"
-  type: default
+  type: table
   categories: true
   sort-ui: false
   filter-ui: false
 page-layout: full
 title-block-banner: true
 ---
-
-

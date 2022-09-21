@@ -1,8 +1,9 @@
 project:
   type: website
+  output-dir: docs
 
 website:
-  title: "U14F_blog_2223"
+  title: "Progetto Basso Canavese {{< fa volleyball size=normalsize >}}"
   navbar:
     right:
       - about.qmd
@@ -12,8 +13,7 @@ website:
         href: https://twitter.com
 format:
   html:
-    theme: cosmo
+    theme: yeti
     css: styles.css
 
-
-
+editor: source

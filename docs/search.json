@@ -1,0 +1,65 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "PGS Foglizzese U14 Femminile",
+    "section": "",
+    "text": "Date\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nSep 20, 2022\n\n\nNono Allenamento\n\n\nMarco Chiapello\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/post-with-code/index.html",
+    "href": "posts/post-with-code/index.html",
+    "title": "Post With Code",
+    "section": "",
+    "text": "1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "Since this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+  },
+  {
+    "objectID": "posts/20220920/index.html",
+    "href": "posts/20220920/index.html",
+    "title": "Nono Allenamento",
+    "section": "",
+    "text": "Ricezione\n\nBattuta dall’alto\nAttacco"
+  },
+  {
+    "objectID": "posts/20220920/index.html#valutazioni-generali-fa-gauge-simple-high-sizenormalsize",
+    "href": "posts/20220920/index.html#valutazioni-generali-fa-gauge-simple-high-sizenormalsize",
+    "title": "Nono Allenamento",
+    "section": "Valutazioni generali ",
+    "text": "Valutazioni generali"
+  },
+  {
+    "objectID": "posts/20220920/index.html#presenze-fa-child-reaching-sizenormalsize",
+    "href": "posts/20220920/index.html#presenze-fa-child-reaching-sizenormalsize",
+    "title": "Nono Allenamento",
+    "section": "Presenze ",
+    "text": "Presenze \n\n\n\n\n\n\n  \n  \n    \n      Numero\n      Cognome\n      Nome\n      assenti\n    \n  \n  \n    22\nBertinato\nAdele\n\n    42\nCappuccio\nGreta\n\n    65\nDainese\nAlice\n\n    11\nLeoni\nEmma\n\n    28\nMargarotto\nSara\nX\n    56\nMarengo\nAlessia\n\n    32\nNatoli\nAlice\n\n    14\nPascarella\nNoemi\nX\n    27\nPau\nSofia\n\n    5\nRavazzi\nMarta\n\n    0\nRavazzi\nTeresa\nX\n    54\nSuriani\nSofia"
+  },
+  {
+    "objectID": "posts/20220920/index.html#classifica-fa-ranking-star-sizenormalsize",
+    "href": "posts/20220920/index.html#classifica-fa-ranking-star-sizenormalsize",
+    "title": "Nono Allenamento",
+    "section": "Classifica ",
+    "text": "Classifica \n\n\n\n\n\n\n  \n  \n    \n      Numero\n      Cognome\n      Nome\n      Classifica\n    \n  \n  \n    22\nBertinato\nAdele\n4\n    42\nCappuccio\nGreta\n4\n    27\nPau\nSofia\n4\n    5\nRavazzi\nMarta\n4\n    54\nSuriani\nSofia\n4\n    11\nLeoni\nEmma\n3\n    28\nMargarotto\nSara\n3\n    14\nPascarella\nNoemi\n3\n    0\nRavazzi\nTeresa\n3\n    65\nDainese\nAlice\n2\n    56\nMarengo\nAlessia\n2\n    32\nNatoli\nAlice\n2"
+  },
+  {
+    "objectID": "posts/20220920/index.html#video-allenamento-fa-video-sizenormalsize",
+    "href": "posts/20220920/index.html#video-allenamento-fa-video-sizenormalsize",
+    "title": "Nono Allenamento",
+    "section": "Video allenamento ",
+    "text": "Video allenamento \n\n[Ricezione]\n[Attacco]\nPartita"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this blog"
+  }
+]
