@@ -1,0 +1,43 @@
+---
+title: "Misurazioni"
+author: "Marco Chiapello"
+format: 
+  html:
+      number-sections: false
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r}
+#| include: false
+
+library(tidyverse)
+library(here)
+library(fs)
+library(gt)
+library(gtExtras)
+```
+
+
+# Pre-season
+
+```{r}
+# Create data
+x <- read_tsv("/Users/chiapell/Documents/personale/CoachVolleyball/001_2223_PGSFOGLIZZESE/U14F/misurazioni/20220906.csv") %>% 
+    janitor::clean_names() %>% 
+    mutate(data = "20220906")
+
+x %>% 
+    drop_na() %>% 
+    gt() %>% 
+    gt_theme_538()
+
+```
+
+
+# Mid-season
+
+
+# End-season
