@@ -95,8 +95,6 @@ x2 %>%
 
 ## Video allenamento {{< fa video size=normalsize >}}
 
-1. [Ricezione]
-
-1. [Attacco]
+1. [Ricezione - Attacco](https://youtu.be/vlqNpvkHfag)
 
 1. [Partita](https://youtu.be/ZLrV6pIesj0)

@@ -1,0 +1,50 @@
+---
+title: "Misurazioni Settembre"
+author: "Marco Chiapello"
+date: "2022-09-06"
+categories: ["U14F", "2022-2023", "PGS Foglizzese", "Misurazioni"]
+---
+
+
+```{r}
+#| include: false
+
+library(tidyverse)
+library(here)
+library(fs)
+library(gt)
+library(gtExtras)
+```
+
+
+# Settembre
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false  
+    
+# Create data
+x <- read_csv(paste0(here::here(), "/data/001_misurazioni/20220906.csv")) %>% 
+    janitor::clean_names() %>% 
+    mutate(data = "20220906")
+
+x %>% 
+    # drop_na() %>% 
+    mutate(jumpRincorsa = rincorsa - reach,
+           jumpMuro = muro - reach) %>% 
+    select(-nascita, -yo_yo_test, -data) %>% 
+    arrange(desc(jumpRincorsa)) %>% 
+    gt() %>% 
+    # HIGHLIGHT massima altezza 
+     tab_style(style = cell_fill(color = "green"),
+            locations = cells_body(columns = "rincorsa", 
+                                   rows = (rincorsa > 244))) %>% 
+    tab_style(style = cell_fill(color = "green"),
+            locations = cells_body(columns = "muro", 
+                                   rows = (muro > 244))) %>% 
+    gt_theme_538()
+
+```
+
+

@@ -21,17 +21,22 @@ library(gtExtras)
 ```
 
 
-# Pre-season
+# Settembre
 
 ```{r}
 # Create data
-x <- read_tsv("/Users/chiapell/Documents/personale/CoachVolleyball/001_2223_PGSFOGLIZZESE/U14F/misurazioni/20220906.csv") %>% 
+x <- read_csv(paste0(here::here(), "/data/001_misurazioni/20220906.csv")) %>% 
     janitor::clean_names() %>% 
     mutate(data = "20220906")
 
 x %>% 
-    drop_na() %>% 
+    # drop_na() %>% 
+    mutate(jumpRincorsa = rincorsa - reach,
+           jumpMuro = muro - reach) %>% 
+    select(-yo_yo_test, -data) %>% 
+    arrange(desc(jumpRincorsa)) %>% 
     gt() %>% 
+    # HIGHLIGHT massima altezza 
     gt_theme_538()
 
 ```
