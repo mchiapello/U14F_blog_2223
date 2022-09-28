@@ -10,7 +10,7 @@ players <- readr::read_table("data/003_dati/players.tsv")
 tail(pres, n = 12)
 
 pres <- add(players,
-    date = "20220927",
+    date = "20220927", ### RICORDARSI DI CAMBIARE DATA ##
     assenti = c(54))
 
 tail(as.data.frame(pres), n = 24)

@@ -21,13 +21,14 @@ categories: ["U14F", "2022-2023", "PGS Foglizzese", "Allenamento"]
 #| warning: false
 suppressPackageStartupMessages(library(tidyverse))
 
-
-df <- tibble(
-    variable = c("Impegno collettivo", "Raggiungimento\ndell'obiettivo",
-                 "Soddisfazione\ndell'allenatore", "Miglioramenti attesi",
-                 "Voto"),
-    percentage = c(0.6, 0.4, 0.6, 0.6, 0.6)
-)
+df <- tribble(
+    ~variable, ~percentage,
+    "Impegno collettivo", 0.6,
+    "Raggiungimento\ndell'obiettivo", 0.4,
+    "Soddisfazione\ndell'allenatore", 0.5,
+    "Miglioramenti attesi", 0.6,
+    "Voto", 0.6)
+    
 
 df <- df %>% 
     mutate(group = ifelse(percentage <0.6, "red",
@@ -100,4 +101,4 @@ x2 %>%
 
 ## Foto allenamento {{< fa camera size=normalsize >}}
 
-![](data/004_images/image.jpg)
+![](data/004_images/20220927.jpg)
