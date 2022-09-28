@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "PGS Foglizzese U14 Femminile",
     "section": "",
-    "text": "Date\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nSep 22, 2022\n\n\nDecimo Allenamento\n\n\nGiulia Berardi\n\n\n\n\nSep 20, 2022\n\n\nNono Allenamento\n\n\nMarco Chiapello\n\n\n\n\nSep 6, 2022\n\n\nMisurazioni Settembre\n\n\nMarco Chiapello\n\n\n\n\n\n\nNo matching items"
+    "text": "Date\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nSep 27, 2022\n\n\nUndicesimo Allenamento\n\n\nMarco Chiapello\n\n\n\n\nSep 22, 2022\n\n\nDecimo Allenamento\n\n\nGiulia Berardi\n\n\n\n\nSep 20, 2022\n\n\nNono Allenamento\n\n\nMarco Chiapello\n\n\n\n\nSep 6, 2022\n\n\nMisurazioni Settembre\n\n\nMarco Chiapello\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/post-with-code/index.html",
@@ -110,5 +110,54 @@
     "title": "Misurazioni Settembre",
     "section": "",
     "text": "number\n      cognome\n      nome\n      altezza\n      peso\n      reach\n      rincorsa\n      muro\n      jumpRincorsa\n      jumpMuro\n    \n  \n  \n    5\nRavazzi\nMarta\n152\n41.8\n195\n240\n232\n45\n37\n    56\nMarengo\nAlessia\n165\n45.4\n212\n255\n245\n43\n33\n    11\nLeoni\nEmma\n154\n44.1\n198\n240\n230\n42\n32\n    14\nPascarella\nNoemi\n154\n47.4\n198\n238\n225\n40\n27\n    28\nMargarotto\nSara\n151\n45.4\n196\n235\n228\n39\n32\n    22\nBertinato\nAdele\n165\n62.3\n208\n243\n238\n35\n30\n    54\nSuriani\nSofia\n165\n45.4\n216\n250\n246\n34\n30\n    42\nCappuccio\nGreta\n162\n52.6\n212\n245\n240\n33\n28\n    27\nPau\nSofia\n161\n48.0\n208\n237\n228\n29\n20\n    32\nNatoli\nAlice\n150\n46.2\n195\n222\n217\n27\n22\n    65\nDainese\nAlice\n171\n70.9\n220\n242\n238\n22\n18"
+  },
+  {
+    "objectID": "posts/20220927/index.html",
+    "href": "posts/20220927/index.html",
+    "title": "Undicesimo Allenamento",
+    "section": "",
+    "text": "Battuta dall’alto\nBagher di ricezione\n\nBagher di difesa\nAttacco"
+  },
+  {
+    "objectID": "posts/20220927/index.html#valutazioni-generali-fa-gauge-simple-high-sizenormalsize",
+    "href": "posts/20220927/index.html#valutazioni-generali-fa-gauge-simple-high-sizenormalsize",
+    "title": "Undicesimo Allenamento",
+    "section": "Valutazioni generali ",
+    "text": "Valutazioni generali"
+  },
+  {
+    "objectID": "posts/20220927/index.html#presenze-fa-child-reaching-sizenormalsize",
+    "href": "posts/20220927/index.html#presenze-fa-child-reaching-sizenormalsize",
+    "title": "Undicesimo Allenamento",
+    "section": "Presenze ",
+    "text": "Presenze \n\n\n\n\n\n\n  \n  \n    \n      Numero\n      Cognome\n      Nome\n      assenti\n    \n  \n  \n    22\nBertinato\nAdele\n\n    42\nCappuccio\nGreta\n\n    65\nDainese\nAlice\n\n    11\nLeoni\nEmma\n\n    28\nMargarotto\nSara\n\n    56\nMarengo\nAlessia\n\n    32\nNatoli\nAlice\n\n    14\nPascarella\nNoemi\n\n    27\nPau\nSofia\n\n    5\nRavazzi\nMarta\n\n    0\nRavazzi\nTeresa\n\n    54\nSuriani\nSofia\nX"
+  },
+  {
+    "objectID": "posts/20220927/index.html#classifica-fa-ranking-star-sizenormalsize",
+    "href": "posts/20220927/index.html#classifica-fa-ranking-star-sizenormalsize",
+    "title": "Undicesimo Allenamento",
+    "section": "Classifica ",
+    "text": "Classifica \n\n\n\n\n\n\n  \n  \n    \n      Numero\n      Cognome\n      Nome\n      Classifica\n    \n  \n  \n    22\nBertinato\nAdele\n7\n    11\nLeoni\nEmma\n6\n    28\nMargarotto\nSara\n6\n    14\nPascarella\nNoemi\n6\n    0\nRavazzi\nTeresa\n6\n    42\nCappuccio\nGreta\n5\n    27\nPau\nSofia\n5\n    5\nRavazzi\nMarta\n5\n    54\nSuriani\nSofia\n4\n    65\nDainese\nAlice\n3\n    56\nMarengo\nAlessia\n3\n    32\nNatoli\nAlice\n3"
+  },
+  {
+    "objectID": "posts/20220927/index.html#video-allenamento-fa-video-sizenormalsize",
+    "href": "posts/20220927/index.html#video-allenamento-fa-video-sizenormalsize",
+    "title": "Undicesimo Allenamento",
+    "section": "Video allenamento ",
+    "text": "Video allenamento \n\nRicezione - Attacco"
+  },
+  {
+    "objectID": "posts/20220927/index.html#foto-allenamento-fa-camera-polaroid-sizenormalsize",
+    "href": "posts/20220927/index.html#foto-allenamento-fa-camera-polaroid-sizenormalsize",
+    "title": "Undicesimo Allenamento",
+    "section": "Foto allenamento ",
+    "text": "Foto allenamento"
+  },
+  {
+    "objectID": "posts/20220927/index.html#foto-allenamento-fa-camera-sizenormalsize",
+    "href": "posts/20220927/index.html#foto-allenamento-fa-camera-sizenormalsize",
+    "title": "Undicesimo Allenamento",
+    "section": "Foto allenamento ",
+    "text": "Foto allenamento"
   }
 ]

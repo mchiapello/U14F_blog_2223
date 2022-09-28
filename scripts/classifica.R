@@ -3,27 +3,27 @@ library(lubridate)
 library(fs)
 
 # Classifica
-source("001_2223_PGSFOGLIZZESE/U14F/scripts/999_functions.R")
+source("scripts/999_functions.R")
 
-class <- readr::read_tsv("001_2223_PGSFOGLIZZESE/U14F/tmp/classificaRaw.tsv")
-players <- readr::read_table("001_2223_PGSFOGLIZZESE/U14F/tmp/players.tsv")
+class <- readr::read_tsv("data/003_dati/classificaRaw.tsv")
+players <- readr::read_table("data/003_dati/players.tsv")
 
 tail(class, n = 12)
 
 class <- classifica(players,
-            date = "20220920",
-            vincitori = c(22,11,27))
+            date = "20220927", ### RICORDARSI DI CAMBIARE DATA ##
+            vincitori = c(22,11,28,14,0))
 
 tail(as.data.frame(class), n = 24)
 
-fs::file_copy("001_2223_PGSFOGLIZZESE/U14F/tmp/classificaRaw.tsv",
-          "001_2223_PGSFOGLIZZESE/U14F/tmp/classificaRaw_old.tsv",
-          overwrite = TRUE)
-write_tsv(class, "001_2223_PGSFOGLIZZESE/U14F/tmp/classificaRaw.tsv")
+fs::file_copy("data/003_dati/classificaRaw.tsv",
+              "data/003_dati/classificaRaw_old.tsv",
+              overwrite = TRUE)
+write_tsv(class, "data/003_dati/classificaRaw.tsv")
 
 #####################
 # Punteggio
-pres <- readr::read_tsv("001_2223_PGSFOGLIZZESE/U14F/tmp/presenze.tsv")
+pres <- readr::read_tsv("data/003_dati/presenze.tsv")
 
 class %>% 
     left_join(pres) %>% 
@@ -34,7 +34,7 @@ class %>%
     arrange(date, desc(Punteggio), Cognome) %>% 
     gt::gt() %>% 
     gtExtras::gt_theme_538()  %>% 
-    gt::gtsave("001_2223_PGSFOGLIZZESE/U14F/trainings/ClassificaParziale.png", expand = 10)
+    gt::gtsave("data/003_dati/ClassificaParziale.png", expand = 10)
 
 class %>% 
     left_join(pres) %>% 
@@ -47,4 +47,4 @@ class %>%
     arrange(desc(Classifica), Cognome) %>% 
     gt::gt() %>% 
     gtExtras::gt_theme_538()  %>% 
-    gt::gtsave("001_2223_PGSFOGLIZZESE/U14F/trainings/ClassificaTotale.png", expand = 10)
+    gt::gtsave("data/003_dati/ClassificaTotale.png", expand = 10)

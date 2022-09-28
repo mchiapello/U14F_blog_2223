@@ -10,10 +10,10 @@ players <- readr::read_table("data/003_dati/players.tsv")
 tail(pres, n = 12)
 
 pres <- add(players,
-    date = "20220922",
-    assenti = c(0, 14))
+    date = "20220927",
+    assenti = c(54))
 
-tail(as.data.frame(class), n = 24)
+tail(as.data.frame(pres), n = 24)
 
 fs::file_copy("data/003_dati/presenze.tsv",
               "data/003_dati/presenze_old.tsv",
@@ -30,7 +30,7 @@ pres %>%
     arrange((Total)) %>% 
     gt::gt() %>% 
     gtExtras::gt_theme_538()  %>% 
-    gt::gtsave("data/003_dati/presenze.png", expand = 10)
+    gt::gtsave("data/000_allenamenti/presenze.png", expand = 10)
 
 # Presenze Totali
 pres %>% 
@@ -40,7 +40,7 @@ pres %>%
     arrange(desc(Assenze), Cognome) %>% 
     gt::gt() %>% 
     gtExtras::gt_theme_538()  %>% 
-    gt::gtsave("data/003_dati/PresenzeTotale.png", expand = 10)
+    gt::gtsave("data/000_allenamenti/PresenzeTotale.png", expand = 10)
 
 # Presenze mensili
 pres %>% 
@@ -53,4 +53,4 @@ pres %>%
     gt::gt() %>% 
     gt::tab_header(title = gt::md("**Settembre**")) %>% 
     gtExtras::gt_theme_538()  %>% 
-    gt::gtsave("data/003_dati/PresenzeSettembre.png", expand = 10)
+    gt::gtsave("data/000_allenamenti/PresenzeSettembre.png", expand = 10)
