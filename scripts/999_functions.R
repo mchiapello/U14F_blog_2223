@@ -26,7 +26,7 @@ ma <- function(date = "2022-09-01",
     if(type == "partita"){
         # OUTPATH
         mat <- paste0(here(), 
-                      "/001_2223_PGSFoglizzese/U14F/scouts/partite/", 
+                      "/data/002_Partite/", 
                       date, "_", opp)
         dir_create(mat) 
         output[[1]] <- mat
@@ -57,7 +57,7 @@ ma <- function(date = "2022-09-01",
     } else {
         # OUTPATH
         mat <- paste0(here(), 
-                      "/001_2223_PGSFoglizzese/U14F/scouts/allenamenti/", 
+                      "/data/000_allenamenti/", 
                       date)
         dir_create(mat) 
         output[[1]] <- mat

@@ -5,22 +5,23 @@ library(tidyverse)
 library(fs)
 library(here)
 setwd(here())
-source("001_2223_PGSFOGLIZZESE/U14F/scripts/999_functions.R")
+source("scripts/999_functions.R")
 
 ###############################################################################
 # Create match/allenamento
-opp <- "altri"
+opp <- "Calton"
 us <- "PGS Foglizzese"
-date <- "2022-09-06"
+date <- "2022-10-01"
 
 pp <- ma(date = date, 
-         type = "allenamento",
-         time = "19:30:00",
+         opp = opp,
+         type = "partita",
+         time = "16:00:00",
          season = "2022-2023",
          league = "U14F",
-         phase = "pre-season",
+         phase = "amichevole",
          home_away = FALSE,
-         day_number = 3,
+         day_number = 14,
          match_number = NA,
          set_won = c(1, 0),,
          home_away_team  = c("a", "*"),

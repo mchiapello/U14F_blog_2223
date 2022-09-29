@@ -97,8 +97,8 @@ x2 %>%
 
 ## Video allenamento {{< fa video size=normalsize >}}
 
-1. [Ricezione - Attacco]()
+1. [Ricezione - Attacco](https://youtu.be/MtgYW_Y1ue0)
 
 ## Foto allenamento {{< fa camera size=normalsize >}}
 
-![](data/004_images/20220927.jpg)
+![](20220927.jpg)

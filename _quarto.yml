@@ -6,11 +6,8 @@ website:
   title: "Progetto Basso Canavese {{< fa volleyball size=normalsize >}}"
   navbar:
     right:
-      - about.qmd
-      - icon: github
-        href: https://github.com/
-      - icon: twitter
-        href: https://twitter.com
+      - icon: youtube
+        href: https://youtube.com/playlist?list=PLuLJwY97FamcsQrlt0uSira4yKeef-vSt
 format:
   html:
     theme: yeti
