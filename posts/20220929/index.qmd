@@ -22,11 +22,11 @@ suppressPackageStartupMessages(library(tidyverse))
 
 df <- tribble(
     ~variable, ~percentage,
-    "Impegno collettivo", 0.6,
-    "Raggiungimento\ndell'obiettivo", 0.4,
-    "Soddisfazione\ndell'allenatore", 0.5,
+    "Impegno collettivo", 0.7,
+    "Raggiungimento\ndell'obiettivo", 0.7,
+    "Soddisfazione\ndell'allenatore", 0.8,
     "Miglioramenti attesi", 0.6,
-    "Voto", 0.6) %>% 
+    "Voto", 0.7) %>% 
     mutate(group = ifelse(percentage <0.6, "red",
                           ifelse(percentage>=0.6 & percentage<0.8, "orange","green")),
            label = paste0(percentage * 100, "%"),
