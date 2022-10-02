@@ -1,0 +1,23 @@
+---
+title: "Amichevole contro Calton"
+author: "Giulia Berardi"
+date: "2022-10-01"
+categories: ["U14F", "2022-2023", "PGS Foglizzese", "Partita"]
+---
+
+## Come prepararsi?
+
+NA
+
+## Risultato 
+
+**Vinto** 3 a 1! 
+
+## Tabellino
+
+[Scarica il tabellino](Tabellino.pdf)
+
+
+## Video della partita {{< fa video size=normalsize >}}
+
+NA

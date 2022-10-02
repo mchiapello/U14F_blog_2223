@@ -1,0 +1,14 @@
+{
+  "hash": "b88043dbe741012083c5a26ba945d4fa",
+  "result": {
+    "markdown": "---\ntitle: \"Amichevole contro Calton\"\nauthor: \"Giulia Berardi\"\ndate: \"2022-10-01\"\ncategories: [\"U14F\", \"2022-2023\", \"PGS Foglizzese\", \"Partita\"]\n---\n\n\n## Come prepararsi?\n\nNA\n\n## Tabellino\n\n\n::: {.cell}\n\n:::\n\n\n\n## Riassunto\n\n\n## Video della partita {{< fa video size=normalsize >}}\n\nNA",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

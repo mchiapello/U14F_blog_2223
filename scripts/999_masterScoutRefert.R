@@ -1,0 +1,858 @@
+---
+title: "Partita FAC-SIMILE"
+format:
+  html:
+    toc: false
+    theme: journal
+    page-layout: custom
+    number-sections: false
+execute:
+  echo: false
+  message: false
+  warning: false
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+library(datavolley)
+library(gt)
+library(gtExtras)
+library(patchwork)
+source(paste0(here::here(), "/scripts/999_utils.R"))
+# Read data
+file <- fs::dir_ls(paste0(here::here(), "/posts/20221001"), 
+                   regexp = "dvw$")
+x <- dv_read(file)
+noi <- teams(x)[1]
+loro <- teams(x)[teams(x) != noi]
+```
+
+
+:::{.grid}
+
+::: {.g-col-3}
+
+```{r}
+x$meta$teams %>%
+    select(team, sets_won) %>% 
+    gt(id = "one") %>%
+     cols_align(
+    align = "center") %>% 
+    tab_header(title = "Risultato finale") %>% 
+    fmt_markdown(columns = everything()) %>%
+    tab_options(table.width = px(120),
+                column_labels.hidden = TRUE) %>% 
+    opt_css(
+    css = "
+    #one .gt_header {
+      padding: 2px 3px;
+      font-size: 10px;
+      color: lightgreen;
+      text-align: center !important;
+    }
+    #one .gt_row {
+      padding: 2px 3px;
+      font-size: 9px;
+    }
+    #one .gt_col_heading {
+      text-align: center !important;
+    }
+    ") %>% 
+    gtExtras::gt_theme_nytimes()
+    
+```
+
+:::
+
+::: {.g-col-3}
+```{r}
+data <- as.character(x$meta$match$date)
+stag <- x$meta$match$season
+lea <- x$meta$match$league
+pha <- x$meta$match$phase
+num <- x$meta$match$match_number
+meta1 <- tibble(name = c("Data", "Stagione", "Campionato", "Fase", "Partita"),
+                values = c(data, stag, lea, pha, num))
+meta1 %>% 
+    gt(id = "two") %>%
+    tab_options(#table.width = px(150),
+                column_labels.hidden = TRUE) %>% 
+    tab_options(table.width = px(150)) %>% 
+    opt_css(
+    css = "
+    #two .gt_header {
+      padding: 2px 3px;
+      font-size: 10px;
+      color: lightgreen;
+    }
+    #two .gt_row {
+      padding: 2px 3px;
+      font-size: 9px;
+    }
+    #two .gt_col_heading {
+      text-align: center !important;
+    }
+    ")%>% 
+    gtExtras::gt_theme_nytimes()
+```
+
+:::
+
+::: {.g-col-6}
+```{r}
+timeAP <- plays(x) %>%
+  dplyr::filter(!is.na(skill) & !skill %in% c("Timeout", "Technical timeout") & !is.na(video_time)) %>%
+  group_by(set_number, point_id) %>%
+    mutate(start_rally_time=min(video_time),
+         stop_rally_time=max(video_time)) %>% 
+    select(set_number, point_id, start_rally_time, stop_rally_time) %>% 
+    distinct() %>% 
+    ungroup %>% 
+    mutate(length_rally = stop_rally_time - start_rally_time,
+           length_break =  lead(start_rally_time) - stop_rally_time) %>% 
+    group_by(set_number) %>%
+  dplyr::summarize(avg_rally_time = mean(length_rally, na.rm = TRUE),
+                   avg_break_time = mean(length_break, na.rm = TRUE)) %>% 
+    rename(Set = set_number, Azione = avg_rally_time, Pausa = avg_break_time)
+x$meta$result %>%
+    mutate(Set = row_number()) %>%
+    select(Set, duration, score_intermediate1:score_intermediate3, score) %>% 
+    left_join(timeAP) %>% 
+    bind_rows(tibble(Set = NA,
+                     duration = sum(x$meta$result$duration),
+                     score_intermediate1 = NA,
+                     score_intermediate2 = NA,
+                     score_intermediate3 = NA,
+                     score = x$meta$result %>%
+                         select(score) %>% 
+                         separate(score, into = c("a", "b"), sep = "-") %>%
+                         summarise(a = sum(as.numeric(a), na.rm = TRUE),
+                                   b = sum(as.numeric(b), na.rm = TRUE)) %>% 
+                         unite("score", a:b, sep = "-") %>% 
+                         pull(score),
+                     Azione = mean(timeAP$Azione),
+                     Pausa = mean(timeAP$Pausa))) %>% 
+    mutate(across(starts_with("score_"), ~replace_na(.x, "-"))) %>% 
+    mutate(Set = as.character(Set)) %>% 
+    replace_na(list(Set = "Totale"))%>% 
+    unite("Parziali", score_intermediate1:score_intermediate3, sep = " / ") %>% 
+    select(Set, "Durata (min)" = duration, Parziali, Punteggio = score,
+           "Azione (sec)" = Azione, "Pausa (sec)" = Pausa) %>% 
+    mutate(`Pausa (sec)` = round(`Pausa (sec)`, 1),
+           `Azione (sec)` = round(`Azione (sec)`, 1)) %>% 
+    gt(id = "third") %>%
+    cols_align(
+    align = "center") %>% 
+    tab_options(table.width = px(350)) %>% 
+    opt_css(
+    css = "
+    #third .gt_col_heading {
+      padding: 2px 3px;
+      font-size: 10px;
+    }
+    #third .gt_row {
+      padding: 2px 3px;
+      font-size: 9px;
+    }
+    #third .gt_col_heading {
+      text-align: center !important;
+    }
+    ")%>% 
+    gtExtras::gt_theme_nytimes()
+```
+
+:::
+
+:::
+
+
+:::{.grid}
+:::{.g-col-12}
+```{r}
+#| fig-width: 100
+#| fig-asp: 0.1
+home_colour <- "black"
+visiting_colour <- "grey"
+font_size <- 20
+ sc <- datavolley::plays(x) %>% 
+    group_by(.data$point_id) %>% 
+    dplyr::slice_tail(n = 1) %>% 
+    ungroup %>%
+    dplyr::select("set_number", "home_team", "home_team_score", "visiting_team", "visiting_team_score") %>% 
+    distinct %>% 
+    na.omit() %>%
+    mutate(ok = lead(.data$home_team_score) != .data$home_team_score | lead(.data$visiting_team_score) != .data$visiting_team_score)
+    sc$ok[nrow(sc)] <- TRUE
+    sc <- sc %>% 
+        dplyr::filter(.data$ok) %>% 
+        mutate(pid = dplyr::row_number(), 
+               diff = .data$home_team_score - .data$visiting_team_score, 
+               teamcolor = case_when(.data$diff < 0 ~ visiting_colour, 
+                                     TRUE ~ home_colour)) %>% 
+        dplyr::select(-"ok")
+    if (nrow(sc) < 2) return(NULL)
+    setx <- c(0, sc$pid[which(diff(sc$set_number) > 0)]) + 0.5
+    sc <- mutate(sc, set_number = paste0("Set ", .data$set_number))
+    yr <- c(min(-4, min(sc$diff, na.rm = TRUE)), max(4, max(sc$diff, na.rm = TRUE))) ## y-range, at least -4 to +4
+    ggplot(sc, aes_string("pid", "diff")) + 
+        ggplot2::theme_minimal(base_size = font_size) +
+        ggplot2::geom_vline(xintercept = setx, col = "black", alpha = 0.5, size = 1) +
+        ggplot2::geom_hline(yintercept = 0, col = "black", alpha = 0.5, size = 1) +
+        ggplot2::geom_col(aes_string(fill = "teamcolor"), width = 1.0, col = NA) +
+        ggplot2::theme(strip.background = ggplot2::element_rect(fill = "white"), axis.text.x = ggplot2::element_text(hjust = 0)) +
+        ggplot2::scale_fill_manual(values = c(home_colour, visiting_colour), guide = "none") +
+        ggplot2::labs(x = NULL, y = "Score\ndifference") +
+        ggplot2::annotate(geom = "text", label = datavolley::home_team(x), x = 1, y = diff(yr) * 0.9 + yr[1], hjust = 0, size = font_size, fontface = "bold") +
+        ggplot2::annotate(geom = "text", label = datavolley::visiting_team(x), x = 1, y = diff(yr) * 0.1 + yr[1], hjust = 0, size = font_size, fontface = "bold") +
+        ggplot2::scale_x_continuous(labels = paste0("Set ", seq_along(setx)), breaks = setx, minor_breaks = NULL, expand = c(0.005, 0.005)) +
+        ggplot2::scale_y_continuous(breaks = function(z) c(rev(seq(0, yr[1], by = -4)), seq(0, yr[2], by = 4)[-1]), limits = yr, labels = abs) + 
+        theme(plot.margin = unit(c(0, 0, 0, 0), "cm"),
+              axis.text = element_text(size = font_size * 2)) 
+
+
+```
+
+:::
+:::
+
+
+:::{.grid}
+:::{.g-col-12}
+```{r}
+t1 <- x$meta$players_h %>% 
+    select(number, name, starting_position_set1:starting_position_set5) %>% 
+    select(where(~sum(!is.na(.x)) > 0)) %>% 
+    rename_with(~str_remove(.x, "starting_position_"))
+##################
+# Functions
+# Points
+vr_points <- function(x, by = "player", team_select = noi) {
+    as_for_datavolley <- TRUE
+    by <- match.arg(tolower(by), c("player", "set"))
+    if (by == "player") {
+        vr_pts <- plays(x) %>% 
+            dplyr::filter(.data$team %in% team_select, .data$player_id != "unknown player") %>% 
+            group_by(.data$player_id) %>%
+            dplyr::summarize(Tot = sum(.data$evaluation_code == "#" & .data$skill %in% c("Serve", "Attack", "Block")),
+                             # BP = sum(.data$evaluation_code == "#" & .data$skill %in% c("Serve", "Attack", "Block") & .data$serving_team == team_select),
+                             Nerr = sum((.data$evaluation %eq% "Error" & .data$skill %in% c("Serve", "Reception", "Attack", if (!as_for_datavolley) "Set", if (!as_for_datavolley) "Freeball")) | (!as_for_datavolley & .data$evaluation %eq% "Invasion" & .data$skill %eq% "Block") | (.data$evaluation %eq% "Blocked" & .data$skill %eq% "Attack")),
+                             'W-L' = .data$Tot - .data$Nerr)
+        vr_pts <- vr_pts %>%
+            bind_rows(
+                plays(x) %>% dplyr::filter(.data$team %in% team_select, .data$player_id != "unknown player") %>%
+                mutate(player_id = "Team total") %>% 
+                group_by(.data$player_id) %>%
+                dplyr::summarize(Tot = sum(.data$evaluation_code == "#" & .data$skill %in% c("Serve", "Attack", "Block")),
+                                 # BP = sum(.data$evaluation_code == "#" & .data$skill %in% c("Serve", "Attack", "Block") & .data$serving_team == team_select),
+                                 Nerr = sum((.data$evaluation %eq% "Error" & .data$skill %in% c("Serve", "Reception", "Attack", if (!as_for_datavolley) "Set", if (!as_for_datavolley) "Freeball")) | (!as_for_datavolley & .data$evaluation %eq% "Invasion" & .data$skill %eq% "Block") | (.data$evaluation %eq% "Blocked" & .data$skill %eq% "Attack")),
+                                 'W-L' = .data$Tot - .data$Nerr))
+    } else if (by == "set") {
+        y <- plays(x)
+        y$team_points <- if (team_select %eq% datavolley::home_team(y)) y$home_team_score else if (team_select %eq% datavolley::visiting_team(y)) y$visiting_team_score else NA_integer_
+        vr_pts <- y %>% 
+            group_by(.data$set_number) %>%
+            dplyr::summarize(Ser = sum(.data$evaluation_code == "#" & .data$skill == "Serve" & .data$team %in% team_select, na.rm = TRUE),
+                             Atk = sum(.data$evaluation_code == "#" & .data$skill == "Attack" & .data$team %in% team_select, na.rm = TRUE),
+                             Blo = sum(.data$evaluation_code == "#" & .data$skill == "Block" & .data$team %in% team_select, na.rm = TRUE),
+                             Tot = sum(.data$Ser, .data$Atk, .data$Blo),
+                             "Op.Er" = max(.data$team_points, na.rm = TRUE) - .data$Ser - .data$Atk - .data$Blo) %>% 
+            dplyr::relocate(Tot, .after = set_number) %>% 
+            dplyr::slice(1:nrow(x$meta$result))
+    }
+    vr_pts
+}
+# Serve
+vr_serve <- function(x, team, by = "player", team_select = noi){
+    y <- plays(x)
+    if (by == "player") {
+        y %>% dplyr::filter(.data$team %in% team_select, .data$player_id != "unknown player", 
+                            .data$skill == "Serve") %>% 
+            group_by(.data$player_id) %>%
+            dplyr::summarize(Tot = n(),
+                      Err = sum(.data$evaluation %eq% "Error"),
+                      Pts = sum(.data$evaluation %eq% "Ace"),
+                      Neg = sum(.data$evaluation %eq% "Negative, opponent free attack"),
+                      Pos = sum(.data$evaluation %eq% "Positive, no attack") + 
+                              sum(.data$evaluation %eq% "Positive, opponent some attack") + 
+                               sum(.data$evaluation %eq% "OK, no first tempo possible")) %>%
+            bind_rows(
+                y %>% dplyr::filter(.data$team %in% team_select, .data$player_id != "unknown player", .data$skill == "Serve") %>% 
+                    mutate(player_id = "Team total")%>% group_by(.data$player_id) %>%
+                    dplyr::summarize(Tot = n(),
+                              Err = sum(.data$evaluation %eq% "Error"),
+                              Pts = sum(.data$evaluation %eq% "Ace"),
+                              Neg = sum(.data$evaluation %eq% "Negative, opponent free attack"),
+                              Pos = sum(.data$evaluation %eq% "Positive, no attack") + 
+                                      sum(.data$evaluation %eq% "Positive, opponent some attack") + 
+                                       sum(.data$evaluation %eq% "OK, no first tempo possible"))
+            )
+    } else if(by == "set") {
+        y %>% dplyr::filter(.data$team %in% team_select, .data$player_id != "unknown player", 
+                            .data$skill == "Serve") %>% 
+            group_by(.data$set_number) %>%
+            dplyr::summarize(Tot = n(),
+                      Err = sum(.data$evaluation %eq% "Error"),
+                      Pts = sum(.data$evaluation %eq% "Ace"),
+                              Neg = sum(.data$evaluation %eq% "Negative, opponent free attack"),
+                              Pos = sum(.data$evaluation %eq% "Positive, no attack") + 
+                                      sum(.data$evaluation %eq% "Positive, opponent some attack") + 
+                                       sum(.data$evaluation %eq% "OK, no first tempo possible"))
+    }
+}
+# Reception
+vr_reception <- function(x, team, by = "player", file_type = "indoor", team_select = noi){
+    y <- plays(x)
+    if (by == "player"){
+        y %>% 
+            dplyr::filter(.data$team %in% team_select, .data$player_id != "unknown player", 
+                          .data$skill == "Reception") %>% 
+            group_by(.data$player_id) %>%
+            dplyr::summarize(Tot = n(),
+                             Err = sum(.data$evaluation %eq% "Error"),
+                             'Neg%' = paste0(round(mean(.data$evaluation_code %in% c("-", "!", "/")), 2)*100, "%"),
+                             'Pos%' = paste0(round(mean(.data$evaluation_code %in% c("+", "#", "#+")), 2)*100, "%"),
+                             '(Exc%)' = paste0("(", round(mean(.data$evaluation_code %in% c("#")), 2)*100, "%)")) %>%
+            bind_rows(
+                y %>% 
+                    dplyr::filter(.data$team %in% team_select, .data$player_id != "unknown player", 
+                                  .data$skill == "Reception") %>% 
+                mutate(player_id = "Team total") %>%
+                group_by(.data$player_id) %>%
+                dplyr::summarize(Tot = n(),
+                                 Err = sum(.data$evaluation %eq% "Error"),
+                                 'Neg%' = paste0(round(mean(.data$evaluation_code %in% c("!", "/")), 2)*100, "%"),
+                                 'Pos%' = paste0(round(mean(.data$evaluation_code %in% c("+", "#", "#+")), 2)*100, "%"),
+                                 '(Exc%)' = paste0("(", round(mean(.data$evaluation_code %in% c("#")), 2)*100, "%)")))
+    } else if (by == "set") {
+        y %>% dplyr::filter(.data$team %in% team_select, .data$player_id != "unknown player", .data$skill == "Reception") %>% group_by(.data$set_number) %>%
+            dplyr::summarize(Tot = n(),
+                             Err = sum(.data$evaluation %eq% "Error"),
+                             'Pos%' = paste0(round(mean(.data$evaluation_code %in% c("+", "#", "#+")), 2)*100, "%"),
+                             'Neg%' = paste0(round(mean(.data$evaluation_code %in% c("!", "/")), 2)*100, "%"),
+                             '(Exc%)' = paste0("(", round(mean(.data$evaluation_code %in% c("#")), 2)*100, "%)"))
+    }
+}
+# Attack
+vr_attack <- function(x, team, by = "player", team_select = noi){
+    y <- plays(x)
+    if (by == "player") {
+        y %>% 
+            dplyr::filter(.data$team %in% team_select, 
+                          .data$player_id != "unknown player", 
+                          .data$skill == "Attack") %>% 
+            group_by(.data$player_id) %>%
+            dplyr::summarize(Tot = n(),
+                      Err = sum(.data$evaluation %eq% "Error"),
+                      Blo = sum(.data$evaluation %eq% "Blocked"),
+                      'Pts' = sum(.data$evaluation %eq% "Winning attack"),
+                      'Pts%' = paste0(round(mean(.data$evaluation %eq% "Winning attack"), 2)*100, "%")) %>%
+            bind_rows(
+                y %>% 
+                    dplyr::filter(.data$team %in% team_select, 
+                                  .data$player_id != "unknown player", 
+                                  .data$skill == "Attack") %>% 
+                    mutate(player_id = "Team total") %>%
+                    group_by(.data$player_id) %>%
+                    dplyr::summarize(Tot = n(),
+                              Err = sum(.data$evaluation %eq% "Error"),
+                              Blo = sum(.data$evaluation %eq% "Blocked"),
+                              'Pts' = sum(.data$evaluation %eq% "Winning attack"),
+                              'Pts%' = paste0(round(mean(.data$evaluation %eq% "Winning attack"), 2)*100, "%")))
+    } else if (by == "set") {
+        y %>% 
+            dplyr::filter(.data$team %in% team_select, 
+                          .data$player_id != "unknown player", 
+                          .data$skill == "Attack") %>% 
+            group_by(.data$set_number) %>%
+            dplyr::summarize(Tot = n(),
+                      Err = sum(.data$evaluation %eq% "Error"),
+                      Blo = sum(.data$evaluation %eq% "Blocked"),
+                      'Pts' = sum(.data$evaluation %eq% "Winning attack"),
+                      'Pts%' = paste0(round(mean(.data$evaluation %in% "Winning attack"), 2)*100, "%"))
+    }
+}
+vr_freeball <- function(x, team, by = "player", team_select = noi){
+    y <- plays(x)
+    if (by == "player") {
+        y %>% 
+            dplyr::filter(.data$team %in% team_select, 
+                          .data$player_id != "unknown player", 
+                          .data$skill == "Freeball") %>% 
+            group_by(.data$player_id) %>%
+            dplyr::summarize(Tot = n(),
+                      Err = sum(.data$evaluation %eq% "Error")) %>%
+            bind_rows(
+                y %>% 
+                    dplyr::filter(.data$team %in% team_select, 
+                                  .data$player_id != "unknown player", 
+                                  .data$skill == "Freeball") %>% 
+                    mutate(player_id = "Team total") %>%
+                    group_by(.data$player_id) %>%
+                    dplyr::summarize(Tot = n(),
+                              Err = sum(.data$evaluation %eq% "Error")))
+    } else if (by == "set") {
+        y %>% 
+            dplyr::filter(.data$team %in% team_select, 
+                          .data$player_id != "unknown player", 
+                          .data$skill == "Freeball") %>% 
+            group_by(.data$set_number) %>%
+            dplyr::summarize(Tot = n(),
+                             Err = sum(.data$evaluation %eq% "Error")) %>% 
+            full_join(tibble(set_number = 1:nrow(x$meta$result),
+                             Tot = 0,
+                             Err = 0),
+                      by = "set_number") %>% 
+            select(-ends_with("y")) %>% 
+            rename_with(~str_remove(.x, ".x")) %>% 
+            replace_na(list(Tot = 0, Err = 0))
+    }
+}
+# Block
+vr_block <- function(x, team, by = "player", team_select = noi){
+    y <- plays(x)
+    if (by == "player"){
+        y %>% 
+            dplyr::filter(.data$team %in% team_select, 
+                          .data$player_id != "unknown player") %>% 
+            group_by(.data$player_id) %>%
+            dplyr::summarize(Punto = sum(.data$evaluation %eq% "Winning block" & .data$skill %eq% "Block")) %>%
+            bind_rows(
+                y %>% 
+                    dplyr::filter(.data$team %in% team_select, 
+                                  .data$player_id != "unknown player") %>% 
+                    mutate(player_id = "Team total") %>%
+                    group_by(.data$player_id) %>%
+                    dplyr::summarize(Punto = sum(.data$evaluation %eq% "Winning block" & .data$skill %eq% "Block")))
+    } else if (by == "set") {
+        y %>% 
+            dplyr::filter(.data$team %in% team_select, .data$player_id != "unknown player") %>%
+            group_by(.data$set_number) %>%
+            dplyr::summarize(Punto = sum(.data$evaluation %eq% "Winning block" & .data$skill %eq% "Block"))  %>% 
+            full_join(tibble(set_number = 1:nrow(x$meta$result),
+                             Punto = 0),
+                      by = "set_number") %>% 
+            select(-ends_with("y")) %>% 
+            rename_with(~str_remove(.x, ".x")) %>% 
+            replace_na(list(Tot = 0, Err = 0))
+    }
+}
+#####################
+# POINTS
+t2 <- vr_points(x, by = "set", team_select = noi)
+t3 <- vr_points(x, by = "player", team_select = noi)
+# SERVE
+t4 <- vr_serve(x, by = "set", team_select = noi)
+t5 <- vr_serve(x, by = "player", team_select = noi)
+# RECEPTION
+t6 <- vr_reception(x, by = "set", team_select = noi)
+t7 <- vr_reception(x, by = "player", team_select = noi)
+# ATTACK
+t8 <- vr_attack(x, by = "set", team_select = noi)
+t9 <- vr_attack(x, by = "player", team_select = noi)
+t10 <- vr_freeball(x, by = "set", team_select = noi)
+t11 <- vr_freeball(x, by = "player", team_select = noi)
+# BLOCK
+t12 <- vr_block(x, by = "set", team_select = noi)
+t13 <- vr_block(x, by = "player", team_select = noi)
+######################
+# TABLE
+y <- plays(x)
+t1 %>% 
+    left_join(y %>% 
+                  dplyr::select(player_id, player_name) %>% 
+                  filter(!is.na(player_id)) %>% 
+                  distinct(), by = c("name" = "player_name")) %>% 
+    left_join(t3, by = "player_id") %>% 
+    left_join(t5, by = "player_id") %>%
+    left_join(t7, by = "player_id") %>%
+    left_join(t9, by = "player_id") %>%
+    left_join(t11, by = "player_id") %>%
+    left_join(t13, by = "player_id") %>%
+    select(-player_id) %>% 
+    mutate(across(starts_with("set"), ~replace_na(.x, "-"))) %>% 
+    mutate(across(where(is.numeric), ~replace_na(.x, 0))) %>% 
+    mutate(across(where(is.character), ~replace_na(.x, "0"))) %>% 
+    filter(if_any(starts_with("set"), ~ . != "-")) %>% 
+    ### GT TABLE
+    gt(id = "four") %>%
+    # tab_header(
+    #   title = paste0(noi)) %>% 
+    tab_spanner(
+        label = "Punti",
+        columns = Tot.x:`W-L`) %>% 
+    tab_spanner(
+        label = "Battuta",
+        columns = Tot.y:Pos) %>% 
+    tab_spanner(
+        label = "Ricezione",
+        columns = Tot.x.x:`(Exc%)`) %>% 
+    tab_spanner(
+        label = "Attacco",
+        columns = Tot.y.y:`Pts%`) %>% 
+    tab_spanner(
+        label = "Freeball",
+        columns = Tot:Err.y.y) %>%
+    tab_spanner(
+        label = "Muro",
+        columns = Punto) %>%
+    cols_label(
+        Tot.x = html("<strong>Tot</strong>"),
+        Nerr = html("<strong>Err</strong>"),
+        `W-L` = html("D"),
+        Tot.y = html("<strong>Tot</strong>"),
+        Err.x = html("<strong>Err</strong>"),
+        Pts.x = html("Pts"),
+        Tot.x.x = html("<strong>Tot</strong>"),
+        Err.y = html("<strong>Err</strong>"),
+        Tot.y.y = html("<strong>Tot</strong>"),
+        Err.x.x = html("<strong>Err</strong>"),
+        Pts.y = html("Pts"),
+        Tot = html("<strong>Tot</strong>"),
+        Err.y.y = html("<strong>Err</strong>"),
+        Punto = html("Pts")) %>% 
+    cols_align(
+    align = "center") %>% 
+    tab_options(table.width = px(700),
+                row.striping.include_table_body = TRUE) %>% 
+    tab_style(style = cell_borders(sides = "left",
+                                   color = "grey50",
+                                   weight = px(.9),
+                                   style = "solid"),
+              locations = cells_body(columns = starts_with("To"),
+                                     rows = everything())) %>% 
+    tab_style(style = cell_borders(sides = "left",
+                                   color = "grey50",
+                                   weight = px(.9),
+                                   style = "solid"),
+              locations = cells_body(columns = starts_with("set1"),
+                                     rows = everything())) %>% 
+    tab_style(style = cell_borders(sides = "left",
+                                   color = "grey50",
+                                   weight = px(.9),
+                                   style = "solid"),
+              locations = cells_body(columns = last_col(),
+                                     rows = everything())) %>% 
+    opt_css(
+    css = "
+    #four .gt_col_heading {
+      padding: 2px 3px;
+      font-size: 9px;
+    }
+     #four .gt_column_spanner {
+      padding: 0px 0px;
+      font-size: 9px;
+    }
+    #four .gt_row {
+      padding: 2px 3px;
+      font-size: 9px;
+    }
+    #four .gt_col_heading {
+      text-align: center !important;
+    }
+    ") 
+```
+
+:::
+:::
+
+:::{.grid}
+:::{.g-col-12}
+```{r}
+# Summary
+## NOI
+vr_points(x, by = "set", team_select = noi) %>% 
+    bind_cols(vr_serve(x, by = "set", team_select = noi) %>% select(-set_number)) %>% 
+    bind_cols(vr_reception(x, by = "set", team_select = noi) %>% select(-set_number)) %>% 
+    bind_cols(vr_attack(x, by = "set", team_select = noi) %>% select(-set_number)) %>% 
+    bind_cols(vr_freeball(x, by = "set", team_select = noi) %>% select(-set_number)) %>% 
+    bind_cols(vr_block(x, by = "set", team_select = noi) %>% select(-set_number)) %>% 
+    ### GT TABLE
+    gt(id = "five") %>%
+    # tab_header(
+    #   title = paste0(noi)) %>% 
+    tab_spanner(
+        label = "Punti",
+        columns = Tot...2:Op.Er) %>% 
+    tab_spanner(
+        label = "Battuta",
+        columns = Tot...7:Pos) %>% 
+    tab_spanner(
+        label = "Ricezione",
+        columns = Tot...12:`(Exc%)`) %>% 
+    tab_spanner(
+        label = "Attacco",
+        columns = Tot...17:`Pts%`) %>% 
+    tab_spanner(
+        label = "Freeball",
+        columns = Tot...22:Err...23) %>%
+    tab_spanner(
+        label = "Muro",
+        columns = Punto) %>%
+    cols_label(
+        set_number = html("Set"),
+        Tot...2 = html("<strong>Tot</strong>"),
+        Ser = html("Bat"),
+        Blo...5 = html("Muro"),
+        Tot...7 = html("<strong>Tot</strong>"),
+        Err...8 = html("<strong>Err</strong>"),
+        Pts...9 = html("Pts"),
+        Tot...12 = html("<strong>Tot</strong>"),
+        Err...13 = html("<strong>Err</strong>"),
+        Tot...17 = html("<strong>Tot</strong>"),
+        Err...18 = html("<strong>Err</strong>"),
+        Blo...19 = html("Muro"),
+        Pts...20 = html("Pts"),
+        Tot...22 = html("<strong>Tot</strong>"),
+        Err...23 = html("<strong>Err</strong>"),
+        Punto = html("Pts")) %>% 
+    cols_align(
+    align = "center") %>% 
+    tab_options(table.width = px(500),
+                row.striping.include_table_body = TRUE) %>% 
+        tab_style(style = cell_borders(sides = "left",
+                                   color = "grey50",
+                                   weight = px(.9),
+                                   style = "solid"),
+              locations = cells_body(columns = starts_with("To"),
+                                     rows = everything())) %>% 
+    tab_style(style = cell_borders(sides = "left",
+                                   color = "grey50",
+                                   weight = px(.9),
+                                   style = "solid"),
+              locations = cells_body(columns = starts_with("set1"),
+                                     rows = everything())) %>% 
+    tab_style(style = cell_borders(sides = "left",
+                                   color = "grey50",
+                                   weight = px(.9),
+                                   style = "solid"),
+              locations = cells_body(columns = last_col(),
+                                     rows = everything())) %>% 
+    # tab_style(
+    # style = list(
+    #   cell_fill(color = "grey60"),
+    #   cell_text(weight = "bold")
+    #   ),
+    # locations = cells_body(
+    #   columns = Tot...2,
+    #   rows = Tot...2 == max(Tot...2))) %>% 
+    opt_css(
+    css = "
+    #five .gt_col_heading {
+      padding: 2px 3px;
+      font-size: 8px;
+    }
+    #five .gt_column_spanner {
+      padding: 0px 0px;
+      font-size: 9px;
+    }
+    #five .gt_row {
+      padding: 2px 3px;
+      font-size: 9px;
+    }
+    #five .gt_col_heading {
+      text-align: center !important;
+    }
+    ")
+```
+
+:::
+:::
+
+
+:::{.grid}
+
+::: {.g-col-3}
+```{r}
+vr_content_team_each <- function(x, which_team = noi) {
+    if(which_team == noi){
+        home <- teams(x)[teams(x) == noi]
+        away <- teams(x)[teams(x) != noi]
+    } else {
+        home <- teams(x)[teams(x) != noi]
+        away <- teams(x)[teams(x) == noi]
+    }
+    y <- plays(x)
+    rthis <- y %>%
+        dplyr::summarize(Ricezioni = sum(.data$skill == "Reception" & .data$team == home, na.rm = TRUE),
+                         'Punti guadagnati in Cambio Palla' = sum(.data$serving_team == away & .data$skill %in% c("Attack", "Block") & .data$evaluation_code == "#" & .data$team == home, na.rm = TRUE)) %>%
+        pivot_longer(cols = 1:2)
+    sthis <- y %>% 
+        dplyr::filter(.data$team == home) %>%
+        dplyr::summarize(Battute = sum(.data$skill == "Serve", na.rm = TRUE),
+                         'Punti guadagnati in Break Point' = sum(.data$serving_team == home  & .data$skill %in% c("Serve", "Attack", "Block") & .data$evaluation_code == "#", na.rm = TRUE)) %>%
+        pivot_longer(cols = 1:2)
+   rthis %>% 
+       bind_rows(sthis) %>% 
+       bind_rows(tibble(name = c(paste0("1 Punto ogni ", round(rthis$value[1]/rthis$value[2], 2), 
+                                        " ricezioni"),
+                                 paste0("1 Punto ogni ", round(sthis$value[1]/sthis$value[2], 2), 
+                                        " battute")),
+                        value = NA))
+          
+}
+noi1 <- vr_content_team_each(x, which_team = noi)
+noi1 %>% 
+    dplyr::slice(1:4) %>% 
+    gt(id = "six") %>% 
+    tab_options(table.width = px(170),
+                column_labels.hidden = TRUE) %>%
+    tab_header(title = paste0(noi)) %>% 
+    tab_source_note(noi1 %>% 
+                        dplyr::slice(5:6) %>% 
+                        pull(name)) %>% 
+    cols_align(align = "center") %>% 
+    opt_css(
+    css = "
+    #six .gt_title {
+      font-size: 10px !important;
+    }
+    #six .gt_sourcenote {
+      font-size: 10px !important;
+    }
+    #six .gt_col_heading {
+      padding: 2px 3px;
+      font-size: 10px;
+    }
+    #six .gt_column_spanner {
+      padding: 0px 0px;
+      font-size: 8px;
+    }
+    #six .gt_row {
+      padding: 2px 3px;
+      font-size: 9px;
+    }
+    #six .gt_col_heading {
+      text-align: center !important;
+    }
+     #six .gt_row {
+      padding: 1px 0px 1px 0px !important;
+    }
+    ")
+
+loro1 <- vr_content_team_each(x, which_team = loro)
+loro1 %>% 
+     dplyr::slice(1:4) %>% 
+     gt(id = "six") %>% 
+    tab_options(table.width = px(170),
+                column_labels.hidden = TRUE) %>%
+    tab_header(title = paste0(loro)) %>% 
+    tab_source_note(loro1 %>% 
+                        dplyr::slice(5:6) %>% 
+                        pull(name)) %>% 
+    cols_align(align = "center")
+```
+:::
+
+::: {.g-col-9}
+```{r}
+#| fig-asp: .5
+#| fig-width: 30
+range02 <- function(x) {(x - min(x, na.rm=TRUE)) / diff(range(x, na.rm=TRUE))}
+## calculate attack frequency by zone, per team
+attack_rate <- plays(x) %>%
+    dplyr::filter(skill == "Attack") %>%
+    group_by(team, start_zone) %>%
+    dplyr::summarize(n_attacks = n()) %>%
+    mutate(rate = n_attacks/sum(n_attacks)) %>%
+    ungroup
+## add x, y coordinates associated with the zones
+attack_rate <- cbind(attack_rate, dv_xy(attack_rate$start_zone, end = "lower"))
+## for team 2, these need to be on the top half of the diagram
+tm2i <- attack_rate$team == teams(x)[2]
+attack_rate[tm2i, c("x", "y")] <- dv_flip_xy(attack_rate[tm2i, c("x", "y")])
+p1 <- attack_rate %>%
+    mutate(rate = range02(rate)) %>%
+    ggplot(aes(x, y, fill = rate)) +
+    geom_tile() +
+    ggcourt(labels = "") +
+    scale_fill_gradient2(low = "white",
+                         high = "black",
+                         name = "Scala Intensità") +
+     labs(title = "Attacchi",
+         subtitle = "Zona di partenza") +
+    annotate(geom = "text", x = 2, y = 0, label = ifelse(teams(x)[1] == noi, "Noi", "Loro"), size = 15) +
+    annotate(geom = "text", x = 2, y = 7, label = ifelse(teams(x)[2] == noi, "Noi", "Loro"), size = 15) +
+    theme(plot.title = element_text(hjust = .5, size = 40),
+          plot.subtitle = element_text(hjust = .5, size = 30))
+## calculate attack frequency by zone, per team
+attack_rate <- plays(x) %>%
+    dplyr::filter(skill == "Attack") %>%
+    group_by(team, end_zone) %>%
+    dplyr::summarize(n_attacks = n()) %>%
+    mutate(rate = n_attacks/sum(n_attacks)) %>%
+    drop_na() %>%
+    ungroup
+## add x, y coordinates associated with the zones
+attack_rate <- cbind(attack_rate, dv_xy(attack_rate$end_zone, end = "lower"))
+## for team 2, these need to be on the top half of the diagram
+tm2i <- attack_rate$team == teams(x)[2]
+attack_rate[tm2i, c("x", "y")] <- dv_flip_xy(attack_rate[tm2i, c("x", "y")])
+attack_rate <- attack_rate %>%
+    mutate(x2 = case_when(x == 1 ~ 3,
+                          x == 2 ~ 2,
+                          x == 3 ~1),
+           y2 = case_when(y == 1 ~ 6,
+                          y == 2 ~ 5,
+                          y == 3 ~ 4,
+                          y == 4 ~ 3,
+                          y == 5 ~ 2,
+                          y == 6~ 1))
+
+p2 <-  attack_rate %>%
+    mutate(rate = range02(rate)) %>%
+    ggplot(aes(x, y, fill = rate)) +
+    geom_tile() +
+    ggcourt(labels = "") +
+    scale_fill_gradient2(low = "white",
+                         high = "black",
+                         name = "Scala Intensità") +
+     labs(title = "Attacchi",
+         subtitle = "Zona di arrivo") +
+    annotate(geom = "text", x = 2, y = 0, label = ifelse(teams(x)[1] == noi, "Noi", "Loro"), size = 15) +
+    annotate(geom = "text", x = 2, y = 7, label = ifelse(teams(x)[2] == noi, "Noi", "Loro"), size = 15) +
+    theme(plot.title = element_text(hjust = .5, size = 40),
+          plot.subtitle = element_text(hjust = .5, size = 30))
+## take just the serves from the play-by-play data
+serve_rate <- plays(x) %>%
+    filter(skill == "Serve") %>%
+    group_by(team, end_zone) %>%
+    dplyr::summarize(n_serve = n()) %>%
+    mutate(rate = n_serve/sum(n_serve)) %>%
+    drop_na() %>%
+    ungroup
+## add x, y coordinates associated with the zones
+serve_rate <- cbind(serve_rate, dv_xy(serve_rate$end_zone, end = "lower"))
+## for team 2, these need to be on the top half of the diagram
+tm2i <- serve_rate$team == teams(x)[1]
+serve_rate[tm2i, c("x", "y")] <- dv_flip_xy(serve_rate[tm2i, c("x", "y")])
+serve_rate <- serve_rate %>%
+    mutate(x2 = case_when(x == 1 ~ 3,
+                          x == 2 ~ 2,
+                          x == 3 ~1),
+           y2 = case_when(y == 1 ~ 6,
+                          y == 2 ~ 5,
+                          y == 3 ~ 4,
+                          y == 4 ~ 3,
+                          y == 5 ~ 2,
+                          y == 6~ 1))
+p3 <-  serve_rate %>%
+    mutate(rate = range02(rate)) %>%
+    ggplot(aes(x, y, fill = rate)) +
+    geom_tile() +
+    ggcourt(labels = "") +
+    scale_fill_gradient2(low = "white",
+                         high = "black",
+                         name = "Scala Intensità") +
+    labs(title = "Battute",
+         subtitle = "Zona di arrivo") +
+    annotate(geom = "text", x = 2, y = 0, label = ifelse(teams(x)[1] == noi, "Noi", "Loro"), size = 15) +
+    annotate(geom = "text", x = 2, y = 7, label = ifelse(teams(x)[2] == noi, "Noi", "Loro"), size = 15) +
+    theme(plot.title = element_text(hjust = .5, size = 40),
+          plot.subtitle = element_text(hjust = .5, size = 30))
+library(patchwork)
+p1 + p2 + p3 +
+    plot_layout(guides = 'collect')
+```
+:::
+:::
