@@ -26,6 +26,8 @@ df %>%
     gtExtras::gt_theme_538()  %>% 
     gt::gtsave("data/002_Partite/Calendario.png", expand = 10)
 
+
+
 # Creare eventi per google calendar
 df %>% 
     filter(`Home Team` == "Basso Canavese Foglizzo" | `Away Team` == "Basso Canavese Foglizzo") %>% 

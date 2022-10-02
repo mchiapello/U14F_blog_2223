@@ -1,0 +1,12 @@
+---
+title: "Calendario prima fase"
+author: "Marco Chiapello"
+date: "2022-10-02"
+categories: ["U14F", "2022-2023", "PGS Foglizzese", "Partita"]
+execute: 
+  echo: false
+  warning: false
+  message: false
+---
+
+![](Calendario.png)
