@@ -3,11 +3,17 @@ project:
   output-dir: docs
 
 website:
-  title: "Progetto Basso Canavese {{< fa volleyball size=normalsize >}}"
+  title: "Progetto Basso Canavese"
+  favicon: data/004_images/foxvolleyball3.png
   navbar:
+    logo: "foxvolleyball3.png"
     right:
       - icon: youtube
         href: https://youtube.com/playlist?list=PLuLJwY97FamcsQrlt0uSira4yKeef-vSt
+      - icon: calendar
+        href: https://fipavonline.it/main/gare_girone/40670/1
+      - icon: "123"
+        href: https://fipavonline.it/main/gare_girone/40670/0
 format:
   html:
     theme: yeti
