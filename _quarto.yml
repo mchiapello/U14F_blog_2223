@@ -13,7 +13,7 @@ website:
       - icon: calendar
         href: https://fipavonline.it/main/gare_girone/40670/1
       - icon: "123"
-        href: https://fipavonline.it/main/gare_girone/40670/0
+        href: https://fipavonline.it/main/classifica/40670
 format:
   html:
     theme: yeti
