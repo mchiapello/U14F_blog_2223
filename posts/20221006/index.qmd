@@ -93,7 +93,7 @@ tmp <- x2 %>%
 
 ```
 
-Nessun dato per questo mese.
+Ancora nessun dato per questo mese.
 
 ### Classifica totale
 ```{r}
