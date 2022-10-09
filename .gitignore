@@ -5,3 +5,5 @@
 
 /.quarto/
 data/000_allenamenti/trainings/*
+*.mov
+*.mp4

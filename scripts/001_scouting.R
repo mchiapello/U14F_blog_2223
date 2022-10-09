@@ -1,6 +1,6 @@
-video_file <- dir_ls(out, regexp = "*MOV$")
+video_file <- dir_ls(out, regexp = "*mov$")
 
-x <- dv_create(teams = teams, match = match, 
+x <- dv_create(teams = teams, match = match), 
                players_h = readRDS("data/003_dati/players_fog"), 
                players_v = readRDS("data/003_dati/players_avv"))
 
@@ -16,8 +16,8 @@ ov_scouter(x, video_file = video_file,
            launch_browser = FALSE)
 
 
-ov_scouter("~/Documents/personale/CoachVolleyball/001_2223_PGSFOGLIZZESE/U14F/scouts/allenamenti/2022-09-06/IMG_1049.ovs",
+ov_scouter("~/Documents/personale/U14F_blog_2223/data/000_allenamenti/2022-10-07/20221007_A016 - HD 1080p.ovs",
            video_file = video_file,
            scouting_options = list(transition_sets = TRUE,
                                    nblockers = FALSE),
-           launch_browser = FALSE)
+           launch_browser = TRUE)
