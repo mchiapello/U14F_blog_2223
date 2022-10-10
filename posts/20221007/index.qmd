@@ -124,7 +124,7 @@ x2 %>%
 
 ## Video allenamento {{< fa video size=normalsize >}}
 
-1. [Partita](https://youtu.be/c-430sfi2Pg)
+1. [Partita](https://youtu.be/EjNh9FUwPJ0)
 
 ## Foto allenamento {{< fa camera size=normalsize >}}
 

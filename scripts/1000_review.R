@@ -1,4 +1,4 @@
 library(ovva)
 
-ovva_shiny(data_path = c(allenamenti = "001_2223_PGSFOGLIZZESE/U14F/scouts/allenamenti/all/",
-                         partite = "001_2223_PGSFOGLIZZESE/U14F/scouts/partite/all"))
+ovva_shiny(data_path = c(allenamenti = "data/000_allenamenti/all/",
+                         partite = "data/002_partite/all"))
