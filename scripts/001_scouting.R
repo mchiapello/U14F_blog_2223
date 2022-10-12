@@ -16,7 +16,7 @@ ov_scouter(x, video_file = video_file,
            launch_browser = FALSE)
 
 
-ov_scouter("~/Documents/personale/U14F_blog_2223/data/000_allenamenti/2022-10-07/20221007_A016 - HD 1080p.ovs",
+ov_scouter("~/Documents/personale/U14F_blog_2223/data/000_allenamenti/2022-10-07/20221007_A016 - HD 1080p_set2done.ovs",
            video_file = video_file,
            scouting_options = list(transition_sets = TRUE,
                                    nblockers = FALSE),

@@ -1,0 +1,137 @@
+---
+title: "Misurazioni Ottobre"
+author: "Marco Chiapello"
+date: "2022-10-11"
+categories: ["U14F", "2022-2023", "PGS Foglizzese", "Misurazioni"]
+execute: 
+  echo: false
+  warning: false
+  message: false
+---
+
+
+```{r}
+#| include: false
+
+library(tidyverse)
+library(here)
+library(fs)
+library(gt)
+library(gtExtras)
+```
+
+# Progressione
+
+```{r}
+# Create data
+x <- read_csv(paste0(here::here(), "/data/001_misurazioni/20220906.csv")) %>% 
+    janitor::clean_names() %>% 
+    select(-peso)
+
+formatter <- function(...){
+  function(x) format(round(x, 1), ...)
+}
+
+pp <- function(a){
+    tt <- paste(unique(a$nome), unique(a$cognome))
+    a %>% 
+    pivot_longer(cols = -c(data, cognome, nome),
+                 names_to = "feature",
+                 values_to = "value") %>% 
+    mutate(feature = factor(feature, levels = c("altezza", "reach",
+                                                "muro", "jumpMuro",
+                                                "rincorsa", "jumpRincorsa"))) %>% 
+    ggplot(aes(x = data, y = round(value, 1))) +
+    geom_point() +
+    geom_line(aes(group = feature), linetype = "dotted") +
+    facet_wrap(~feature, scales = "free", ncol = 2) +
+    labs(x = "", y = "",
+         title = tt) + 
+    scale_y_continuous(labels = formatter(nsmall = 1))
+}
+
+
+
+y <- x %>% 
+    # drop_na() %>% 
+    group_by(data) %>% 
+    mutate(jumpRincorsa = rincorsa - reach,
+           jumpMuro = muro - reach) %>% 
+    select(-nascita, -yo_yo_test, -data) %>% 
+    ungroup() %>% 
+    group_by(number) %>% 
+    nest() %>% 
+    mutate(plot = map(data, pp)) 
+
+y$plot[[1]]
+y$plot[[2]]
+y$plot[[3]]
+y$plot[[4]]
+y$plot[[5]]
+y$plot[[6]]
+y$plot[[7]]
+y$plot[[8]]
+y$plot[[9]]
+y$plot[[10]]
+y$plot[[11]]
+
+
+```
+
+
+
+
+# Ottobre
+
+```{r}
+# Create data
+x <- read_csv(paste0(here::here(), "/data/001_misurazioni/20220906.csv")) %>% 
+    janitor::clean_names() %>% 
+    filter(grepl("10/22", data))
+
+x %>% 
+    # drop_na() %>% 
+    mutate(jumpRincorsa = rincorsa - reach,
+           jumpMuro = muro - reach) %>% 
+    select(-nascita, -yo_yo_test, -data) %>% 
+    arrange(desc(jumpRincorsa)) %>% 
+    gt() %>% 
+    # HIGHLIGHT massima altezza 
+     tab_style(style = cell_fill(color = "green"),
+            locations = cells_body(columns = "rincorsa", 
+                                   rows = (rincorsa > 244))) %>% 
+    tab_style(style = cell_fill(color = "green"),
+            locations = cells_body(columns = "muro", 
+                                   rows = (muro > 244))) %>% 
+    gt_theme_538()
+
+```
+
+
+# Settembre
+
+```{r}
+# Create data
+x <- read_csv(paste0(here::here(), "/data/001_misurazioni/20220906.csv")) %>% 
+    janitor::clean_names() %>% 
+    filter(grepl("09/22", data))
+
+x %>% 
+    # drop_na() %>% 
+    mutate(jumpRincorsa = rincorsa - reach,
+           jumpMuro = muro - reach) %>% 
+    select(-nascita, -yo_yo_test, -data) %>% 
+    arrange(desc(jumpRincorsa)) %>% 
+    gt() %>% 
+    # HIGHLIGHT massima altezza 
+     tab_style(style = cell_fill(color = "green"),
+            locations = cells_body(columns = "rincorsa", 
+                                   rows = (rincorsa > 244))) %>% 
+    tab_style(style = cell_fill(color = "green"),
+            locations = cells_body(columns = "muro", 
+                                   rows = (muro > 244))) %>% 
+    gt_theme_538()
+
+```
+
+
