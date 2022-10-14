@@ -22,11 +22,11 @@ suppressPackageStartupMessages(library(tidyverse))
 
 df <- tribble(
     ~variable, ~percentage,
-    "Impegno collettivo", 0.6,
+    "Impegno collettivo", 0.5,
     "Raggiungimento\ndell'obiettivo", 0.7,
-    "Soddisfazione\ndell'allenatore", 0.6,
+    "Soddisfazione\ndell'allenatore", 0.5,
     "Miglioramenti attesi", 0.6,
-    "Voto", 0.6) %>% 
+    "Voto", 0.5) %>% 
     mutate(group = ifelse(percentage <0.6, "red",
                           ifelse(percentage>=0.6 & percentage<0.8, "orange","green")),
            label = paste0(percentage * 100, "%"),
@@ -67,7 +67,7 @@ x %>%
 
 Marta presente ma non si è allenata poco per infortuneo.
 
-## Classifica {{< fa ranking-star size=normalsize >}}
+## Classifica Bagnerone {{< fa ranking-star size=normalsize >}}
 
 ### Classifica mensile
 ```{r}
@@ -94,7 +94,7 @@ x2 %>%
 ```
 
 
-### Classifica totale
+### Classifica generale
 ```{r}
 #| echo: false
 #| message: false
@@ -116,7 +116,3 @@ x2 %>%
 
 ```
 
-
-## Video allenamento {{< fa video size=normalsize >}}
-
-NA
