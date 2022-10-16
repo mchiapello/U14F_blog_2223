@@ -1,32 +1,36 @@
 ---
-title: "Diciottesimo Allenamento"
-author: "Giulia Berardi"
-date: "2022-10-13"
+title: "Diciassettesimo Allenamento"
+author: "Marco Chiapello"
+date: "2022-10-11"
 categories: ["U14F", "2022-2023", "PGS Foglizzese", "Allenamento"]
+execute: 
+  echo: false
+  warning: false
+  message: false
 ---
 
 
 ## Obiettivi dell'allenamento  {{< fa bullseye size=normalsize >}}
 
-1. Attacco     
-1. Difesa
-1. Ricezione
+1. Preparazione fisica
+1. Bagher
+1. Attacco
 
 ## Valutazioni generali {{< fa gauge-simple-high size=normalsize >}}
 
 ```{r}
-#| echo: false
-#| message: false
-#| warning: false
 suppressPackageStartupMessages(library(tidyverse))
 
 df <- tribble(
     ~variable, ~percentage,
-    "Impegno collettivo", 0.5,
+    "Impegno collettivo", 0.7,
     "Raggiungimento\ndell'obiettivo", 0.7,
-    "Soddisfazione\ndell'allenatore", 0.5,
-    "Miglioramenti attesi", 0.6,
-    "Voto", 0.5) %>% 
+    "Soddisfazione\ndell'allenatore", 0.8,
+    "Miglioramenti attesi", 0.7,
+    "Voto", 0.8)
+    
+
+df <- df %>% 
     mutate(group = ifelse(percentage <0.6, "red",
                           ifelse(percentage>=0.6 & percentage<0.8, "orange","green")),
            label = paste0(percentage * 100, "%"),
@@ -48,16 +52,19 @@ ggplot(df, aes(fill = group, ymax = percentage, ymin = 0, xmax = 2, xmin = 1)) +
  guides(colour="none")
 ```
 
+## Esercizio ricezione 
+
+Siamo ancora troppo imprecisi! Serve più impegno in allenamento!
+
+
+
 ## Presenze {{< fa child-reaching size=normalsize >}}
 
 ```{r}
-#| echo: false
-#| message: false
-#| warning: false
 x <- read_tsv(paste0(here::here(), "/data/003_dati/presenze.tsv"))
 
 x %>% 
-    filter(date == lubridate::ymd("2022-10-13")) %>%
+    filter(date == lubridate::ymd("2022-10-11")) %>%
     mutate(date = format(date, "%d-%m"),
            assenti = ifelse(assenti == 1, "X", "")) %>% 
     select(-date) %>% 
@@ -65,19 +72,14 @@ x %>%
     gtExtras::gt_theme_538() 
 ```
 
-Marta presente ma non si è allenata poco per infortuneo.
+## Classifica {{< fa ranking-star size=normalsize >}}
 
-## Classifica Bagnerone {{< fa ranking-star size=normalsize >}}
-
-### Classifica mensile
+### Classifica ottobre
 ```{r}
-#| echo: false
-#| message: false
-#| warning: false
 x2 <- read_tsv(paste0(here::here(), "/data/003_dati/classificaRaw.tsv"))
 
 
-x2 %>%
+tmp <- x2 %>%
     left_join(x) %>% 
     mutate(mese = lubridate::month(date)) %>% 
     filter(mese == 10) %>% 
@@ -91,14 +93,12 @@ x2 %>%
     gt::gt() %>% 
     gtExtras::gt_theme_538()
 
+tmp
 ```
 
 
-### Classifica generale
+### Classifica totale
 ```{r}
-#| echo: false
-#| message: false
-#| warning: false
 x2 <- read_tsv(paste0(here::here(), "/data/003_dati/classificaRaw.tsv"))
 
 
@@ -116,3 +116,10 @@ x2 %>%
 
 ```
 
+
+## Video allenamento {{< fa video size=normalsize >}}
+
+
+## Foto allenamento {{< fa camera size=normalsize >}}
+
+Non vi siete scattate foto ;-)

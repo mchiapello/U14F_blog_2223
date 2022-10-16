@@ -7,7 +7,9 @@ library(rvest)
 library(gt)
 library(gtExtras)
 
-films <- content %>% html_elements(".gara-big-wrap , h3, .h3-wrap") %>% 
+content <- read_html("https://fipavonline.it/main/classifica/40670")
+
+films <- content %>% html_elements(".gare-wrap") %>% 
     html_text2()
 
 df <- tibble(a = films) %>% 

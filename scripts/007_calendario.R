@@ -3,7 +3,8 @@ library(rvest)
 library(gt)
 library(gtExtras)
 
-films <- content %>% html_elements(".gara-big-wrap , h3, .h3-wrap") %>% 
+films <- content %>% ## Manca content e non so più 
+    html_elements(".gara-big-wrap , h3, .h3-wrap") %>% 
     html_text2()
 
 df <- tibble(a = films) %>% 
@@ -25,8 +26,6 @@ df %>%
     gt::tab_header(title = gt::md("**Calendario**")) %>% 
     gtExtras::gt_theme_538()  %>% 
     gt::gtsave("data/002_Partite/Calendario.png", expand = 10)
-
-
 
 # Creare eventi per google calendar
 df %>% 

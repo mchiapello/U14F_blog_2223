@@ -1,7 +1,7 @@
 ---
-title: "Diciottesimo Allenamento"
-author: "Giulia Berardi"
-date: "2022-10-13"
+title: "Diciannovasimo Allenamento"
+author: "Marco Chiapello"
+date: "2022-10-14"
 categories: ["U14F", "2022-2023", "PGS Foglizzese", "Allenamento"]
 ---
 
@@ -10,7 +10,7 @@ categories: ["U14F", "2022-2023", "PGS Foglizzese", "Allenamento"]
 
 1. Attacco     
 1. Difesa
-1. Ricezione
+1. Fase gioco
 
 ## Valutazioni generali {{< fa gauge-simple-high size=normalsize >}}
 
@@ -22,11 +22,11 @@ suppressPackageStartupMessages(library(tidyverse))
 
 df <- tribble(
     ~variable, ~percentage,
-    "Impegno collettivo", 0.5,
-    "Raggiungimento\ndell'obiettivo", 0.7,
-    "Soddisfazione\ndell'allenatore", 0.5,
-    "Miglioramenti attesi", 0.6,
-    "Voto", 0.5) %>% 
+    "Impegno collettivo", 0.7,
+    "Raggiungimento\ndell'obiettivo", 0.8,
+    "Soddisfazione\ndell'allenatore", 0.8,
+    "Miglioramenti attesi", 0.7,
+    "Voto", 0.8) %>% 
     mutate(group = ifelse(percentage <0.6, "red",
                           ifelse(percentage>=0.6 & percentage<0.8, "orange","green")),
            label = paste0(percentage * 100, "%"),
@@ -57,7 +57,7 @@ ggplot(df, aes(fill = group, ymax = percentage, ymin = 0, xmax = 2, xmin = 1)) +
 x <- read_tsv(paste0(here::here(), "/data/003_dati/presenze.tsv"))
 
 x %>% 
-    filter(date == lubridate::ymd("2022-10-13")) %>%
+    filter(date == lubridate::ymd("2022-10-14")) %>%
     mutate(date = format(date, "%d-%m"),
            assenti = ifelse(assenti == 1, "X", "")) %>% 
     select(-date) %>% 
@@ -116,3 +116,11 @@ x2 %>%
 
 ```
 
+## Video allenamento {{< fa video size=normalsize >}}
+
+1. [Girello difesa](https://youtu.be/YPBgx2SGZ1w)
+2. [Partita](https://youtu.be/WgvaD7dLX4A)
+
+## Foto allenamento {{< fa camera size=normalsize >}}
+
+![](IMG_1579.JPG)

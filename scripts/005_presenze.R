@@ -10,8 +10,8 @@ players <- readr::read_table("data/003_dati/players.tsv")
 tail(pres, n = 14)
 
 pres <- add(players,
-    date = "20221013", ### RICORDARSI DI CAMBIARE DATA ##
-    assenti = c())
+    date = "20221014", ### RICORDARSI DI CAMBIARE DATA ##
+    assenti = c(0, 5))
 
 tail(as.data.frame(pres), n = 24)
 
@@ -34,7 +34,7 @@ pres %>%
 
 # Presenze Totali
 pres %>% 
-    group_by(Numero, Cognome, Nome) %>% 
+    group_by(Cognome, Nome) %>% 
     summarise(Assenze = sum(assenti)) %>% 
     ungroup %>% 
     arrange(desc(Assenze), Cognome) %>% 
@@ -46,7 +46,7 @@ pres %>%
 pres %>% 
     mutate(mese = month(date)) %>% 
     filter(mese == 10) %>% 
-    group_by(Numero, Cognome, Nome) %>% 
+    group_by(Cognome, Nome) %>% 
     summarise(Assenze = sum(assenti)) %>% 
     ungroup %>% 
     arrange(desc(Assenze), Cognome) %>% 
