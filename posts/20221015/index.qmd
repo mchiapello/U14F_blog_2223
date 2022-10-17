@@ -1,20 +1,13 @@
 ---
-title: "Diciassettesimo Allenamento"
+title: "Volley Parella Torino Blu - Basso Canavese Foglizzo"
 author: "Marco Chiapello"
-date: "2022-10-11"
-categories: ["U14F", "2022-2023", "PGS Foglizzese", "Allenamento"]
+date: "2022-10-15"
+categories: ["U14F", "2022-2023", "PGS Foglizzese", "Partita"]
 execute: 
   echo: false
   warning: false
   message: false
 ---
-
-
-## Obiettivi dell'allenamento  {{< fa bullseye size=normalsize >}}
-
-1. Preparazione fisica
-1. Bagher
-1. Attacco
 
 ## Valutazioni generali {{< fa gauge-simple-high size=normalsize >}}
 
@@ -23,10 +16,10 @@ suppressPackageStartupMessages(library(tidyverse))
 
 df <- tribble(
     ~variable, ~percentage,
-    "Impegno collettivo", 0.7,
-    "Raggiungimento\ndell'obiettivo", 0.7,
-    "Soddisfazione\ndell'allenatore", 0.8,
-    "Miglioramenti attesi", 0.7,
+    "Gioco di squadra", 0.8,
+    "Contenimento degli errori", 0.5,
+    "Abilità degli avversari", 0.5,
+    "Soddisfazione\ndegli allenatori", 0.9,
     "Voto", 0.8)
     
 
@@ -52,74 +45,16 @@ ggplot(df, aes(fill = group, ymax = percentage, ymin = 0, xmax = 2, xmin = 1)) +
  guides(colour="none")
 ```
 
-## Esercizio ricezione 
+## Scout
 
-Siamo ancora troppo imprecisi! Serve più impegno in allenamento!
-
-
-
-## Presenze {{< fa child-reaching size=normalsize >}}
-
-```{r}
-x <- read_tsv(paste0(here::here(), "/data/003_dati/presenze.tsv"))
-
-x %>% 
-    filter(date == lubridate::ymd("2022-10-11")) %>%
-    mutate(date = format(date, "%d-%m"),
-           assenti = ifelse(assenti == 1, "X", "")) %>% 
-    select(-date) %>% 
-    gt::gt() %>% 
-    gtExtras::gt_theme_538() 
-```
-
-## Classifica {{< fa ranking-star size=normalsize >}}
-
-### Classifica ottobre
-```{r}
-x2 <- read_tsv(paste0(here::here(), "/data/003_dati/classificaRaw.tsv"))
+1. [Semplificato](semplificato.pdf)
+1. [Avanzato](avanzato.pdf)
 
 
-tmp <- x2 %>%
-    left_join(x) %>% 
-    mutate(mese = lubridate::month(date)) %>% 
-    filter(mese == 10) %>% 
-    mutate(Punteggio = case_when(vincitori == 1 & assenti == 0 ~ 3,
-                                 vincitori == 0 & assenti == 0 ~ 1,
-                                 TRUE ~ 0)) %>% 
-    group_by(Numero, Cognome, Nome) %>% 
-    summarise(Classifica = sum(Punteggio)) %>% 
-    ungroup %>% 
-    arrange(desc(Classifica), Cognome) %>% 
-    gt::gt() %>% 
-    gtExtras::gt_theme_538()
+## Video della Partita {{< fa video size=normalsize >}}
 
-tmp
-```
+1. [Partita](https://youtu.be/qKqcu5VKKso)
 
+## Foto della partita {{< fa camera size=normalsize >}}
 
-### Classifica totale
-```{r}
-x2 <- read_tsv(paste0(here::here(), "/data/003_dati/classificaRaw.tsv"))
-
-
-x2 %>%
-    left_join(x) %>% 
-    mutate(Punteggio = case_when(vincitori == 1 & assenti == 0 ~ 3,
-                                 vincitori == 0 & assenti == 0 ~ 1,
-                                 TRUE ~ 0)) %>% 
-    group_by(Numero, Cognome, Nome) %>% 
-    summarise(Classifica = sum(Punteggio)) %>% 
-    ungroup %>% 
-    arrange(desc(Classifica), Cognome) %>% 
-    gt::gt() %>% 
-    gtExtras::gt_theme_538()
-
-```
-
-
-## Video allenamento {{< fa video size=normalsize >}}
-
-
-## Foto allenamento {{< fa camera size=normalsize >}}
-
-Non vi siete scattate foto ;-)
+1. ![](image.jpeg)

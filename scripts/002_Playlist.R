@@ -1,8 +1,9 @@
 dvw <- dir_ls(out, regexp = "dvw$")
 x <- dv_read(dvw)
-dv_meta_video(x) <- "https://youtu.be/vcAgTSXlNn4"
+dv_meta_video(x) <- "https://youtu.be/qKqcu5VKKso"
+dv_write(x, dvw)
 # Remove local mp4 file
-file_delete(dir_ls(out, regexp = "MOV$"))
+file_delete(dir_ls(out, regexp = "mov$"))
 out2 <- out
 
 ## extract the plays
@@ -33,14 +34,13 @@ setwd(here::here())
 
 px3 <- px3 %>% 
     filter(Nome != "unknown player") %>%
-    
     mutate(out = map(data, ovideo::ov_video_playlist, meta = x$meta,
                      extra_cols = extra_cols),
            outfile = paste0(out2, "/", str_remove(Nome, " "), 
                             "/", fondamentale, ".html"))
 
 px4 <- px3 %>% 
-    filter(fondamentale %in% c("Attack", "Reception", "Serve", "Set"))
+    filter(fondamentale %in% c("Attack", "Reception", "Serve", "Set", "Dig"))
 
 for(i in 1:nrow(px4)){
     ovideo::ov_playlist_to_html(px4$out[[i]], 
@@ -48,5 +48,5 @@ for(i in 1:nrow(px4)){
                         outfile = px4$outfile[i])
 }
 
-file_copy(dir_ls(out2, regexp = "dvw$"), "001_2223_PGSFOGLIZZESE/U14F/scouts/allenamenti/all/")
+file_copy(dir_ls(out2, regexp = "dvw$"), "data/002_Partite/all")
 
