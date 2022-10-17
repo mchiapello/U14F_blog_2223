@@ -15,8 +15,7 @@ ov_scouter(x, video_file = video_file,
            launch_browser = TRUE)
 
 
-ov_scouter("~/Documents/personale/U14F_blog_2223/data/000_allenamenti/2022-10-07/20221007_A016 - HD 1080p_set2done.ovs",
+ov_scouter("~/Documents/personale/U14F_blog_2223/data/002_Partite/2022-10-15_VolleyParella/parella.ovs",
            video_file = video_file,
-           scouting_options = list(transition_sets = TRUE,
-                                   nblockers = FALSE),
+           scouting_options = list(transition_sets = TRUE),
            launch_browser = TRUE)
