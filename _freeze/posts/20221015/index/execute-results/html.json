@@ -1,0 +1,16 @@
+{
+  "hash": "c26ee9d3bb636291572bb2293976e1c7",
+  "result": {
+    "markdown": "---\ntitle: \"Volley Parella Torino Blu - Basso Canavese Foglizzo\"\nauthor: \"Marco Chiapello\"\ndate: \"2022-10-15\"\ncategories: [\"U14F\", \"2022-2023\", \"PGS Foglizzese\", \"Partita\"]\nexecute: \n  echo: false\n  warning: false\n  message: false\n---\n\n\n## Valutazioni generali {{< fa gauge-simple-high size=normalsize >}}\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-1-1.png){width=672}\n:::\n:::\n\n\n## Scout\n\n1. [Semplificato](semplificato.pdf)\n1. [Avanzato](avanzato.pdf)\n\n\n## Video della Partita {{< fa video size=normalsize >}}\n\n1. [Partita](https://youtu.be/qKqcu5VKKso)\n\n## Foto della partita {{< fa camera size=normalsize >}}\n\n1. ![](image.jpeg)",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
