@@ -10,8 +10,8 @@ players <- readr::read_table("data/003_dati/players.tsv")
 tail(pres, n = 14)
 
 pres <- add(players,
-    date = "20221014", ### RICORDARSI DI CAMBIARE DATA ##
-    assenti = c(0, 5))
+    date = "20221018", ### RICORDARSI DI CAMBIARE DATA ##
+    assenti = c(0, 7, 30))
 
 tail(as.data.frame(pres), n = 24)
 
@@ -23,6 +23,7 @@ write_tsv(pres, "data/003_dati/presenze.tsv")
 # Presenze raw
 pres %>% 
     mutate(date = format(date, "%d-%m")) %>% 
+    select(-Numero) %>% 
     pivot_wider(names_from = date,
                 values_from = assenti) %>% 
     janitor::adorn_totals("row") %>% 
@@ -58,10 +59,11 @@ pres %>%
 pres %>% 
     mutate(mese = month(date)) %>% 
     filter(mese == 10) %>%
-    mutate(date = format(date, "%d-%m")) %>% 
+    mutate(date = format(date, "%d-%m")) %>%
+    select(-Numero) %>% 
     pivot_wider(names_from = date,
                 values_from = assenti) %>% 
-    select(-Numero, -mese) %>% 
+    select(-mese) %>% 
     janitor::adorn_totals("row") %>% 
     janitor::adorn_totals("col") %>% 
     arrange((Total)) %>% 
