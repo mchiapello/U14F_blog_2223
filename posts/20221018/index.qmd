@@ -4,6 +4,10 @@ author: "Marco Chiapello"
 date: "2022-10-18"
 date-format: full
 categories: ["U14F", "2022-2023", "PGS Foglizzese", "Allenamento"]
+execute: 
+  echo: false
+  message: false
+  warning: false
 ---
 
 
@@ -16,9 +20,6 @@ categories: ["U14F", "2022-2023", "PGS Foglizzese", "Allenamento"]
 ## Valutazioni generali {{< fa gauge-simple-high size=normalsize >}}
 
 ```{r}
-#| echo: false
-#| message: false
-#| warning: false
 suppressPackageStartupMessages(library(tidyverse))
 
 df <- tribble(
@@ -55,13 +56,12 @@ Questo è stato il **peggiore** allenamento fatto finora.
 ## Presenze {{< fa child-reaching size=normalsize >}}
 
 ```{r}
-#| echo: false
-#| message: false
-#| warning: false
+dd <- quarto::quarto_inspect(fs::dir_ls(".", regex = "qmd$"))$formats$html$metadata$date
+# dd <- "2022-10-18"
 x <- read_tsv(paste0(here::here(), "/data/003_dati/presenze.tsv"))
 
 x %>% 
-    filter(date == lubridate::ymd("2022-10-18")) %>%
+    filter(date == lubridate::ymd(dd)) %>%
     mutate(date = format(date, "%d-%m"),
            assenti = ifelse(assenti == 1, "X", "")) %>% 
     select(-date) %>% 
@@ -124,8 +124,8 @@ x2 %>%
 
 ## Video allenamento {{< fa video size=normalsize >}}
 
-1. [Battuta-Ricezione-Attacco](https://youtu.be/peaALm_LihY)
-2. [Partita](https://youtu.be/yoHtvFL-h4w)
+1. [Battuta-Ricezione-Attacco](https://youtu.be/zKXwX5WMu20)
+2. [Partita](https://youtu.be/02Lye0xtKko)
 
 ## Foto allenamento {{< fa camera size=normalsize >}}
 
