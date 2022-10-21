@@ -1,6 +1,7 @@
 dvw <- dir_ls(out, regexp = "dvw$")
 x <- dv_read(dvw)
 dv_meta_video(x) <- "https://youtu.be/qKqcu5VKKso"
+
 dv_write(x, dvw)
 # Remove local mp4 file
 file_delete(dir_ls(out, regexp = "mov$"))
@@ -48,5 +49,5 @@ for(i in 1:nrow(px4)){
                         outfile = px4$outfile[i])
 }
 
-file_copy(dir_ls(out2, regexp = "dvw$"), "data/002_Partite/all")
+file_copy(dir_ls(out2, regexp = "dvw$"), "data/002_Partite/all", overwrite = TRUE)
 

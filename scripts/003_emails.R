@@ -14,9 +14,11 @@ metadata <- tibble(
         unique(paste0(x$meta$players_h$firstname, " ", x$meta$players_h$lastname))
     } else {
         unique(paste0(x$meta$players_v$firstname, " ", x$meta$players_v$lastname))
-    },
-    email = "marpello@gmail.com") %>% 
-    mutate(nickname = str_remove(giocatrice, " "))
+    }) %>% 
+    left_join(read_tsv(paste0(here::here(), "/data/003_dati/email.tsv")) %>% 
+                  unite("giocatrice", Nome:Cognome, sep = " ")) %>% 
+    mutate(nickname = str_remove(giocatrice, " ")) %>% 
+    filter(!nickname %in% c("MartaRavazzi", "NoemiPascarella"))
 
 
 for(i in 1:nrow(metadata)){
@@ -26,18 +28,18 @@ for(i in 1:nrow(metadata)){
             
             in allegato trovi i video da guardare prima del prossimo allenamento.
             
-            I video si riferiscono alla partita giocata il {metadata$match_date[i]}, nel campionato 
-            {metadata$campionato[i]} ({metadata$fase[i]}). 
-            
-            Abbiamo giocato {ifelse (metadata$home_team[i] == 'PGS Foglizzese', 'in casa ', 'fuori casa ')} contro
+            I video si riferiscono alla partita giocata il {format(metadata$match_date[i], '%d %b %Y')}, nel campionato 
+            {metadata$campionato[i]} contro il
             {ifelse (metadata$home_team[i] == 'PGS Foglizzese', metadata$away_team[i], metadata$home_team[i])}.
             
-            Abbiamo vinto la partita con i seguenti parziali: "
             
+            Scarica i file allegati e aprili con un web browser per vedere i video delle tue azioni. 
+            Sono divisi per fondamentale, sulla destra puoi vedere la lista delle azioni e sotto il video trovi i controlli per velocizzare/rallentare l'azione o rivederla.
+            "
         ))
     
     # Generate the footer text
-    footer_text <- "PGS Foglizzese campionato UISP U13 2021/2022"
+    footer_text <- "Basso Canavese Foglizzo - Campionato FIPAV U14 2022/2023"
 
     # Attachments
     file <- fs::dir_ls(paste0(out2, "/", metadata$nickname[i]), regexp = "html$")
@@ -54,10 +56,15 @@ for(i in 1:nrow(metadata)){
     # Send email
     email %>%
         smtp_send(
-            from = "marpello@gmail.com",
+            from = "chiapello.m@gmail.com",
             to = metadata$email[i],
             subject = glue("Partita {metadata$home_team[i]} contro {metadata$away_team[i]}"),
-            credentials = creds_file(file = "gmail_creds")
+            credentials = creds_key("gmail")
         )
     }
+
+# Delete files
+fs::dir_delete(unique(fs::path_dir(fs::dir_ls(paste0(out2, "/", metadata$nickname), regexp = "html$"))))
+
+
 
