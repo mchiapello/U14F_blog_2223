@@ -8,12 +8,12 @@ refx <- ovideo::ov_shiny_court_ref(video_file = video_file, t = 1)
 
 ## enter the team lineups for set 1
 x <- dv_set_lineups(x, set_number = 1, 
-                    lineups = list(c(36,27,28,40,31,46), 
+                    lineups = list(c(9,31,40,28,46,36), 
                                    c(1, 2, 3 , 4, 5, 6)), 
-                    court_ref = refx,
-                    setter_positions = c(4, 1))
+                    setter_positions = c(3, 1))
 
 ov_scouter(x, video_file = video_file,
+           court_ref = refx,
            scouting_options = list(transition_sets = TRUE),
            launch_browser = TRUE)
 

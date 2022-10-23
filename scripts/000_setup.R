@@ -9,9 +9,9 @@ source("scripts/999_functions.R")
 
 ###############################################################################
 # Create match/allenamento
-opp <- "VolleyParella"
+opp <- "Lilliput"
 us <- "PGS Foglizzese"
-date <- "2022-10-15"
+date <- "2022-10-22"
 
 pp <- ma(date = date, 
          opp = opp,
@@ -24,7 +24,7 @@ pp <- ma(date = date,
          day_number = 15,
          match_number = 321,
          set_won = c(3, 0),,
-         home_away_team  = c("a", "*"),
+         home_away_team  = c("*", "a"),
          won_match = c(TRUE, FALSE))
 
 # Create variables
