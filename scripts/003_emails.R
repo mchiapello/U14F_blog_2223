@@ -18,7 +18,7 @@ metadata <- tibble(
     left_join(read_tsv(paste0(here::here(), "/data/003_dati/email.tsv")) %>% 
                   unite("giocatrice", Nome:Cognome, sep = " ")) %>% 
     mutate(nickname = str_remove(giocatrice, " ")) %>% 
-    filter(!nickname %in% c("MartaRavazzi", "NoemiPascarella"))
+    filter(!nickname %in% c("MartaRavazzi"))
 
 
 for(i in 1:nrow(metadata)){
@@ -33,8 +33,8 @@ for(i in 1:nrow(metadata)){
             {ifelse (metadata$home_team[i] == 'PGS Foglizzese', metadata$away_team[i], metadata$home_team[i])}.
             
             
-            Scarica i file allegati e aprili con un web browser per vedere i video delle tue azioni. 
-            Sono divisi per fondamentale, sulla destra puoi vedere la lista delle azioni e sotto il video trovi i controlli per velocizzare/rallentare l'azione o rivederla.
+            Scarica i file allegati e aprili con un web browser per vedere i video delle tue azioni con la valutazione del fondamentale (in inglese). 
+            Sono divisi per fondamentale, sulla destra puoi vedere la lista delle azioni e sotto il video trovi i controlli del video.
             "
         ))
     

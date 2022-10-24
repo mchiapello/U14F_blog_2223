@@ -120,11 +120,5 @@ x2 %>%
 
 ```
 
-## Video allenamento {{< fa video size=normalsize >}}
-
-1. [Battuta-Ricezione-Attacco](https://youtu.be/zKXwX5WMu20)
-2. [Partita](https://youtu.be/02Lye0xtKko)
-
-## Foto allenamento {{< fa camera size=normalsize >}}
 
 Niente foto!
