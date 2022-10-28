@@ -1,18 +1,15 @@
 ---
 title: "Basso Canavese Foglizzo - Lilliput"
-author: "Marco Chiapello"
-date: "2022-10-22"
-categories: ["U14F", "2022-2023", "PGS Foglizzese", "Partita"]
 format:
   html:
     toc: false
     theme: journal
     page-layout: article
     number-sections: false
-execute: 
+execute:
   echo: false
-  warning: false
   message: false
+  warning: false
 ---
 
 ## Informazioni generali
@@ -248,10 +245,9 @@ glue::glue(
 glue::glue("Su un totale di {sum(pointsN$Tot...17) + sum(pointsN$Tot...22)} palle attaccate {sum(pointsN$Tot...22)} sono state freeballs ({round(sum(pointsN$Tot...22)/(sum(pointsN$Tot...17) + sum(pointsN$Tot...22)), 2)*100}%).")
 ```
 
-::::{.grid}
+:::{.grid}
 
 ::: {.g-col-6}
-
 ### Attacco
 
 
@@ -283,7 +279,6 @@ t8 %>%
 :::
 
 ::: {.g-col-4}
-
 ### Freeball
 
 
@@ -311,7 +306,7 @@ t10 %>%
 ```
 
 :::
-::::
+:::
 
 
 ## Ricezione
@@ -482,54 +477,3 @@ p1 + p2 + p3 +
     plot_layout(guides = 'collect')
 ```
 :::
-
-
-## Valutazioni generali {{< fa gauge-simple-high size=normalsize >}}
-
-```{r}
-suppressPackageStartupMessages(library(tidyverse))
-
-df <- tribble(
-    ~variable, ~percentage,
-    "Gioco di squadra", 0.7,
-    "Contenimento degli errori", 0.5,
-    "Abilità degli avversari", 0.6,
-    "Soddisfazione\ndegli allenatori", 0.7,
-    "Voto", 0.6)
-    
-
-df <- df %>% 
-    mutate(group = ifelse(percentage <0.6, "red",
-                          ifelse(percentage>=0.6 & percentage<0.8, "orange","green")),
-           label = paste0(percentage * 100, "%"),
-           title = factor(variable))
-
-ggplot(df, aes(fill = group, ymax = percentage, ymin = 0, xmax = 2, xmin = 1)) +
- geom_rect(aes(ymax=1, ymin=0, xmax=2, xmin=1), fill ="#ece8bd") +
- geom_rect() + 
- coord_polar(theta = "y",start=-pi/2) + xlim(c(0, 2)) + ylim(c(0,2)) +
- geom_text(aes(x = 0, y = 0, label = label, colour=group), size=6.5) +
- # geom_text(aes(x=1.5, y=1.5, label=title), size=4.2) + 
- facet_wrap(~title, ncol = 3) +
- theme_void() +
- scale_fill_manual(values = c("red"="#C9146C", "orange"="#DA9112", "green"="#129188")) +
- scale_colour_manual(values = c("red"="#C9146C", "orange"="#DA9112", "green"="#129188")) +
- theme(strip.background = element_blank(),
-       strip.text.x = element_text(size = 13)) +
- guides(fill="none") +
- guides(colour="none")
-```
-
-## Scout
-
-1. [Semplificato](semplificato.pdf)
-1. [Avanzato](avanzato.pdf)
-
-
-## Video della Partita {{< fa video size=normalsize >}}
-
-1. [Partita](https://youtu.be/xq5BQLjcHo8)
-
-## Foto della partita {{< fa camera size=normalsize >}}
-
-1. ![](image.JPG)

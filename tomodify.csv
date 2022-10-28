@@ -1,0 +1,54 @@
+code,attacker_position,side,type,description,X6,colour,start_coordinate,set_type,X11,X10
+CB,2,L,N,Slide next to setter,NA,16711680,4976,C,NA,NA
+CD,2,L,N,Slide away from setter,NA,16711680,4970,C,NA,NA
+CF,2,L,N,Slide close to setter,NA,16711680,4986,C,NA,NA
+C0,7,C,U,Medium Backrow D,NA,0,4114,F,NA,NA
+C5,4,R,U,11,NA,0,4912,F,NA,NA
+C6,2,L,U,Medium Red,NA,0,4988,B,NA,NA
+C8,9,C,U,Medium Backrow A,NA,0,4186,B,NA,NA
+II,4,R,M,Attack 4 AW,NA,0,4912,F,NA,NA
+JJ,2,L,M,Back AW,NA,0,4988,B,NA,NA
+PP,3,L,O,Setter Dump,NA,16711680,4964,S,NA,NA
+PR,3,C,O,Overpass hit,NA,255,4949,-,NA,NA
+P2,3,C,O,Attack on 2nd contact,NA,255,4949,-,NA,NA
+VB,8,C,H,High B Pipe,NA,255,4163,P,NA,NA
+VI,2,L,H,High banc AW,NA,255,4988,B,NA,NA
+VJ,4,R,H,High 4 AW,NA,255,4912,F,NA,NA
+VO,9,C,H,High Pipe 6-1 - oppo,NA,255,4163,B,NA,NA
+VP,8,C,H,High Pipe,NA,255,4150,P,NA,NA
+VR,8,C,H,High C Pipe,NA,255,4137,P,NA,NA
+VV,7,R,H,Emerg 4 high,NA,0,4912,F,NA,NA
+V0,7,C,H,High Ball Backrow D,NA,255,4114,F,NA,NA
+V3,3,C,O,High Ball Pos 3,NA,255,4950,-,NA,NA
+V4,2,L,H,High back short,NA,255,4868,B,NA,NA
+V5,4,R,H,High Ball Pos 4,NA,255,4912,F,NA,NA
+V6,2,L,H,High Ball Pos 2,NA,255,4988,B,NA,NA
+V8,9,C,H,High Ball Backrow A,NA,255,4186,B,NA,NA
+XB,8,C,M,B Pipe,NA,16711680,4163,P,NA,NA
+XC,3,R,Q,E Quick,NA,65280,4947,C,NA,NA
+XD,3,R,Q,Floating B Quick,NA,65280,4941,C,NA,NA
+XF,2,L,N,Slide by Opposite,NA,65280,4976,B,NA,NA
+XG,3,R,Q,Soup ball,NA,65280,4946,C,NA,NA
+XL,2,C,Q,A Quick in Pos 2,NA,65280,4868,C,NA,NA
+XM,3,C,Q,B Quick in Pos 3,NA,65280,4949,C,NA,NA
+XO,2,L,Q,C Quick by Opposite,NA,65280,4973,B,NA,NA
+XP,8,C,M,Pipe,NA,16711680,4150,P,NA,NA
+XQ,2,L,M,Mezza Dietro C.D.,NA,16711680,4976,B,NA,NA
+XR,8,C,M,C Pipe,NA,16711680,4138,P,NA,NA
+XS,2,L,Q,D Quick,NA,65280,4981,C,NA,NA
+XT,3,R,M,3 by Pos 4 Attacker,NA,16711680,4950,F,NA,NA
+XZ,4,R,Q,Short B Quick,NA,65280,4941,C,NA,NA
+X0,7,C,T,Backrow D,NA,16711680,4114,F,NA,NA
+X1,3,R,Q,A Quick,NA,65280,4956,C,NA,NA
+X2,2,L,Q,Quick behind,NA,65280,4868,C,NA,NA
+X3,3,L,M,3 by Pos 2 Attacker,NA,16711680,4950,B,NA,NA
+X4,2,L,M,4 (Inside 2),NA,16711680,4976,B,NA,NA
+X5,4,R,T,Black,NA,16711680,4912,F,NA,NA
+X6,2,L,T,Red,NA,16711680,4988,B,NA,NA
+X7,4,R,Q,B Quick,NA,65280,4932,C,NA,NA
+X8,9,C,T,Backrow A,NA,16711680,4186,B,NA,NA
+X9,4,R,M,2 (Inside 4),NA,16711680,4924,F,NA,NA
+ZP,8,C,M,Medium Pipe,NA,0,4150,P,NA,NA
+Z5,4,R,M,11,NA,0,4912,F,NA,NA
+Z6,2,L,M,Medium Red,NA,0,4988,B,NA,NA
+Z8,9,C,M,Medium Backrow A,NA,0,4186,B,NA,NA

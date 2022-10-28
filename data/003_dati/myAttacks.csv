@@ -1,0 +1,6 @@
+code,attacker_position,side,type,description,X6,colour,start_coordinate,set_type,X11,X10
+VP,8,C,H,High Pipe,NA,255,4150,P,NA,NA
+XP,8,C,M,Pipe,NA,16711680,4150,P,NA,NA
+V5,4,R,H,High Ball Pos 4,NA,255,4912,F,NA,NA
+V6,2,L,H,High Ball Pos 2,NA,255,4988,B,NA,NA
+V3,3,C,O,High Ball Pos 3,NA,255,4950,-,NA,NA

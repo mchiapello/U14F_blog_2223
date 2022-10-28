@@ -12,9 +12,14 @@ x <- dv_set_lineups(x, set_number = 1,
                                    c(1, 2, 3 , 4, 5, 6)), 
                     setter_positions = c(3, 1))
 
+# Subset the attacks
+x$meta$attacks <- read_csv("data/003_dati/myAttacks.csv")
+
+# Do the scouting
 ov_scouter(x, video_file = video_file,
            court_ref = refx,
-           scouting_options = list(transition_sets = TRUE),
+           scouting_options = list(transition_sets = TRUE,
+                                   attack_table = read_csv("data/003_dati/myAttacks.csv")),
            launch_browser = TRUE)
 
 
