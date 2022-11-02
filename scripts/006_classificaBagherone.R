@@ -11,8 +11,8 @@ players <- readr::read_table("data/003_dati/players.tsv")
 tail(class, n = 12)
 
 class <- classifica(players,
-            date = "20221028", ### RICORDARSI DI CAMBIARE DATA ##
-            vincitori = c(9, 46, 48))
+            date = "20221101", ### RICORDARSI DI CAMBIARE DATA ##
+            vincitori = c(9, 31))
 
 tail(as.data.frame(class), n = 24)
 
@@ -28,7 +28,7 @@ pres <- readr::read_tsv("data/003_dati/presenze.tsv")
 class %>% 
     mutate(mese = month(date)) %>% 
     select(-Numero) %>% 
-    filter(mese == 10) %>% 
+    filter(mese == 11) %>% 
     left_join(pres %>% select(-Numero)) %>% 
     # group_by(mese) %>% 
     mutate(Punteggio = case_when(vincitori == 1 & assenti == 0 ~ 3,
@@ -40,7 +40,7 @@ class %>%
     arrange(desc(Classifica), Cognome) %>% 
     gt::gt() %>% 
     gtExtras::gt_theme_538()  %>% 
-    gt::gtsave("data/003_dati/ClassificaOttobre.png", expand = 10)
+    gt::gtsave("data/003_dati/ClassificaNovembre.png", expand = 10)
 
 class %>% 
     select(-Numero) %>% 

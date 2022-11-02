@@ -1,4 +1,4 @@
-video_file <- dir_ls(out, regexp = "*mov$")
+video_file  <- dir_ls(out, regexp = "*mov$")
 
 x <- dv_create(teams = teams, match = match, 
                players_h = readRDS("data/003_dati/players_fog"), 
@@ -8,7 +8,7 @@ refx <- ovideo::ov_shiny_court_ref(video_file = video_file, t = 1)
 
 ## enter the team lineups for set 1
 x <- dv_set_lineups(x, set_number = 1, 
-                    lineups = list(c(9,31,40,28,46,36), 
+                    lineups = list(c(31,9,36,46,7,28), 
                                    c(1, 2, 3 , 4, 5, 6)), 
                     setter_positions = c(3, 1))
 
@@ -26,7 +26,7 @@ ov_scouter(x, video_file = video_file,
 # Update court reference
 refx <- ovideo::ov_shiny_court_ref(video_file = video_file, t = 2800)
 
-ov_scouter("~/Library/Application Support/ovscout2/autosave/ovscout2-12387e6a0572.ovs",
+ov_scouter("~/Documents/personale/U14F_blog_2223/data/002_Partite/2022-10-29_Cerealterra/PVLcerealterra.ovs",
            video_file = video_file,
            scouting_options = list(transition_sets = TRUE),
            court_ref = refx,

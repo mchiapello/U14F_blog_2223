@@ -1,0 +1,118 @@
+---
+title: "Ventiseiesimo Allenamento"
+author: "Giulia Berardi"
+date: "2022-11-01"
+categories: ["U14F", "2022-2023", "PGS Foglizzese", "Allenamento"]
+execute: 
+  echo: false
+  message: false
+  warning: false
+---
+
+
+## Obiettivi dell'allenamento  {{< fa bullseye size=normalsize >}}
+
+1. Attacco     
+1. Difesa
+
+## Valutazioni generali {{< fa gauge-simple-high size=normalsize >}}
+
+```{r}
+suppressPackageStartupMessages(library(tidyverse))
+
+df <- tribble(
+    ~variable, ~percentage,
+    "Impegno collettivo", 0.8,
+    "Raggiungimento\ndell'obiettivo", 0.8,
+    "Soddisfazione\ndell'allenatore", 0.9,
+    "Miglioramenti attesi", 0.8,
+    "Voto", 0.9) %>% 
+    mutate(group = ifelse(percentage <0.6, "red",
+                          ifelse(percentage>=0.6 & percentage<0.8, "orange","green")),
+           label = paste0(percentage * 100, "%"),
+           title = factor(variable))
+
+ggplot(df, aes(fill = group, ymax = percentage, ymin = 0, xmax = 2, xmin = 1)) +
+ geom_rect(aes(ymax=1, ymin=0, xmax=2, xmin=1), fill ="#ece8bd") +
+ geom_rect() + 
+ coord_polar(theta = "y",start=-pi/2) + xlim(c(0, 2)) + ylim(c(0,2)) +
+ geom_text(aes(x = 0, y = 0, label = label, colour=group), size=6.5) +
+ # geom_text(aes(x=1.5, y=1.5, label=title), size=4.2) + 
+ facet_wrap(~title, ncol = 3) +
+ theme_void() +
+ scale_fill_manual(values = c("red"="#C9146C", "orange"="#DA9112", "green"="#129188")) +
+ scale_colour_manual(values = c("red"="#C9146C", "orange"="#DA9112", "green"="#129188")) +
+ theme(strip.background = element_blank(),
+       strip.text.x = element_text(size = 13)) +
+ guides(fill="none") +
+ guides(colour="none")
+```
+
+## Presenze {{< fa child-reaching size=normalsize >}}
+
+```{r}
+dd <- quarto::quarto_inspect(fs::dir_ls(".", regex = "qmd$"))$formats$html$metadata$date
+# dd <- "2022-10-20"
+x <- read_tsv(paste0(here::here(), "/data/003_dati/presenze.tsv"))
+
+x %>% 
+    filter(date == lubridate::ymd(dd)) %>%
+    mutate(date = format(date, "%d-%m"),
+           assenti = ifelse(assenti == 1, "X", "")) %>% 
+    select(-date) %>% 
+    gt::gt() %>% 
+    gtExtras::gt_theme_538() 
+```
+
+
+## Classifica Bagnerone {{< fa ranking-star size=normalsize >}}
+
+### Classifica mensile
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+x2 <- read_tsv(paste0(here::here(), "/data/003_dati/classificaRaw.tsv"))
+
+
+x2 %>%
+    select(-Numero) %>% 
+    left_join(x) %>% 
+    mutate(mese = lubridate::month(date)) %>% 
+    filter(mese == 11) %>% 
+    mutate(Punteggio = case_when(vincitori == 1 & assenti == 0 ~ 3,
+                                 vincitori == 0 & assenti == 0 ~ 1,
+                                 TRUE ~ 0)) %>% 
+    group_by(Cognome, Nome) %>% 
+    summarise(Classifica = sum(Punteggio)) %>% 
+    ungroup %>% 
+    arrange(desc(Classifica), Cognome) %>% 
+    gt::gt() %>% 
+    gtExtras::gt_theme_538()
+
+```
+
+
+### Classifica generale
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+x2 <- read_tsv(paste0(here::here(), "/data/003_dati/classificaRaw.tsv"))
+
+
+x2 %>%
+    select(-Numero) %>% 
+    left_join(x) %>% 
+    mutate(Punteggio = case_when(vincitori == 1 & assenti == 0 ~ 3,
+                                 vincitori == 0 & assenti == 0 ~ 1,
+                                 TRUE ~ 0)) %>% 
+    group_by(Cognome, Nome) %>% 
+    summarise(Classifica = sum(Punteggio)) %>% 
+    ungroup %>% 
+    arrange(desc(Classifica), Cognome) %>% 
+    gt::gt() %>% 
+    gtExtras::gt_theme_538()
+
+```
+

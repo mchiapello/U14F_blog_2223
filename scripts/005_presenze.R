@@ -10,8 +10,8 @@ players <- readr::read_table("data/003_dati/players.tsv")
 tail(pres, n = 14)
 
 pres <- add(players,
-    date = "20221028", ### RICORDARSI DI CAMBIARE DATA ##
-    assenti = c(0,40))
+    date = "20221101", ### RICORDARSI DI CAMBIARE DATA ##
+    assenti = c(0,46,40,34))
 
 tail(as.data.frame(pres), n = 24)
 
@@ -46,19 +46,19 @@ pres %>%
 # Presenze mensili
 pres %>% 
     mutate(mese = month(date)) %>% 
-    filter(mese == 10) %>% 
+    filter(mese == 11) %>% 
     group_by(Cognome, Nome) %>% 
     summarise(Assenze = sum(assenti)) %>% 
     ungroup %>% 
     arrange(desc(Assenze), Cognome) %>% 
     gt::gt() %>% 
-    gt::tab_header(title = gt::md("**Ottobre**")) %>% 
+    gt::tab_header(title = gt::md("**Novembre**")) %>% 
     gtExtras::gt_theme_538()  %>% 
-    gt::gtsave("data/000_allenamenti/PresenzeOttobre1.png", expand = 10)
+    gt::gtsave("data/000_allenamenti/PresenzeNovembre1.png", expand = 10)
 
 pres %>% 
     mutate(mese = month(date)) %>% 
-    filter(mese == 10) %>%
+    filter(mese == 11) %>%
     mutate(date = format(date, "%d-%m")) %>%
     select(-Numero) %>% 
     pivot_wider(names_from = date,
@@ -69,7 +69,7 @@ pres %>%
     arrange((Total)) %>% 
     gt::gt() %>% 
     gtExtras::gt_theme_538() %>% 
-    gt::gtsave("data/000_allenamenti/PresenzeOttobre2.png", expand = 10)
+    gt::gtsave("data/000_allenamenti/PresenzeNovembre2.png", expand = 10)
 
 
 
