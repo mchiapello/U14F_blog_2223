@@ -1,7 +1,7 @@
 ---
-title: "Basso Canavese Foglizzo - Lilliput"
+title: "PVL Ceralterra - Basso Canavese Foglizzo"
 author: "Marco Chiapello"
-date: "2022-10-22"
+date: "2022-10-29"
 categories: ["U14F", "2022-2023", "PGS Foglizzese", "Partita"]
 format:
   html:
@@ -13,7 +13,6 @@ execute:
   echo: false
   warning: false
   message: false
-draft: true
 ---
 
 ## Informazioni generali
@@ -26,7 +25,7 @@ library(gtExtras)
 library(patchwork)
 source(paste0(here::here(), "/scripts/999_utils.R"))
 # Read data
-file <- fs::dir_ls(paste0(here::here(), "/data/002_Partite/2022-10-29_Cerealterra"), 
+file <- fs::dir_ls(paste0(here::here(), "/data/002_Partite/2022-10-29_Cerealterra/"), 
                    regexp = "dvw$")
 x <- dv_read(file)
 noi <- teams(x)[1]
@@ -243,17 +242,13 @@ glue::glue(
 ```
 
 
+### Attacco
+
 ```{r}
 #| results: asis
-
-glue::glue("Su un totale di {sum(pointsN$Tot...17) + sum(pointsN$Tot...22)} palle attaccate {sum(pointsN$Tot...22)} sono state freeballs ({round(sum(pointsN$Tot...22)/(sum(pointsN$Tot...17) + sum(pointsN$Tot...22)), 2)*100}%).")
+aN <- vr_attack(x, by = "set", team_select = noi)
+glue::glue("Su un totale di {sum(pointsN$Tot...17) + sum(pointsN$Tot...22)} palle mandate nell'altro campo {sum(pointsN$Tot...17)} sono stati attacchi ({round(sum(pointsN$Tot...17) / (sum(pointsN$Tot...17) + sum(pointsN$Tot...22)) *100,1)}%) e ci hanno permesso di fate {sum(aN$Pts)} punti, quindi ci servono {round(sum(aN$Tot) / sum(aN$Pts), 1)} attacchi per riuscire a fare un punto. Commettiamo un errore ogni {round(sum(aN$Tot) / sum(aN$Err), 1)} attacchi.")
 ```
-
-::::{.grid}
-
-::: {.g-col-6}
-
-### Attacco
 
 
 ```{r}
@@ -281,12 +276,50 @@ t8 %>%
     ")%>% 
     gtExtras::gt_theme_nytimes()
 ```
-:::
 
-::: {.g-col-4}
+```{r}
+#| fig-width: 10
+#| fig-asp: 1
+xattack <- plays(x) %>% 
+    mutate(SET = set_number) %>% 
+    filter(skill == "Attack", 
+           team == noi) %>% 
+    group_by(set_number) %>% 
+    nest
+
+attackP <- function(y){
+    tt <- unique(y$SET)
+    y %>% mutate(evaluation = case_when(evaluation %in% c("Poor, easily dug") ~ "Negativa",
+                                        evaluation %in% c("Positive, good attack",
+                                                          "Blocked for reattack") ~ "Positiva",
+                                        TRUE ~ evaluation)) %>% 
+        ggplot(aes(start_coordinate_x, start_coordinate_y,
+                   xend = end_coordinate_x, yend = end_coordinate_y, colour = evaluation)) +
+        geom_segment(arrow = arrow(length = unit(2, "mm"), type = "closed", angle = 20)) +
+        scale_colour_manual(values = c(`Winning attack` = "green3", 
+                                       Error = "firebrick", 
+                                       Negativa = "bisque",
+                                       Positiva = "aquamarine"),
+                            name = "Evaluation") +
+    ggcourt(labels = c("", "")) +
+        labs(title = paste0("Set ", tt))
+}
+
+xattack <- xattack %>% 
+    mutate(plot = map(data, attackP))
+
+patchwork::wrap_plots(xattack$plot, ncol = 3) +
+    patchwork::plot_layout(guides = 'collect')
+```
 
 ### Freeball
 
+```{r}
+#| results: asis
+
+aF <- vr_freeball(x, by = "set", team_select = noi)
+glue::glue("Su un totale di {sum(pointsN$Tot...17) + sum(pointsN$Tot...22)} palle mandate nell'altro campo {sum(pointsN$Tot...22)} sono state freeballs ({round(sum(pointsN$Tot...22) / (sum(pointsN$Tot...17) + sum(pointsN$Tot...22)) *100,1)}%). Commettiamo un errore ogni {round(sum(aF$Tot) / sum(aF$Err), 1)} freeballs")
+```
 
 ```{r}
 t10 %>% 
@@ -311,8 +344,6 @@ t10 %>%
     gtExtras::gt_theme_nytimes()
 ```
 
-:::
-::::
 
 
 ## Ricezione
@@ -370,6 +401,46 @@ t4 %>%
     ")%>% 
     gtExtras::gt_theme_nytimes()
 ```
+
+```{r}
+#| fig-width: 10
+#| fig-asp: 1
+xserves <- plays(x) %>% 
+    mutate(SET = set_number) %>% 
+    filter(skill == "Serve", 
+           serving_team == noi) %>% 
+    group_by(set_number) %>% 
+    nest
+
+serveP <- function(y){
+    tt <- unique(y$SET)
+    y %>% mutate(evaluation = case_when(evaluation %in% c("Negative, opponent free attack") ~ "Negativa",
+                                        evaluation %in% c("OK, no first tempo possible",
+                                                          "Positive, no attack",
+                                                          "Positive, opponent some attack") ~ "Positiva",
+                                        TRUE ~ evaluation)) %>% 
+        ggplot(aes(start_coordinate_x, start_coordinate_y,
+                   xend = end_coordinate_x, yend = end_coordinate_y, colour = evaluation)) +
+        geom_segment(arrow = arrow(length = unit(2, "mm"), type = "closed", angle = 20)) +
+        scale_colour_manual(values = c(Ace = "green3", 
+                                       Error = "firebrick", 
+                                       Negativa = "bisque",
+                                       Positiva = "aquamarine"),
+                            name = "Evaluation") +
+    ggcourt(labels = c("", "")) +
+        labs(title = paste0("Set ", tt))
+}
+
+xserves <- xserves %>% 
+    mutate(plot = map(data, serveP))
+
+patchwork::wrap_plots(xserves$plot, ncol = 3) +
+    patchwork::plot_layout(guides = 'collect')
+```
+
+
+
+
 
 ## Zona di attacco/battuta
 ::: {.g-col-9}
