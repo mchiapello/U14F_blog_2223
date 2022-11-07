@@ -61,6 +61,7 @@ for(i in 1:nrow(metadata)){
             subject = glue("Partita {metadata$home_team[i]} contro {metadata$away_team[i]}"),
             credentials = creds_key("gmail")
         )
+    message(paste0("Inviata a ", metadata$giocatrice[i]))
     }
 
 # Delete files
