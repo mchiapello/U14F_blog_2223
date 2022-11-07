@@ -8,11 +8,11 @@ source("scripts/999_functions.R")
 class <- readr::read_tsv("data/003_dati/classificaRaw.tsv")
 players <- readr::read_table("data/003_dati/players.tsv")
 
-tail(class, n = 12)
+tail(as.data.frame(class), n = 24)
 
 class <- classifica(players,
-            date = "20221103", ### RICORDARSI DI CAMBIARE DATA ##
-            vincitori = c(9, 0, 48, 30, 36, 28))
+            date = "20221104", ### RICORDARSI DI CAMBIARE DATA ##
+            vincitori = c(9, 30,27,7,34,36))
 
 tail(as.data.frame(class), n = 24)
 

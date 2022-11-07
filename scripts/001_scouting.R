@@ -8,9 +8,9 @@ refx <- ovideo::ov_shiny_court_ref(video_file = video_file, t = 1)
 
 ## enter the team lineups for set 1
 x <- dv_set_lineups(x, set_number = 5, 
-                    lineups = list(c(31,36,30,7,28,46), 
+                    lineups = list(c(40,28,9,36,31,30), 
                                    c(1, 2, 3 , 4, 5, 6)), 
-                    setter_positions = c(3, 1))
+                    setter_positions = c(4, 1))
 
 # Subset the attacks
 x$meta$attacks <- read_csv("data/003_dati/myAttacks.csv")
@@ -20,15 +20,17 @@ ov_scouter(x, video_file = video_file,
            court_ref = refx,
            scouting_options = list(transition_sets = TRUE,
                                    attack_table = read_csv("data/003_dati/myAttacks.csv")),
+           app_styling = list(review_pane_width = 60),
            launch_browser = TRUE)
 
 
 # Update court reference
 refx <- ovideo::ov_shiny_court_ref(video_file = video_file, t = 6000)
 
-ov_scouter("~/Documents/personale/U14F_blog_2223/data/002_Partite/2022-10-29_Cerealterra/PVLcerealterra.ovs",
+ov_scouter("~/Documents/personale/U14F_blog_2223/data/002_Partite/2022-11-05_Balamunt/balamunt.ovs",
            video_file = video_file,
            scouting_options = list(transition_sets = TRUE),
+           app_styling = list(review_pane_width = 50),
            court_ref = refx,
            launch_browser = TRUE)
 
