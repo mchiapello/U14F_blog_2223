@@ -9,21 +9,21 @@ source("scripts/999_functions.R")
 
 ###############################################################################
 # Create match/allenamento
-opp <- "Balamunt"
+opp <- "Samone"
 us <- "PGS Foglizzese"
-date <- "2022-11-05"
+date <- "2022-11-08"
 
 pp <- ma(date = date, 
          opp = opp,
          type = "partita",
-         time = "15:30:00",
+         time = "18:15:00",
          season = "2022-2023",
-         league = "U14F - Girone E",
-         phase = "Campionato",
+         league = "Allenamento",
+         phase = "Amichevole",
          home_away = FALSE,
          day_number = 15,
          match_number = 321,
-         set_won = c(3, 0),
+         set_won = c(4, 1),
          home_away_team  = c("a", "*"),
          won_match = c(FALSE, TRUE))
 
