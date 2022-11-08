@@ -1,6 +1,6 @@
 ---
 title: "Tredicesimo Allenamento"
-author: "Giulia Berardi"
+author: "Giulia Bernardi"
 date: "2022-09-30"
 categories: ["U14F", "2022-2023", "PGS Foglizzese", "Allenamento"]
 ---

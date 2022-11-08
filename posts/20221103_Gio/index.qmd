@@ -1,6 +1,6 @@
 ---
 title: "Ventisettesimo Allenamento"
-author: "Giulia Berardi"
+author: "Giulia Bernardi"
 date: "2022-11-03"
 categories: ["U14F", "2022-2023", "PGS Foglizzese", "Allenamento"]
 execute: 
