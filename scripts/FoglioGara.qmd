@@ -4,6 +4,7 @@ subtitle: "PGS Foglizzese - Parella"
 editor: visual
 format:
   html:
+    mainfont: Verdana
     toc: false
     theme: journal
     page-layout: custom
@@ -32,7 +33,6 @@ loro <- teams(x)[teams(x) != noi]
 px <- plays(x)
 ```
 
-
 # Giocatrici pericolose
 
 ```{r}
@@ -50,12 +50,6 @@ tibble(Numero = c(88),
 
 
 ```
-
-
-
-
-
-
 
 # Attacchi
 
@@ -131,8 +125,6 @@ pall <- magick::image_trim(tmp)
 
 ```
 
-fgs;dlkhfs
-fsd f's
-
+fgs;dlkhfs fsd f's
 
 # fjs;ldjf

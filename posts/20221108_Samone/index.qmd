@@ -1,7 +1,7 @@
 ---
-title: "Balamunt - Basso Canavese Foglizzo"
+title: "Amichevole BCV Foglizzo - Samone"
 author: "Marco Chiapello"
-date: "2022-11-05"
+date: "2022-11-08"
 categories: ["U14F", "2022-2023", "PGS Foglizzese", "Partita"]
 format:
   html:
@@ -13,6 +13,7 @@ execute:
   echo: false
   warning: false
   message: false
+draft: true
 ---
 
 ## Informazioni generali
