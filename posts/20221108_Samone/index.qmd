@@ -13,7 +13,6 @@ execute:
   echo: false
   warning: false
   message: false
-draft: true
 ---
 
 ## Informazioni generali
@@ -26,7 +25,7 @@ library(gtExtras)
 library(patchwork)
 source(paste0(here::here(), "/scripts/999_utils.R"))
 # Read data
-file <- fs::dir_ls(paste0(here::here(), "/data/002_Partite/2022-11-05_Balamunt/"), 
+file <- fs::dir_ls(paste0(here::here(), "/data/002_Partite/2022-11-08_Samone"), 
                    regexp = "dvw$")
 x <- dv_read(file)
 noi <- teams(x)[1]
@@ -564,11 +563,11 @@ suppressPackageStartupMessages(library(tidyverse))
 
 df <- tribble(
     ~variable, ~percentage,
-    "Gioco di squadra", 0.5,
-    "Contenimento degli errori", 0.3,
-    "Abilità degli avversari", 0.9,
-    "Soddisfazione\ndegli allenatori", 0.5,
-    "Voto", 0.5)
+    "Gioco di squadra", 0.8,
+    "Contenimento degli errori", 0.5,
+    "Abilità degli avversari", 0.3,
+    "Soddisfazione\ndegli allenatori", 0.7,
+    "Voto", 0.6)
     
 
 df <- df %>% 
@@ -593,6 +592,10 @@ ggplot(df, aes(fill = group, ymax = percentage, ymin = 0, xmax = 2, xmin = 1)) +
  guides(colour="none")
 ```
 
+Avremmo potuto  fare molto meglio, ci siamo abbassati al loro gioco invece di riuscire ad imporre il nostro!    
+Comunque molto soddisfatti della vittoria **schiacciante**.
+
+
 ## Scout
 
 1. [Semplificato](semplificato.pdf)
@@ -601,8 +604,7 @@ ggplot(df, aes(fill = group, ymax = percentage, ymin = 0, xmax = 2, xmin = 1)) +
 
 ## Video della Partita {{< fa video size=normalsize >}}
 
-1. [Partita](https://youtu.be/hNXqbeEJ9rg)
+1. [Partita](https://youtu.be/739D-587_q0)
 
-## Foto della partita {{< fa camera size=normalsize >}}
+{{< video https://www.youtube.com/embed/739D-587_q0 >}}
 
-1. ![](image.jpeg)

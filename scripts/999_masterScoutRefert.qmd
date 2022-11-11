@@ -28,11 +28,8 @@ noi <- teams(x)[1]
 loro <- teams(x)[teams(x) != noi]
 ```
 
-
-:::{.grid}
-
-::: {.g-col-3}
-
+::: grid
+::: g-col-3
 ```{r}
 x$meta$teams %>%
     select(team, sets_won) %>% 
@@ -62,10 +59,9 @@ x$meta$teams %>%
     gtExtras::gt_theme_nytimes()
     
 ```
-
 :::
 
-::: {.g-col-3}
+::: g-col-3
 ```{r}
 data <- as.character(x$meta$match$date)
 stag <- x$meta$match$season
@@ -96,10 +92,9 @@ meta1 %>%
     ")%>% 
     gtExtras::gt_theme_nytimes()
 ```
-
 :::
 
-::: {.g-col-6}
+::: g-col-6
 ```{r}
 timeAP <- plays(x) %>%
   dplyr::filter(!is.na(skill) & !skill %in% c("Timeout", "Technical timeout") & !is.na(video_time)) %>%
@@ -161,14 +156,11 @@ x$meta$result %>%
     ")%>% 
     gtExtras::gt_theme_nytimes()
 ```
-
+:::
 :::
 
-:::
-
-
-:::{.grid}
-:::{.g-col-12}
+::: grid
+::: g-col-12
 ```{r}
 #| fig-width: 100
 #| fig-asp: 0.1
@@ -212,12 +204,11 @@ font_size <- 20
 
 
 ```
-
 :::
 :::
 
-:::{.grid}
-:::{.g-col-12}
+::: grid
+::: g-col-12
 ```{r}
 # Summary
 ## NOI
@@ -315,14 +306,11 @@ vr_points(x, by = "set", team_select = noi) %>%
     }
     ")
 ```
-
 :::
 :::
 
-
-:::{.grid}
-
-::: {.g-col-3}
+::: grid
+::: g-col-3
 ```{r}
 vr_content_team_each <- function(x, which_team = noi) {
     if(which_team == noi){
@@ -404,7 +392,7 @@ loro1 %>%
 ```
 :::
 
-::: {.g-col-9}
+::: g-col-9
 ```{r}
 #| fig-asp: .5
 #| fig-width: 30
@@ -517,8 +505,8 @@ p1 + p2 + p3 +
 :::
 :::
 
-:::{.grid}
-:::{.g-col-12}
+::: grid
+::: g-col-12
 ```{r}
 t1 <- x$meta$players_h %>% 
     select(number, name, starting_position_set1:starting_position_set5) %>% 
@@ -640,6 +628,5 @@ t1 %>%
     }
     ") 
 ```
-
 :::
 :::
