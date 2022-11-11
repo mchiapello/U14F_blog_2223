@@ -29,7 +29,7 @@ refx <- ovideo::ov_shiny_court_ref(video_file = video_file, t = 6000)
 
 "~/Library/Application Support/ovscout2/autosave/ovscout2-14f9f59c0bbaa.ovs"
 
-ov_scouter("~/Documents/personale/U14F_blog_2223/data/002_Partite/2022-11-08_Samone/samone.ovs",
+ov_scouter("~/Library/Application Support/ovscout2/autosave/ovscout2-a661baa64a7.ovs",
            video_file = video_file,
            scouting_options = list(transition_sets = TRUE),
            app_styling = list(review_pane_width = 50),
