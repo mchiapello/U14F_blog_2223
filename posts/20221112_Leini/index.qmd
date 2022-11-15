@@ -1,7 +1,7 @@
 ---
 title: "Basso Canavese Foglizzo - Leini"
 author: "Marco Chiapello"
-date: "2022-11-05"
+date: "2022-11-12"
 categories: ["U14F", "2022-2023", "PGS Foglizzese", "Partita"]
 format:
   html:
