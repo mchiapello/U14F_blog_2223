@@ -11,8 +11,8 @@ players <- readr::read_table("data/003_dati/players.tsv")
 tail(as.data.frame(class), n = 24)
 
 class <- classifica(players,
-            date = "20221104", ### RICORDARSI DI CAMBIARE DATA ##
-            vincitori = c(9, 30,27,7,34,36))
+            date = "20221101", ### RICORDARSI DI CAMBIARE DATA ##
+            vincitori = c(9, 40,31,27))
 
 tail(as.data.frame(class), n = 24)
 

@@ -1,10 +1,10 @@
 dvw <- dir_ls(out, regexp = "dvw$")
 x <- dv_read(dvw)
-dv_meta_video(x) <- "https://youtu.be/hNXqbeEJ9rg"
+dv_meta_video(x) <- "https://youtu.be/Ca0uDdWOALg"
 
 dv_write(x, dvw)
 # Remove local mp4 file
-file_delete(dir_ls(out, regexp = "mov$"))
+file_delete(dir_ls(out, regexp = "mp4$"))
 out2 <- out
 
 ## extract the plays

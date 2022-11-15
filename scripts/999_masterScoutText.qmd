@@ -1,5 +1,5 @@
 ---
-title: "Basso Canavese Foglizzo - Lilliput"
+title: "Basso Canavese Foglizzo - Leinì"
 format:
   html:
     toc: false
@@ -22,7 +22,7 @@ library(gtExtras)
 library(patchwork)
 source(paste0(here::here(), "/scripts/999_utils.R"))
 # Read data
-file <- fs::dir_ls(paste0(here::here(), "/data/002_Partite/2022-10-22_Lilliput"), 
+file <- fs::dir_ls(paste0(here::here(), "/data/002_Partite/2022-11-12_Leini/"), 
                    regexp = "dvw$")
 x <- dv_read(file)
 noi <- teams(x)[1]

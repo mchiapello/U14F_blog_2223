@@ -9,22 +9,22 @@ source("scripts/999_functions.R")
 
 ###############################################################################
 # Create match/allenamento
-opp <- "Samone"
+opp <- "Leini"
 us <- "PGS Foglizzese"
-date <- "2022-11-08"
+date <- "2022-11-12"
 
 pp <- ma(date = date, 
          opp = opp,
          type = "partita",
-         time = "18:15:00",
+         time = "15:30:00",
          season = "2022-2023",
-         league = "Allenamento",
-         phase = "Amichevole",
+         league = "U14F - Girone E",
+         phase = "Andata",
          home_away = FALSE,
          day_number = 15,
-         match_number = 321,
-         set_won = c(4, 1),
-         home_away_team  = c("a", "*"),
+         match_number = 334,
+         set_won = c(0, 3),
+         home_away_team  = c("*", "a"),
          won_match = c(FALSE, TRUE))
 
 # Create variables

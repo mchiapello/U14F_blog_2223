@@ -8,7 +8,7 @@ refx <- ovideo::ov_shiny_court_ref(video_file = video_file, t = 1)
 
 ## enter the team lineups for set 1
 x <- dv_set_lineups(x, set_number = 5, 
-                    lineups = list(c(28,9,36,31,48,40), 
+                    lineups = list(c(31,48,40,28,9,36), 
                                    c(1, 2, 3 , 4, 5, 6)), 
                     setter_positions = c(3, 1))
 
@@ -29,7 +29,7 @@ refx <- ovideo::ov_shiny_court_ref(video_file = video_file, t = 6000)
 
 "~/Library/Application Support/ovscout2/autosave/ovscout2-14f9f59c0bbaa.ovs"
 
-ov_scouter("~/Library/Application Support/ovscout2/autosave/ovscout2-a661baa64a7.ovs",
+ov_scouter("~/Documents/personale/U14F_blog_2223/data/002_Partite/2022-11-12_Leini/leini.ovs",
            video_file = video_file,
            scouting_options = list(transition_sets = TRUE),
            app_styling = list(review_pane_width = 50),
