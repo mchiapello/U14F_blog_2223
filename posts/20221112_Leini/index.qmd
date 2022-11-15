@@ -563,11 +563,11 @@ suppressPackageStartupMessages(library(tidyverse))
 
 df <- tribble(
     ~variable, ~percentage,
-    "Gioco di squadra", 0.5,
+    "Gioco di squadra", 0.7,
     "Contenimento degli errori", 0.3,
-    "Abilità degli avversari", 0.9,
-    "Soddisfazione\ndegli allenatori", 0.5,
-    "Voto", 0.5)
+    "Abilità degli avversari", 0.8,
+    "Soddisfazione\ndegli allenatori", 0.8,
+    "Voto", 0.8)
     
 
 df <- df %>% 
@@ -600,9 +600,9 @@ ggplot(df, aes(fill = group, ymax = percentage, ymin = 0, xmax = 2, xmin = 1)) +
 
 ## Video della Partita {{< fa video size=normalsize >}}
 
-1. [Partita](https://youtu.be/hNXqbeEJ9rg)
+1. [Partita](https://youtu.be/Ca0uDdWOALg)
 
-{{< video https://www.youtube.com/embed/hNXqbeEJ9rg >}}
+{{< video https://www.youtube.com/embed/Ca0uDdWOALg >}}
 
 ## Foto della partita {{< fa camera size=normalsize >}}
 
