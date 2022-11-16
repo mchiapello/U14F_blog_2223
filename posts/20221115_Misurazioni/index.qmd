@@ -1,7 +1,7 @@
 ---
 title: "Misurazioni Novembre"
 author: "Marco Chiapello"
-date: "2022-11-16"
+date: "2022-11-15"
 categories: ["U14F", "2022-2023", "PGS Foglizzese", "Misurazioni"]
 execute: 
   echo: false
