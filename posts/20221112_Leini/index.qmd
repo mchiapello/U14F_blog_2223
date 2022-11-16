@@ -602,7 +602,6 @@ ggplot(df, aes(fill = group, ymax = percentage, ymin = 0, xmax = 2, xmin = 1)) +
 
 1. [Partita](https://youtu.be/Ca0uDdWOALg)
 
-{{< video https://www.youtube.com/embed/Ca0uDdWOALg >}}
 
 ## Foto della partita {{< fa camera size=normalsize >}}
 
