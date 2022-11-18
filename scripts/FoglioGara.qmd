@@ -33,20 +33,14 @@ px <- plays(x)
 
 # Giocatrici pericolose
 
-+-------------+--------------------------------------------------------------------------------------+--------------------------------------------------------------------------+
-| Giocatrice  | Attacco                                                                              | Battuta                                                                  |
-+=============+:=====================================================================================+==========================================================================+
-| Peppa Pig\  | -   fjsdhfos ;sf dfhsdhg os gsdigh sidg shgishg sg sghpsd gpsdgupsdu gpsgu sdgsdgish | -   f iowef                                                              |
-| Numero: 88  | -   sfioy iewo f                                                                     | -   f owehfoaw;                                                          |
-|             | -   fweif ow;f                                                                       |                                                                          |
-+-------------+--------------------------------------------------------------------------------------+--------------------------------------------------------------------------+
-| Pimpa\      | -   fjdsdkhf a                                                                       | -   ihfw fwufp                                                           |
-| Numero: 21  |                                                                                      | -   fuepowfpowa fpwa                                                     |
-|             |                                                                                      | -   fwepfhwehfewhfiwheifhw f fihwfhwoeifhpwe fpwefowehfoiw hofwpe fpwe f |
-+-------------+--------------------------------------------------------------------------------------+--------------------------------------------------------------------------+
-| Biancaneve\ | -   fihsfia faf                                                                      | -   fweifhw f                                                            |
-| Numero: 50  |     -   afaffhopwhfwe                                                                |                                                                          |
-+-------------+--------------------------------------------------------------------------------------+--------------------------------------------------------------------------+
++------------+---------------------------------------------------------------------+------------------------------------+
+| Giocatrice | Attacco                                                             | Battuta                            |
++============+:====================================================================+====================================+
+| Beatrice\  | -   Mancina                                                         | -   Dall'alto                      |
+| Numero: 7  | -   Da prima linea chiude molto soprattutto con palla vicina a rete | -   Non particolarmente pericolosa |
+|            | -   Da seconda linea la palla è sempre molto lunga                  |                                    |
+|            | -   Attacca prevelentemente in diagonale, ma anche in lungo linea   |                                    |
++------------+---------------------------------------------------------------------+------------------------------------+
 
 # Difesa
 
@@ -130,9 +124,9 @@ pall
 ::: {.g-col-4 .pippo}
 #### Indicazioni
 
--   djfl;s jfl;sfs
--   fjs d;lfjsl; dfl;sd
--   fsd fsdofop weo jfowe jfhwe aofih efh nioawefaw nfhwae o fnweoaf hioawef aweugfow'a h
+-   Attaccano tutte e da tutte le posizioni (anche P1 con la numero 7 e da P6 con l'ala di seconda linea)
+-   Attaccano tutte (tranne la 7) sulla direzione della rincorsa, quindi piazzare muro li
+-   **Se la 7 è in prima linea, facciamo muro ad opzione su di lei**
 :::
 :::
 
@@ -171,16 +165,21 @@ tmp <- magick::image_read("test2.jpeg")
 fs::file_delete("test2.jpeg")
 magick::image_trim(tmp)
 
-
+    
 ```
 :::
 
-::: {.g-col-8 .pippo}
+::: {.g-col-8 .pippo .odd}
 #### Indicazioni
 
--   djfl;s jfl;sfs
--   fjs d;lfjsl; dfl;sd
--   fsd fsdofop weo jfowe jfhwe aofih efh nioawefaw nfhwae o fnweoaf hioawef aweugfow'a h
+-   Durante la partita di andata battevano un po da sopra e un po da sotto
+-   Nessuna aveva una battuta insidiosa
+-   Su 60 battute:
+    -   4 sono stati Ace
+
+    -   13 sono stati errori
+
+    -   2 non ci hanno permesso di attaccare
 :::
 :::
 
@@ -188,22 +187,38 @@ magick::image_trim(tmp)
 ::: g-col-6
 # Battuta {style=".pluto"}
 
-+----------------+---------------------+-------------+
-| Su chi battere | In che zona battere | Chi evitare |
-+================+=====================+=============+
-| -   88 -90     | -   P6 - P1         | -   24      |
-+----------------+---------------------+-------------+
++----------------+---------------------+---------------+
+| Su chi battere | In che zona battere | Chi evitare   |
++================+=====================+===============+
+| -   34 (L)     | -   P1 - P2         | -   6         |
++----------------+---------------------+---------------+
+
+-   Ricevono molto corte, quasi sui 3 metri, quindi battere **lungo**
+
+-   Giocano in penetrazione, quindi cerchiamo la parte sinistra (P1-P2) del loro campo
 :::
 
 ::: g-col-6
 # Attacco
 
-+------------------+-----------------------+-------------+
-| Su chi attaccare | In che zona attaccare | Chi evitare |
-+==================+=======================+=============+
-| -   23 - 45      | -   P8                | -   24      |
-+------------------+-----------------------+-------------+
++------------------+-----------------------+---------------+
+| Su chi attaccare | In che zona attaccare | Chi evitare   |
++==================+=======================+===============+
+| -   23 - 45      | -   P8                | -   24        |
++------------------+-----------------------+---------------+
+
+-   Difendono molto corte, quindi **attacchiamo lungo**.
+
+-   Stesso discorso vale per le **FB**, devono essere **negli ultimi 2 m di campo verso P1/P6**
 :::
 :::
 
+::: pippo2
 # Condiderazioni generali
+
+-   Giocano in penetrazione quindi FB sempre sul palleggiatore
+
+-   Il nostro palleggiatore di prima linea dovrebbe chiamare sempre la posizione del palleggiatore del Parella dicendo: "Prima linea" o "seconda linea" in modo che tutti sappiano dove mandare la palla
+
+-   Andiamo a divertirci e vincere la partita, che ce lo meritiamo!!
+:::

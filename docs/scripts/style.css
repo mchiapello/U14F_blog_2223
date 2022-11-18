@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
 p {
+  margin: 0px !important;
   font-size: 10px;
   font-family: 'Roboto', sans-serif;
 }
@@ -44,7 +45,7 @@ h1 .ch {
 table, .table {
   caption-side: top;
   margin-bottom: .5rem;
-  font-size: 8px;
+  font-size: 10px;
 }
 
 .odd ul, .even ul {
@@ -54,11 +55,21 @@ table, .table {
     padding-left: 5px !important;
 }
 
+.odd ul li ul, .even ul li ul {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    padding-right: 0px !important;
+    padding-left: 5px !important;
+}
+
+#indicazioni-1 h4 {
+    margin-top: 0px;
+}
 
 .pippo ul {
     padding: 0px !important;
     font-family: 'Roboto', sans-serif;
-    font-size: 8px;
+    font-size: 10px;
 }
 
 .table>:not(caption)>*>* {
@@ -70,4 +81,13 @@ table, .table {
 
 .pluto tr {
     padding-left: 1px;
+}
+
+.pippo2 ul {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    padding-right: 0px !important;
+    padding-left: 10px !important;
+    font-family: 'Roboto', sans-serif;
+    font-size: 10px;
 }
