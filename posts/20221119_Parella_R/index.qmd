@@ -1,5 +1,5 @@
 ---
-title: "Basso Canavese Foglizzo - Leini"
+title: "Basso Canavese Foglizzo - Volley Parella"
 author: "Marco Chiapello"
 date: "2022-11-12"
 categories: ["U14F", "2022-2023", "PGS Foglizzese", "Partita"]
@@ -26,7 +26,7 @@ library(gtExtras)
 library(patchwork)
 source(paste0(here::here(), "/scripts/999_utils.R"))
 # Read data
-file <- fs::dir_ls(paste0(here::here(), "/data/002_Partite/2022-11-19_Parella/"), 
+file <- fs::dir_ls(paste0(here::here(), "/data/002_Partite/2022-11-12_Leini/"), 
                    regexp = "dvw$")
 x <- dv_read(file)
 noi <- teams(x)[1]

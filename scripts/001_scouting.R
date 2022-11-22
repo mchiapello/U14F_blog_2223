@@ -5,10 +5,11 @@ x <- dv_create(teams = teams, match = match,
                players_v = readRDS("data/003_dati/players_avv"))
 ## Court ref
 refx <- ovideo::ov_shiny_court_ref(video_file = video_file, t = 1)
+saveRDS(refx, "data/003_dati/mrefx.RDS")
 
 ## enter the team lineups for set 1
 x <- dv_set_lineups(x, set_number = 5, 
-                    lineups = list(c(31,48,40,28,9,36), 
+                    lineups = list(c(28,48,36,31,9,40), 
                                    c(1, 2, 3 , 4, 5, 6)), 
                     setter_positions = c(3, 1))
 
