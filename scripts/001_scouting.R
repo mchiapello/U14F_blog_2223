@@ -18,7 +18,7 @@ x$meta$attacks <- read_csv("data/003_dati/myAttacks.csv")
 
 # Do the scouting
 ov_scouter(x, video_file = video_file,
-           court_ref = refx,
+           court_ref = readRDS("data/003_dati/mrefx.RDS"),
            scouting_options = list(transition_sets = TRUE,
                                    attack_table = read_csv("data/003_dati/myAttacks.csv")),
            app_styling = list(review_pane_width = 50),
@@ -28,13 +28,11 @@ ov_scouter(x, video_file = video_file,
 # Update court reference
 refx <- ovideo::ov_shiny_court_ref(video_file = video_file, t = 6000)
 
-"~/Library/Application Support/ovscout2/autosave/ovscout2-14f9f59c0bbaa.ovs"
-
-ov_scouter("~/Documents/personale/U14F_blog_2223/data/002_Partite/2022-11-12_Leini/leini.ovs",
-           video_file = video_file,
+ov_scouter("~/Documents/personale/U14F_blog_2223/data/002_Partite/2022-11-19_Parella/parella.ovs",
+           # video_file = video_file,
            scouting_options = list(transition_sets = TRUE),
            app_styling = list(review_pane_width = 50),
-           launch_browser = FALSE)
+           launch_browser = TRUE)
 
 # Update court reference
 refx <- ovideo::ov_shiny_court_ref(video_file = video_file, t = 2800)

@@ -12,7 +12,7 @@ tail(as.data.frame(class), n = 24)
 
 class <- classifica(players,
             date = "20221118", ### RICORDARSI DI CAMBIARE DATA ##
-            vincitori = c(27,31,30,7,36))
+            vincitori = c(31))
 
 tail(as.data.frame(class), n = 24)
 
