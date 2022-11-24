@@ -28,7 +28,7 @@ ov_scouter(x, video_file = video_file,
 # Update court reference
 refx <- ovideo::ov_shiny_court_ref(video_file = video_file, t = 6000)
 
-ov_scouter("~/Documents/personale/U14F_blog_2223/data/002_Partite/2022-11-19_Parella/parella.ovs",
+ov_scouter("data/002_Partite/2022-11-19_Parella/parella.ovs",
            # video_file = video_file,
            scouting_options = list(transition_sets = TRUE),
            app_styling = list(review_pane_width = 50),

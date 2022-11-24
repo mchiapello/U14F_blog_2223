@@ -1,7 +1,7 @@
 ---
 title: "Basso Canavese Foglizzo - Volley Parella"
 author: "Marco Chiapello"
-date: "2022-11-12"
+date: "2022-11-19"
 categories: ["U14F", "2022-2023", "PGS Foglizzese", "Partita"]
 format:
   html:
@@ -13,7 +13,6 @@ execute:
   echo: false
   warning: false
   message: false
-draft: true
 ---
 
 ## Informazioni generali
@@ -26,7 +25,7 @@ library(gtExtras)
 library(patchwork)
 source(paste0(here::here(), "/scripts/999_utils.R"))
 # Read data
-file <- fs::dir_ls(paste0(here::here(), "/data/002_Partite/2022-11-12_Leini/"), 
+file <- fs::dir_ls(paste0(here::here(), "/data/002_Partite/2022-11-19_Parella/"), 
                    regexp = "dvw$")
 x <- dv_read(file)
 noi <- teams(x)[1]
@@ -564,10 +563,10 @@ suppressPackageStartupMessages(library(tidyverse))
 
 df <- tribble(
     ~variable, ~percentage,
-    "Gioco di squadra", 0.7,
-    "Contenimento degli errori", 0.3,
-    "Abilità degli avversari", 0.8,
-    "Soddisfazione\ndegli allenatori", 0.8,
+    "Gioco di squadra", 0.8,
+    "Contenimento degli errori", 0.7,
+    "Abilità degli avversari", 0.7,
+    "Soddisfazione\ndegli allenatori", 0.9,
     "Voto", 0.8)
     
 
@@ -601,7 +600,7 @@ ggplot(df, aes(fill = group, ymax = percentage, ymin = 0, xmax = 2, xmin = 1)) +
 
 ## Video della Partita {{< fa video size=normalsize >}}
 
-1. [Partita](https://youtu.be/Ca0uDdWOALg)
+{{< video https://www.youtube.com/embed/B3qO3ZaGLD8  >}}
 
 
 ## Foto della partita {{< fa camera size=normalsize >}}
