@@ -33,12 +33,16 @@ px <- plays(x)
 
 # Giocatrici pericolose
 
-+-------------+-------------------------------------------+------------------------------------+
-| Giocatrice  | Attacco                                   | Battuta                            |
-+=============+:==========================================+====================================+
-| Victoria\   | -   Attacca forte con palla vicina a rete | -   Dall'alto                      |
-| Numero: 18  | -   Attacca prevelentemente in diagonale  | -   Non particolarmente pericolosa |
-+-------------+-------------------------------------------+------------------------------------+
++--------------+----------------------------------------------+------------------------------------+
+| Giocatrice   | Attacco                                      | Battuta                            |
++==============+:=============================================+====================================+
+| Victoria\    | -   Attacca forte con palla vicina a rete    | -   Dall'alto                      |
+| Numero: 18   | -   Attacca prevelentemente in diagonale     | -   Non particolarmente pericolosa |
++--------------+----------------------------------------------+------------------------------------+
+| Martina\     | -   Attacca bene, ma solo con palla perfetta | -   Battete da sotto               |
+| Numero: 6    |                                              |                                    |
+|              | -   Quasi sempre in diaginale                | -   Abbastanza tesa e a filo rete  |
++--------------+----------------------------------------------+------------------------------------+
 
 # Difesa
 
@@ -122,9 +126,10 @@ pall
 ::: {.g-col-4 .pippo}
 #### Indicazioni
 
--   Attaccano tutte e da tutte le posizioni (anche P1 con la numero 7 e da P6 con l'ala di seconda linea)
--   Attaccano tutte (tranne la 7) sulla direzione della rincorsa, quindi piazzare muro li
--   **Se la 7 è in prima linea, facciamo muro ad opzione su di lei**
+-   Attaccano solo da P2/P4.
+-   Hanno i palleggiatore al centro (5 e 10)
+-   **Attaccano solo se la palla è bella**, quindi occhio ai palleggi corti
+-   **Difendiamo corte!** Come vedete dalle zone di arrivo sui campi la maggior parte dei palloni è nei 6 m
 :::
 :::
 
@@ -164,20 +169,25 @@ fs::file_delete("test2.jpeg")
 magick::image_trim(tmp)
 
     
+tmp <- px %>%
+    dplyr::filter(skill == "Serve",
+                  team != "PGS Foglizzese") %>%
+    count(evaluation)
+    
 ```
 :::
 
 ::: {.g-col-8 .pippo .odd}
 #### Indicazioni
 
--   Durante la partita di andata battevano un po da sopra e un po da sotto
--   Nessuna aveva una battuta insidiosa
--   Su 60 battute:
-    -   4 sono stati Ace
+-   Durante la partita di andata **battevano da sotto**
+-   **Nessuna aveva una battuta insidiosa**
+-   Su `r sum(tmp$n)` battute:
+    -   `r tmp |> filter(evaluation == "Ace") |> pull(n)` sono stati Ace
 
-    -   13 sono stati errori
+    -   `r tmp |> filter(evaluation == "Error") |> pull(n)` sono stati errori
 
-    -   2 non ci hanno permesso di attaccare
+    -   `r tmp |> filter(evaluation == "Positive, no attack") |> pull(n)` non ci hanno permesso di attaccare
 :::
 :::
 
@@ -185,38 +195,43 @@ magick::image_trim(tmp)
 ::: g-col-6
 # Battuta {style=".pluto"}
 
-+----------------+-----------------------------------------+---------------+
-| Su chi battere | In che zona battere                     | Chi evitare   |
-+================+=========================================+===============+
-| -   34 (L)     | -   Quando palleggio in P4, batto in P4 | -   6         |
-+----------------+-----------------------------------------+---------------+
++----------------+-------------------------------------+---------------+
+| Su chi battere | In che zona battere                 | Chi evitare   |
++================+=====================================+===============+
+| -   5-10       | -   Dove preferite                  | -   6         |
++----------------+-------------------------------------+---------------+
 
--   Ricevono molto corte, quasi sui 3 metri, quindi battere **lungo**
+-   A volte hanno una posizione di ricezione strana
 
--   Giocano in penetrazione, quindi cerchiamo la parte sinistra (P1-P2) del loro campo
+-   Guardate dall'altra parte e decidete dove mettere la palla
 :::
 
 ::: g-col-6
 # Attacco
 
-+------------------+-----------------------+----------------+
-| Su chi attaccare | In che zona attaccare | Chi evitare    |
-+==================+=======================+================+
-| -   23 - 45      | -   P8                | -   24         |
-+------------------+-----------------------+----------------+
++------------------+-----------------------+----------------------------+
+| Su chi attaccare | In che zona attaccare | Chi evitare                |
++==================+=======================+============================+
+| -   Chi volete   | -   P3 - pallonetto   | -   Nessuna in particolare |
+|                  | -   P1/P5 profondo    |                            |
++------------------+-----------------------+----------------------------+
 
--   Difendono molto corte, quindi **attacchiamo lungo**.
+-   Il palleggiatore di prima linea si sposta a coprire dietro il muro **lasciando scoperto P3**.
 
--   Stesso discorso vale per le **FB**, devono essere **negli ultimi 2 m di campo verso P1/P6**
+-   Dobbiamo attaccare tutte le palle possibili, facciamo ancora troppe FB
+
+-   Se non è possibile attaccare le FB devo lunghe e **NON** al centro del campo
 :::
 :::
 
 ::: pippo2
 # Condiderazioni generali
 
--   Palleggiano dal centro (palleggiatrice: Giorgia, numero 5)
+-   Palleggiano dal centro (palleggiatrice: Giorgia, numero 5 e Giorgia, numero 10)
 
--   Attaccano tutte, ma solo con palla precisa, appena la palla si allontana un po da rete fanno FB
+-   **Attaccano** tutte, ma **solo con palla precisa**, appena la palla si allontana un po da rete fanno FB
 
--   Trattengono molto il palleggio!!
+-   **Trattengono molto il palleggio!!**
+
+-   **Giocheremo con i centrali** quindi aspettiamoci una partita complicata
 :::

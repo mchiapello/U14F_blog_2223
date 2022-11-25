@@ -1,7 +1,7 @@
 ---
-title: "Trentesimo Allenamento"
+title: "Trentaseiesimo Allenamento"
 author: "Giulia Bernardi"
-date: "2022-11-17"
+date: "2022-11-24"
 categories: ["U14F", "2022-2023", "PGS Foglizzese", "Allenamento"]
 execute: 
   echo: false
@@ -12,7 +12,9 @@ execute:
 
 ## Obiettivi dell'allenamento  {{< fa bullseye size=normalsize >}}
 
-1. Attacco     
+1. Battuta
+1. Ricezione
+1. Fase gioco con centrali
 
 ## Valutazioni generali {{< fa gauge-simple-high size=normalsize >}}
 
