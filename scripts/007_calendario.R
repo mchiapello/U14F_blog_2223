@@ -3,7 +3,9 @@ library(rvest)
 library(gt)
 library(gtExtras)
 
-films <- content %>% ## Manca content e non so più 
+content <- read_html("https://fipavonline.it/main/gare_girone/40670/1")
+
+films <- content %>% 
     html_elements(".gara-big-wrap , h3, .h3-wrap") %>% 
     html_text2()
 
@@ -22,6 +24,7 @@ df <- tibble(a = films) %>%
 # Nostre partite
 df %>% 
     filter(`Home Team` == "Basso Canavese Foglizzo" | `Away Team` == "Basso Canavese Foglizzo") %>% 
+    # slice(7:10) |> 
     gt() %>% 
     gt::tab_header(title = gt::md("**Calendario**")) %>% 
     gtExtras::gt_theme_538()  %>% 
