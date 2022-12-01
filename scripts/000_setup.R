@@ -9,9 +9,9 @@ source("scripts/999_functions.R")
 
 ###############################################################################
 # Create match/allenamento
-opp <- "Parella"
+opp <- "PVL Ceralterra"
 us <- "PGS Foglizzese"
-date <- "2022-11-19"
+date <- "2022-12-03"
 
 pp <- ma(date = date, 
          opp = opp,
