@@ -23,40 +23,44 @@ source(paste0(here::here(), "/scripts/999_functions.R"))
 ```{r presenze}
 pres <- readr::read_tsv(paste0(here::here(), "/data/003_dati/presenze.tsv"), show_col_types = FALSE)
 players <- readr::read_table(paste0(here::here(), "/data/003_dati/players.tsv"), show_col_types = FALSE)
-pres <- add(players,
+
+if(!lubridate::ymd(quarto::quarto_inspect(fs::dir_ls(".", regex = "qmd$"))$formats$html$metadata$date) %in% pres$date){
+    pres <- add(players,
     date = str_remove_all(quarto::quarto_inspect(fs::dir_ls(".", regex = "qmd$"))$formats$html$metadata$date,
                           "-"),
     assenti = c(0, 42, 40, 34, 48))
-
-fs::file_copy(paste0(here::here(), "/data/003_dati/presenze.tsv"),
+    
+    fs::file_copy(paste0(here::here(), "/data/003_dati/presenze.tsv"),
               paste0(here::here(), "/data/003_dati/presenze_old.tsv"),
               overwrite = TRUE)
+    
+    write_tsv(pres, paste0(here::here(), "/data/003_dati/presenze.tsv"))
 
-write_tsv(pres, paste0(here::here(), "/data/003_dati/presenze.tsv"))
-
-# # If a mistake is made before commit
-# system("git restore data/003_dati/presenze.tsv")
-# system("git restore data/003_dati/presenze_old.tsv")
+    # # If a mistake is made before commit
+    # system("git restore data/003_dati/presenze.tsv")
+    # system("git restore data/003_dati/presenze_old.tsv")
+}
 ```
 
 ```{r bagherone}
 class <- readr::read_tsv(paste0(here::here(), "/data/003_dati/classificaRaw.tsv"), show_col_types = FALSE)
 players <- readr::read_table(paste0(here::here(), "/data/003_dati/players.tsv"), show_col_types = FALSE)
 
-class <- classifica(players,
+if(!lubridate::ymd(quarto::quarto_inspect(fs::dir_ls(".", regex = "qmd$"))$formats$html$metadata$date) %in% class$date){
+    class <- classifica(players,
             date = str_remove_all(quarto::quarto_inspect(fs::dir_ls(".", regex = "qmd$"))$formats$html$metadata$date,
                           "-"),
             vincitori = c(31,30,36,27))
 
-fs::file_copy(paste0(here::here(), "/data/003_dati/classificaRaw.tsv"),
-              paste0(here::here(), "/data/003_dati/classificaRaw_old.tsv"),
-              overwrite = TRUE)
-write_tsv(class, paste0(here::here(), "/data/003_dati/classificaRaw.tsv"))
-
-# # If a mistake is made before commit
-# system("git restore data/003_dati/classificaRaw.tsv")
-# system("git restore data/003_dati/classificaRaw_old.tsv")
-
+    fs::file_copy(paste0(here::here(), "/data/003_dati/classificaRaw.tsv"),
+                  paste0(here::here(), "/data/003_dati/classificaRaw_old.tsv"),
+                  overwrite = TRUE)
+    write_tsv(class, paste0(here::here(), "/data/003_dati/classificaRaw.tsv"))
+    
+    # # If a mistake is made before commit
+    # system("git restore data/003_dati/classificaRaw.tsv")
+    # system("git restore data/003_dati/classificaRaw_old.tsv")
+}
 ```
 
 ## Obiettivi dell'allenamento {{< fa bullseye size=normalsize >}}
