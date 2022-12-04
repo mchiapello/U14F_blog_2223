@@ -1,3 +1,6 @@
+library(fs)
+library(tidyverse)
+library(datavolley)
 d <- dir_ls("data/002_Partite/all/", regexp = "dvw")
 lx <- list()
 ## read each file
@@ -10,7 +13,7 @@ px <- do.call(rbind, px)
 px %>% 
     count(match_id)
 
-team_select = noi
+team_select = "PGS Foglizzese"
 pp <- px %>% 
         left_join(px %>% 
                       mutate(time = str_sub(as.character(time), start = 1L, end = 10L)) %>% 
@@ -42,4 +45,20 @@ pp %>%
            `AtkP%`, `AtkE%`) %>% 
     gt::gt()
 
-    
+
+tmp <- px |> 
+    select(match_id, point_id, set_number, team_touch_id,
+           team, player_name, skill, evaluation, phase, 
+           point_won_by) |> 
+    na.omit()
+
+tmp |> 
+    filter(match_id == "8b4105fc4dc18b22fd05222877b713fd",
+           point_id == 20)
+
+
+tmp2 <- tmp |> 
+    group_by(match_id, point_id, set_number) |> 
+    nest()
+
+tmp2$data[[10]]
