@@ -47,8 +47,9 @@ pp %>%
 
 
 tmp <- px |> 
-    select(match_id, point_id, set_number, team_touch_id,
-           team, player_name, skill, evaluation, phase, 
+    select(match_id, point_id, set_number, video_time, team_touch_id, home_team,
+           home_team_score, visiting_team, visiting_team_score,
+           team, player_number, skill, evaluation, phase, 
            point_won_by) |> 
     na.omit()
 
@@ -58,7 +59,55 @@ tmp |>
 
 
 tmp2 <- tmp |> 
-    group_by(match_id, point_id, set_number) |> 
+    group_by(match_id, set_number) |> 
     nest()
 
-tmp2$data[[10]]
+x <- tmp2$data[[1]]
+
+rally <- function(x, home_team = "PGS Foglizzese"){
+    y <- x |> 
+        group_by(point_id) |> 
+        slice_tail() |> 
+        ungroup() |> 
+        mutate(duration = lead(video_time) - video_time) 
+        
+     home <- y |> 
+         filter(point_won_by == home_team) |> 
+         mutate(actionH = paste(player_number, skill, evaluation,
+                               sep = " ")) |> 
+         select(point_id, point_won_by, actionH)
+     
+     away <- y |> 
+         filter(point_won_by != home_team) |> 
+         mutate(actionA = paste(evaluation,skill, player_number, 
+                                sep = " ")) |> 
+         select(point_id, point_won_by, actionA)
+     
+     oo <- home |> 
+         bind_rows(away) |> 
+         arrange(point_id) |> 
+         left_join(y |> select(point_id, home_team_score,
+                               visiting_team_score)) |> 
+         mutate(action = coalesce(actionH, actionA)) |> 
+         select(-actionA, -actionH) |> 
+         pivot_wider(names_from = point_won_by, 
+                     values_from = action) |> 
+         mutate(score = paste0(home_team_score, " - ", visiting_team_score)) |>
+         select(-point_id, -home_team_score, -visiting_team_score) %>%
+         replace(is.na(.), "")
+     
+     oo[, c(1, 3, 2)] |> 
+         gt()
+}
+
+
+
+
+
+
+
+
+
+
+
+
