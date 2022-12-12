@@ -96,15 +96,85 @@ rally <- function(x, home_team = "PGS Foglizzese"){
          select(-point_id, -home_team_score, -visiting_team_score) %>%
          replace(is.na(.), "")
      
+     indHE <- oo |> 
+         mutate(ind = row_number()) |> 
+         filter(if_any(1, ~ grepl("Error", .))) |> 
+         pull(ind)     
+      indHP <- oo |> 
+         mutate(ind = row_number()) |> 
+         filter(if_any(1, ~ grepl("Winning|Ace", .))) |> 
+         pull(ind)
+      indAE <- oo |> 
+          mutate(ind = row_number()) |> 
+          filter(if_any(2, ~ grepl("Error", .))) |> 
+          pull(ind)     
+      indAP <- oo |> 
+          mutate(ind = row_number()) |> 
+          filter(if_any(2, ~ grepl("Winning|Ace", .))) |> 
+          pull(ind)
+      
      oo[, c(1, 3, 2)] |> 
-         gt()
+         gt() |> 
+     tab_style(
+         style = cell_text(color = "red"),
+         locations = cells_body(
+             columns = c(`PGS Foglizzese`),
+             rows = indHE
+         )
+     ) |> 
+         tab_style(
+             style = cell_text(color = "green"),
+             locations = cells_body(
+                 columns = c(`PGS Foglizzese`),
+                 rows = indHP
+             )
+         ) |> 
+         tab_style(
+             style = cell_text(color = "red"),
+             locations = cells_body(
+                 columns = c(VolleyParella),
+                 rows = indAE
+             )
+         ) |> 
+         tab_style(
+             style = cell_text(color = "green"),
+             locations = cells_body(
+                 columns = c(VolleyParella),
+                 rows = indAP
+             )
+         )
+     # tab_style(
+     #     style = cell_text(color = "red"),
+     #     locations = cells_body(
+     #         columns = c({{home_team}}),
+     #         rows = {{home_team}} == "5 Attack Error"
+     #     )
+     # )
 }
 
 
 
 
+head(gtcars, 8) %>%
+    dplyr::select(model:trim, mpg_city = mpg_c, mpg_hwy = mpg_h) %>%  
+    gt(rowname_col = "model") %>% 
+    tab_style(
+        style = cell_text(color = "red"),
+        locations = cells_body(
+            columns = c(trim),
+            rows = trim == "Base Convertible"
+        )
+    )
 
-
+head(mtcars[,1:5]) %>% 
+    tibble::rownames_to_column("car") %>% 
+    gt() %>% 
+    gt_highlight_rows(
+    rows = c(1,3,5), 
+    fill = "lightgrey",
+    bold_target_only = TRUE,
+    target_col = car
+)
 
 
 
