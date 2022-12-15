@@ -9,9 +9,9 @@ source("scripts/999_functions.R")
 
 ###############################################################################
 # Create match/allenamento
-opp <- "PVL Ceralterra"
+opp <- "Balamunt"
 us <- "PGS Foglizzese"
-date <- "2022-12-03"
+date <- "2022-12-10"
 
 pp <- ma(date = date, 
          opp = opp,
@@ -22,8 +22,8 @@ pp <- ma(date = date,
          phase = "Ritorno",
          home_away = FALSE,
          day_number = 15,
-         match_number = 336,
-         set_won = c(3, 0),
+         match_number = 347,
+         set_won = c(0, 3),
          home_away_team  = c("*", "a"),
          won_match = c(TRUE, FALSE))
 
