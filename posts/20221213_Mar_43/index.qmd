@@ -66,9 +66,7 @@ if(!lubridate::ymd(quarto::quarto_inspect(fs::dir_ls(".", regex = "qmd$"))$forma
 ## Obiettivi dell'allenamento  {{< fa bullseye size=normalsize >}}
 
 1. Preparazione fisica
-1. Battuta
 1. Attacco
-1. Introduzione ruolo dei centrali
 
 ## Valutazioni generali {{< fa gauge-simple-high size=normalsize >}}
 
