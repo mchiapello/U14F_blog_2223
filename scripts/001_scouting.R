@@ -1,8 +1,11 @@
 video_file  <- dir_ls(out, regexp = "*mp4$")
 
+
+
 x <- dv_create(teams = teams, match = match, 
                players_h = readRDS("data/003_dati/players_fog"), 
                players_v = readRDS("data/003_dati/players_avv"))
+
 ## Court ref
 refx <- ovideo::ov_shiny_court_ref(video_file = video_file, t = 1)
 saveRDS(refx, "data/003_dati/mrefx.RDS")
@@ -28,7 +31,7 @@ ov_scouter(x, video_file = video_file,
 # Update court reference
 refx <- ovideo::ov_shiny_court_ref(video_file = video_file, t = 6000)
 
-ov_scouter("data/002_Partite/2022-11-19_Parella/parella.ovs",
+ov_scouter("data/002_Partite/2022-12-17_Leini/20221217_leini.ovs",
            # video_file = video_file,
            scouting_options = list(transition_sets = TRUE),
            app_styling = list(review_pane_width = 50),
