@@ -3,7 +3,7 @@ video_file  <- dir_ls(out, regexp = "*mp4$")
 
 
 x <- dv_create(teams = teams, match = match, 
-               players_h = readRDS("data/003_dati/players_fog"), 
+                   players_h = readRDS("data/003_dati/players_fog"), 
                players_v = readRDS("data/003_dati/players_avv"))
 
 ## Court ref
