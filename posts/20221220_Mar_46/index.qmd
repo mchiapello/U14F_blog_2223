@@ -1,7 +1,7 @@
 ---
-title: "Quarantacinquesimo Allenamento"
+title: "Quarantaseiesimo Allenamento"
 author: "Marco Chiapello"
-date: "2022-12-16"
+date: "2022-12-20"
 date-format: full
 categories: ["U14F", "2022-2023", "PGS Foglizzese", "Allenamento"]
 execute: 
@@ -28,7 +28,7 @@ if(!lubridate::ymd(quarto::quarto_inspect(fs::dir_ls(".", regex = "qmd$"))$forma
     pres <- add(players,
     date = str_remove_all(quarto::quarto_inspect(fs::dir_ls(".", regex = "qmd$"))$formats$html$metadata$date,
                           "-"),
-    assenti = c(0, 34))
+    assenti = c(0, 30,48,34,40))
     
     fs::file_copy(paste0(here::here(), "/data/003_dati/presenze.tsv"),
               paste0(here::here(), "/data/003_dati/presenze_old.tsv"),
@@ -50,7 +50,7 @@ if(!lubridate::ymd(quarto::quarto_inspect(fs::dir_ls(".", regex = "qmd$"))$forma
     class <- classifica(players,
             date = str_remove_all(quarto::quarto_inspect(fs::dir_ls(".", regex = "qmd$"))$formats$html$metadata$date,
                           "-"),
-            vincitori = c(31,9,30,36,48))
+            vincitori = c(31,32,7,36))
 
     fs::file_copy(paste0(here::here(), "/data/003_dati/classificaRaw.tsv"),
                   paste0(here::here(), "/data/003_dati/classificaRaw_old.tsv"),
@@ -63,19 +63,23 @@ if(!lubridate::ymd(quarto::quarto_inspect(fs::dir_ls(".", regex = "qmd$"))$forma
 }
 ```
 
-## Obiettivi dell'allenamento {{< fa bullseye size=normalsize >}}
+## Obiettivi dell'allenamento  {{< fa bullseye size=normalsize >}}
 
-1.  Fase gioco
+1. Preparazione fisica
+1. Attacco
+1. Penetrazione
 
 ## Valutazioni generali {{< fa gauge-simple-high size=normalsize >}}
 
 ```{r}
+suppressPackageStartupMessages(library(tidyverse))
+
 df <- tribble(
     ~variable, ~percentage,
-    "Impegno collettivo", 0.5,
-    "Raggiungimento\ndell'obiettivo", 0.5,
-    "Soddisfazione\ndell'allenatore", 0.5,
-    "Miglioramenti attesi", 0.5,
+    "Impegno collettivo", 0.3,
+    "Raggiungimento\ndell'obiettivo", 0.8,
+    "Soddisfazione\ndell'allenatore", 0.1,
+    "Miglioramenti attesi", 0.7,
     "Voto", 0.5) %>% 
     mutate(group = ifelse(percentage <0.6, "red",
                           ifelse(percentage>=0.6 & percentage<0.8, "orange","green")),
@@ -98,6 +102,8 @@ ggplot(df, aes(fill = group, ymax = percentage, ymin = 0, xmax = 2, xmin = 1)) +
  guides(colour="none")
 ```
 
+
+
 ## Presenze {{< fa child-reaching size=normalsize >}}
 
 ```{r}
@@ -114,10 +120,11 @@ x %>%
     gtExtras::gt_theme_538() 
 ```
 
+
+
 ## Classifica Bagnerone {{< fa ranking-star size=normalsize >}}
 
 ### Classifica mensile
-
 ```{r}
 #| echo: false
 #| message: false
@@ -142,8 +149,8 @@ x2 %>%
 
 ```
 
-### Classifica generale
 
+### Classifica generale
 ```{r}
 #| echo: false
 #| message: false
@@ -165,3 +172,5 @@ x2 %>%
     gtExtras::gt_theme_538()
 
 ```
+
+
