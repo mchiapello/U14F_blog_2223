@@ -10,10 +10,18 @@ website:
     right:
       - icon: youtube
         href: https://youtube.com/playlist?list=PLuLJwY97FamcsQrlt0uSira4yKeef-vSt
-      - icon: calendar
-        href: https://fipavonline.it/main/gare_girone/40670/1
-      - icon: "123"
-        href: https://fipavonline.it/main/classifica/40670
+      - text: Calendari
+        menu: 
+          - text: "Prima fase"
+            href: https://fipavonline.it/main/gare_girone/40670/1
+          - text: "Seconda fase"
+            href: https://fipavonline.it/main/gare_girone/42353
+      - text: Classifica
+        menu: 
+          - text: "Prima fase"
+            href: https://fipavonline.it/main/classifica/40670
+          - text: "Seconda fase"
+            href: https://fipavonline.it/main/classifica/42353
 format:
   html:
     theme: yeti
