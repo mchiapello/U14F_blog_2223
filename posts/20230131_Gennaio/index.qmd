@@ -1,0 +1,103 @@
+---
+title: "Gennaio"
+author: "Marco Chiapello"
+date: "2023-01-31"
+categories: ["U14F", "2022-2023", "PGS Foglizzese", "Allenamento"]
+execute: 
+  echo: false
+  warning: false
+  message: false
+---
+
+## Presenze Gennaio {{< fa school size=normalsize >}}
+
+
+```{r}
+library(tidyverse)
+library(lubridate)
+x <- read_tsv(paste0(here::here(), "/data/003_dati/presenze.tsv"))
+
+df <- x %>% 
+    select(-Numero) %>% 
+    mutate(mese = month(date)) %>% 
+    filter(mese == 1) %>%
+    mutate(date = format(date, "%d-%m")) %>% 
+    pivot_wider(names_from = date,
+                values_from = assenti) %>% 
+    select(-mese) %>% 
+    janitor::adorn_totals("row") %>% 
+    janitor::adorn_totals("col") %>% 
+    arrange((Total)) 
+
+df %>% 
+    gt::gt() %>% 
+    gtExtras::gt_theme_538()
+```
+
+Questo mese abbiamo avuto **UN** allenamento con tutte le atlete presenti! Dobbiamo cercare di impegnarci di più!!
+
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| results: asis
+
+vincitrici <- df %>% 
+    filter(Total == 0) %>% 
+    mutate(vinc = paste0("- ", Cognome, " ", Nome, " {{< fa medal size=normalsize >}}")) %>% 
+    pull(vinc)
+
+if(length(vincitrici) == 0){
+    cat(paste0("Questo mese nessuna di voi è stata sempre presente! {{< fa face-angry-horns size=normalsize >}} "))
+} 
+if(length(vincitrici) == 1){
+    cat(paste0("La  vincitrice del premio '**SEMPRE PRESENTE**' è: \n\n"))
+    cat(vincitrici)
+} else {
+    cat(paste0("Le  vincitrici del premio '**SEMPRE PRESENTE**' sono: \n\n"))
+    cat(vincitrici, sep = "\n\n")
+}
+
+```
+
+## Classifica Bagherone
+
+```{r}
+#| results: asis
+y <- read_tsv(paste0(here::here(), "/data/003_dati/classificaRaw.tsv"))
+
+df2 <- y %>% 
+    mutate(mese = month(date)) %>% 
+    filter(mese == 1) %>% 
+    left_join(x) %>% 
+    # group_by(mese) %>% 
+    mutate(Punteggio = case_when(vincitori == 1 & assenti == 0 ~ 3,
+                                 vincitori == 0 & assenti == 0 ~ 1,
+                                 TRUE ~ 0)) %>% 
+    group_by(Cognome, Nome, mese) %>% 
+    summarise(Classifica = sum(Punteggio)) %>% 
+    ungroup %>% 
+    arrange(desc(Classifica), Cognome)
+
+df2 %>% 
+    gt::gt() %>% 
+    gtExtras::gt_theme_538()
+
+vincitrici2 <- df2 %>% 
+    filter(Classifica == max(Classifica)) %>% 
+    mutate(vinc = paste0("- ", Cognome, " ", Nome, " {{< fa medal size=normalsize >}}")) %>% 
+    pull(vinc)
+
+if(length(vincitrici2) == 0){
+    cat(paste0("Questo mese nessuna di voi è stata sempre presente! {{< fa face-angry-horns size=normalsize >}} "))
+} 
+if(length(vincitrici2) == 1){
+    cat(paste0("La  vincitrice del premio '**BAGHERONE**' è: \n\n"))
+    cat(vincitrici2)
+} else {
+    cat(paste0("Le  vincitrici del premio '**BAGHERONE**' sono: \n\n"))
+    cat(vincitrici2, sep = "\n\n")
+}
+```
+
