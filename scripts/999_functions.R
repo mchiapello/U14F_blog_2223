@@ -108,3 +108,47 @@ classifica <- function(x,
                       mutate(date = lubridate::ymd(date),
                              vincitori = ifelse(Numero %in% vincitori, 1, 0)))
 }
+
+##########################
+# Elenco Atleti
+prelat <- function(path, pathout = out, team = "avversari"){
+    x <- read_lines(path)
+    i <- 1
+    out2 <- tibble(Numero = NA, Cognome = NA, Nome = NA)
+    while (i < length(x)){
+        out2 <- out2 |> 
+            bind_rows(tibble(Numero = x[i],
+                             Cognome = word(x[i+1]),
+                             Nome = word(x[i+1], start = 2)))
+        i <- i + 2
+    }
+    out2 <- out2 |> 
+        drop_na()
+    write_tsv(out2, file = paste0(pathout, "/", team, ".tsv"))
+}
+
+elat <- function(path, team = "BCV Foglizzo", out = "data/002_Partite/"){
+    x <- read_tsv(path, show_col_types = FALSE)
+    tibble(X1 = 0,
+           number = x$Numero,
+           X3 = 1:nrow(x),
+           starting_position_set1 = NA,
+           starting_position_set2 = NA,
+           starting_position_set3 = NA,
+           starting_position_set4 = NA,
+           starting_position_set5 = NA,
+           player_id = paste0(str_sub(x$Cognome, start = 1L, end = 3L), "-",
+                              str_sub(x$Nome, start = 1L, end = 3L)),
+           lastname = x$Cognome,
+           firstname = x$Nome,
+           nickname = "",
+           special_role = "",
+           role = x$Ruolo,
+           foreign = FALSE,
+           X16 = player_id,
+           X17 = NA,
+           X18 = NA,
+           name = paste0(x$Nome, " ", x$Cognome)) |> 
+        saveRDS(paste0(out, "/", team, ".RDS"))
+    
+}

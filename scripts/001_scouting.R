@@ -1,14 +1,22 @@
+# Read video file
 video_file  <- dir_ls(out, regexp = "*mp4$")
 
+# Prepate team players
+## BVC Foglizzese
+elat("data/003_dati/players.tsv", team = "BCV Foglizzo", out = out)
+## Avversari
+prelat("data/002_Partite/2023-01-03_Calton/BVCCalton.txt", pathout = out, 
+      team = "BCVCalton")
+elat("data/002_Partite/2023-01-03_Calton/BCVCalton.tsv", team = "BCV Calton", out = out)
 
 
 x <- dv_create(teams = teams, match = match, 
-                   players_h = readRDS("data/003_dati/players_fog"), 
-               players_v = readRDS("data/003_dati/players_avv"))
+                   players_h = readRDS("data/002_Partite/2023-01-03_Calton/BCV Calton.RDS"), 
+               players_v = readRDS("data/002_Partite/2023-01-03_Calton/BCV Foglizzo.RDS"))
 
 ## Court ref
 refx <- ovideo::ov_shiny_court_ref(video_file = video_file, t = 1)
-saveRDS(refx, "data/003_dati/mrefx.RDS")
+saveRDS(refx, paste0(out, "/mrefx.RDS"))
 
 ## enter the team lineups for set 1
 x <- dv_set_lineups(x, set_number = 5, 
