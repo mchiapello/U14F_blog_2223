@@ -49,3 +49,23 @@ ov_scouter("data/002_Partite/2023-01-03_Calton/20230203_calton.ovs",
 
 # Update court reference
 refx <- ovideo::ov_shiny_court_ref(video_file = video_file, t = 2800)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
