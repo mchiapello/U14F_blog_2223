@@ -1,13 +1,13 @@
-Numero	Cognome	Nome
-46	Bertinato	Adele
-30	Cappuccio	Greta
-48	Dainese	Alice
-9	Leoni	Emma
-28	Margarotto	Sara
-36	Marengo	Alessia
-31	Natoli	Alice
-34	Pascarella	Noemi
-27	Pau	Sofia
-7	Ravazzi	Marta
-35	Alice	Ciravolo
-40	Suriani	Sofia
+Numero	Cognome	Nome	Ruolo
+46	Bertinato	Adele	libero
+30	Cappuccio	Greta	centrale
+48	Dainese	Alice	opposto
+9	Leoni	Emma	ala
+28	Margarotto	Sara	opposto
+36	Marengo	Alessia	palleggiatore
+31	Natoli	Alice	ala
+34	Pascarella	Noemi	ala
+27	Pau	Sofia	centrale
+7	Ravazzi	Marta	ala
+35	Alice	Ciravolo	ala
+40	Suriani	Sofia	palleggiatore
