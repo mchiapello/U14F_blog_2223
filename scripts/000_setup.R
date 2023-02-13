@@ -10,7 +10,7 @@ source("scripts/999_functions.R")
 ###############################################################################
 # Create match/allenamento
 opp <- "PVL"
-us <- "PGS Foglizzese"
+us <- "BCV Foglizzo"
 date <- "2023-02-12"
 
 pp <- ma(date = date, 
