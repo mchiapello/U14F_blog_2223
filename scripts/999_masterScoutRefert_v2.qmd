@@ -1,5 +1,5 @@
 ---
-title: "Basso Canavese Foglizzo - Lilliput"
+title: "BCV Foglizzo - PVL"
 format:
   html:
     toc: false
@@ -21,7 +21,7 @@ library(gtExtras)
 library(patchwork)
 source(paste0(here::here(), "/scripts/999_utils.R"))
 # Read data
-file <- fs::dir_ls(paste0(here::here(), "/data/002_Partite/2022-11-05_Balamunt/"), 
+file <- fs::dir_ls(paste0(here::here(), "/data/002_Partite/2023-02-12_PVL"), 
                    regexp = "dvw$")
 x <- dv_read(file)
 noi <- teams(x)[1]
@@ -531,6 +531,132 @@ t11 <- vr_freeball(x, by = "player", team_select = noi)
 # BLOCK
 t12 <- vr_block(x, by = "set", team_select = noi)
 t13 <- vr_block(x, by = "player", team_select = noi)
+######################
+# TABLE
+y <- plays(x)
+t1 %>% 
+    left_join(y %>% 
+                  dplyr::select(player_id, player_name) %>% 
+                  filter(!is.na(player_id)) %>% 
+                  distinct(), by = c("name" = "player_name")) %>% 
+    left_join(t3, by = "player_id") %>% 
+    left_join(t5, by = "player_id") %>%
+    left_join(t7, by = "player_id") %>%
+    left_join(t9, by = "player_id") %>%
+    left_join(t11, by = "player_id") %>%
+    left_join(t13, by = "player_id") %>%
+    select(-player_id) %>% 
+    mutate(across(starts_with("set"), ~replace_na(.x, "-"))) %>% 
+    mutate(across(where(is.numeric), ~replace_na(.x, 0))) %>% 
+    mutate(across(where(is.character), ~replace_na(.x, "0"))) %>% 
+    filter(if_any(starts_with("set"), ~ . != "-")) %>% 
+    ### GT TABLE
+    gt(id = "four") %>%
+    # tab_header(
+    #   title = paste0(noi)) %>% 
+    tab_spanner(
+        label = "Punti",
+        columns = Tot.x:`W-L`) %>% 
+    tab_spanner(
+        label = "Battuta",
+        columns = Tot.y:Pos) %>% 
+    tab_spanner(
+        label = "Ricezione",
+        columns = Tot.x.x:`(Exc%)`) %>% 
+    tab_spanner(
+        label = "Attacco",
+        columns = Tot.y.y:`Pts%`) %>% 
+    tab_spanner(
+        label = "Freeball",
+        columns = Tot:Err.y.y) %>%
+    tab_spanner(
+        label = "Muro",
+        columns = Punto) %>%
+    cols_label(
+        Tot.x = html("<strong>Tot</strong>"),
+        Nerr = html("<strong>Err</strong>"),
+        `W-L` = html("D"),
+        Tot.y = html("<strong>Tot</strong>"),
+        Err.x = html("<strong>Err</strong>"),
+        Pts.x = html("Pts"),
+        Tot.x.x = html("<strong>Tot</strong>"),
+        Err.y = html("<strong>Err</strong>"),
+        Tot.y.y = html("<strong>Tot</strong>"),
+        Err.x.x = html("<strong>Err</strong>"),
+        Pts.y = html("Pts"),
+        Tot = html("<strong>Tot</strong>"),
+        Err.y.y = html("<strong>Err</strong>"),
+        Punto = html("Pts")) %>% 
+    cols_align(
+    align = "center") %>% 
+    tab_options(table.width = px(700),
+                row.striping.include_table_body = TRUE) %>% 
+    tab_style(style = cell_borders(sides = "left",
+                                   color = "grey50",
+                                   weight = px(.9),
+                                   style = "solid"),
+              locations = cells_body(columns = starts_with("To"),
+                                     rows = everything())) %>% 
+    tab_style(style = cell_borders(sides = "left",
+                                   color = "grey50",
+                                   weight = px(.9),
+                                   style = "solid"),
+              locations = cells_body(columns = starts_with("set1"),
+                                     rows = everything())) %>% 
+    tab_style(style = cell_borders(sides = "left",
+                                   color = "grey50",
+                                   weight = px(.9),
+                                   style = "solid"),
+              locations = cells_body(columns = last_col(),
+                                     rows = everything())) %>% 
+    opt_css(
+    css = "
+    #four .gt_col_heading {
+      padding: 2px 3px;
+      font-size: 9px;
+    }
+     #four .gt_column_spanner {
+      padding: 0px 0px;
+      font-size: 9px;
+    }
+    #four .gt_row {
+      padding: 2px 3px;
+      font-size: 9px;
+    }
+    #four .gt_col_heading {
+      text-align: center !important;
+    }
+    ") 
+```
+:::
+:::
+
+::: grid
+::: g-col-12
+```{r}
+t1 <- x$meta$players_v %>% 
+    select(number, name, starting_position_set1:starting_position_set5) %>% 
+    select(where(~sum(!is.na(.x)) > 0)) %>% 
+    rename_with(~str_remove(.x, "starting_position_"))
+
+#####################
+# POINTS
+t2 <- vr_points(x, by = "set", team_select = loro)
+t3 <- vr_points(x, by = "player", team_select = loro)
+# SERVE
+t4 <- vr_serve(x, by = "set", team_select = loro)
+t5 <- vr_serve(x, by = "player", team_select = loro)
+# RECEPTION
+t6 <- vr_reception(x, by = "set", team_select = loro)
+t7 <- vr_reception(x, by = "player", team_select = loro)
+# ATTACK
+t8 <- vr_attack(x, by = "set", team_select = loro)
+t9 <- vr_attack(x, by = "player", team_select = loro)
+t10 <- vr_freeball(x, by = "set", team_select = loro)
+t11 <- vr_freeball(x, by = "player", team_select = loro)
+# BLOCK
+t12 <- vr_block(x, by = "set", team_select = loro)
+t13 <- vr_block(x, by = "player", team_select = loro)
 ######################
 # TABLE
 y <- plays(x)

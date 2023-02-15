@@ -1,6 +1,6 @@
 dvw <- dir_ls(out, regexp = "dvw$")
 x <- dv_read(dvw)
-dv_meta_video(x) <- "https://youtu.be/B3qO3ZaGLD8"
+dv_meta_video(x) <- "https://youtu.be/Vt5Ye3iuJfs"
 
 dv_write(x, dvw)
 # Remove local mp4 file
@@ -12,7 +12,7 @@ px <- datavolley::plays(x)
 
 px2 <- px %>% 
     filter(!is.na(player_id),
-           team == "PGS Foglizzese") %>% 
+           team == "BCV Foglizzo") %>% 
     mutate(Nome = player_name,
            fondamentale = skill)
 

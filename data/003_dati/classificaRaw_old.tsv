@@ -1,409 +1,421 @@
-Numero	Cognome	Nome	date	vincitori
-22	Bertinato	Adele	2022-09-16	0
-42	Cappuccio	Greta	2022-09-16	1
-65	Dainese	Alice	2022-09-16	0
-11	Leoni	Emma	2022-09-16	0
-28	Margarotto	Sara	2022-09-16	1
-56	Marengo	Alessia	2022-09-16	0
-32	Natoli	Alice	2022-09-16	0
-14	Pascarella	Noemi	2022-09-16	1
-27	Pau	Sofia	2022-09-16	0
-5	Ravazzi	Marta	2022-09-16	1
-0	Ravazzi	Teresa	2022-09-16	1
-54	Suriani	Sofia	2022-09-16	1
-22	Bertinato	Adele	2022-09-20	1
-42	Cappuccio	Greta	2022-09-20	0
-65	Dainese	Alice	2022-09-20	0
-11	Leoni	Emma	2022-09-20	1
-28	Margarotto	Sara	2022-09-20	0
-56	Marengo	Alessia	2022-09-20	0
-32	Natoli	Alice	2022-09-20	0
-14	Pascarella	Noemi	2022-09-20	0
-27	Pau	Sofia	2022-09-20	1
-5	Ravazzi	Marta	2022-09-20	0
-0	Ravazzi	Teresa	2022-09-20	0
-54	Suriani	Sofia	2022-09-20	0
-22	Bertinato	Adele	2022-09-27	1
-42	Cappuccio	Greta	2022-09-27	0
-65	Dainese	Alice	2022-09-27	0
-11	Leoni	Emma	2022-09-27	1
-28	Margarotto	Sara	2022-09-27	1
-56	Marengo	Alessia	2022-09-27	0
-32	Natoli	Alice	2022-09-27	0
-14	Pascarella	Noemi	2022-09-27	1
-27	Pau	Sofia	2022-09-27	0
-5	Ravazzi	Marta	2022-09-27	0
-0	Ravazzi	Teresa	2022-09-27	1
-54	Suriani	Sofia	2022-09-27	0
-22	Bertinato	Adele	2022-09-30	0
-42	Cappuccio	Greta	2022-09-30	1
-65	Dainese	Alice	2022-09-30	0
-11	Leoni	Emma	2022-09-30	1
-28	Margarotto	Sara	2022-09-30	0
-56	Marengo	Alessia	2022-09-30	0
-32	Natoli	Alice	2022-09-30	0
-14	Pascarella	Noemi	2022-09-30	0
-27	Pau	Sofia	2022-09-30	1
-5	Ravazzi	Marta	2022-09-30	1
-0	Ravazzi	Teresa	2022-09-30	0
-54	Suriani	Sofia	2022-09-30	1
-22	Bertinato	Adele	2022-10-07	1
-42	Cappuccio	Greta	2022-10-07	0
-65	Dainese	Alice	2022-10-07	1
-11	Leoni	Emma	2022-10-07	0
-28	Margarotto	Sara	2022-10-07	1
-56	Marengo	Alessia	2022-10-07	1
-32	Natoli	Alice	2022-10-07	0
-14	Pascarella	Noemi	2022-10-07	0
-27	Pau	Sofia	2022-10-07	0
-5	Ravazzi	Marta	2022-10-07	0
-0	Ravazzi	Teresa	2022-10-07	0
-54	Suriani	Sofia	2022-10-07	1
-22	Bertinato	Adele	2022-10-11	0
-42	Cappuccio	Greta	2022-10-11	0
-65	Dainese	Alice	2022-10-11	0
-11	Leoni	Emma	2022-10-11	1
-28	Margarotto	Sara	2022-10-11	1
-56	Marengo	Alessia	2022-10-11	0
-32	Natoli	Alice	2022-10-11	0
-14	Pascarella	Noemi	2022-10-11	0
-27	Pau	Sofia	2022-10-11	0
-5	Ravazzi	Marta	2022-10-11	0
-0	Ravazzi	Teresa	2022-10-11	0
-54	Suriani	Sofia	2022-10-11	1
-22	Bertinato	Adele	2022-10-14	0
-42	Cappuccio	Greta	2022-10-14	0
-65	Dainese	Alice	2022-10-14	0
-11	Leoni	Emma	2022-10-14	0
-28	Margarotto	Sara	2022-10-14	1
-56	Marengo	Alessia	2022-10-14	0
-32	Natoli	Alice	2022-10-14	0
-14	Pascarella	Noemi	2022-10-14	0
-27	Pau	Sofia	2022-10-14	0
-5	Ravazzi	Marta	2022-10-14	0
-0	Ravazzi	Teresa	2022-10-14	0
-54	Suriani	Sofia	2022-10-14	0
-46	Bertinato	Adele	2022-10-18	0
-30	Cappuccio	Greta	2022-10-18	0
-48	Dainese	Alice	2022-10-18	0
-9	Leoni	Emma	2022-10-18	1
-28	Margarotto	Sara	2022-10-18	1
-36	Marengo	Alessia	2022-10-18	0
-31	Natoli	Alice	2022-10-18	1
-34	Pascarella	Noemi	2022-10-18	1
-27	Pau	Sofia	2022-10-18	0
-7	Ravazzi	Marta	2022-10-18	0
-0	Ravazzi	Teresa	2022-10-18	0
-40	Suriani	Sofia	2022-10-18	0
-46	Bertinato	Adele	2022-10-20	0
-30	Cappuccio	Greta	2022-10-20	0
-48	Dainese	Alice	2022-10-20	0
-9	Leoni	Emma	2022-10-20	1
-28	Margarotto	Sara	2022-10-20	0
-36	Marengo	Alessia	2022-10-20	1
-31	Natoli	Alice	2022-10-20	1
-34	Pascarella	Noemi	2022-10-20	1
-27	Pau	Sofia	2022-10-20	0
-7	Ravazzi	Marta	2022-10-20	1
-0	Ravazzi	Teresa	2022-10-20	0
-40	Suriani	Sofia	2022-10-20	0
-46	Bertinato	Adele	2022-10-21	0
-30	Cappuccio	Greta	2022-10-21	1
-48	Dainese	Alice	2022-10-21	0
-9	Leoni	Emma	2022-10-21	1
-28	Margarotto	Sara	2022-10-21	0
-36	Marengo	Alessia	2022-10-21	0
-31	Natoli	Alice	2022-10-21	1
-34	Pascarella	Noemi	2022-10-21	1
-27	Pau	Sofia	2022-10-21	0
-7	Ravazzi	Marta	2022-10-21	0
-0	Ravazzi	Teresa	2022-10-21	0
-40	Suriani	Sofia	2022-10-21	1
-46	Bertinato	Adele	2022-10-25	0
-30	Cappuccio	Greta	2022-10-25	0
-48	Dainese	Alice	2022-10-25	1
-9	Leoni	Emma	2022-10-25	0
-28	Margarotto	Sara	2022-10-25	1
-36	Marengo	Alessia	2022-10-25	1
-31	Natoli	Alice	2022-10-25	1
-34	Pascarella	Noemi	2022-10-25	0
-27	Pau	Sofia	2022-10-25	0
-7	Ravazzi	Marta	2022-10-25	0
-0	Ravazzi	Teresa	2022-10-25	1
-40	Suriani	Sofia	2022-10-25	0
-46	Bertinato	Adele	2022-10-28	1
-30	Cappuccio	Greta	2022-10-28	0
-48	Dainese	Alice	2022-10-28	1
-9	Leoni	Emma	2022-10-28	1
-28	Margarotto	Sara	2022-10-28	0
-36	Marengo	Alessia	2022-10-28	0
-31	Natoli	Alice	2022-10-28	0
-34	Pascarella	Noemi	2022-10-28	0
-27	Pau	Sofia	2022-10-28	0
-7	Ravazzi	Marta	2022-10-28	0
-0	Ravazzi	Teresa	2022-10-28	0
-40	Suriani	Sofia	2022-10-28	0
-46	Bertinato	Adele	2022-11-01	0
-30	Cappuccio	Greta	2022-11-01	0
-48	Dainese	Alice	2022-11-01	0
-9	Leoni	Emma	2022-11-01	1
-28	Margarotto	Sara	2022-11-01	0
-36	Marengo	Alessia	2022-11-01	0
-31	Natoli	Alice	2022-11-01	1
-34	Pascarella	Noemi	2022-11-01	0
-27	Pau	Sofia	2022-11-01	0
-7	Ravazzi	Marta	2022-11-01	0
-0	Ravazzi	Teresa	2022-11-01	0
-40	Suriani	Sofia	2022-11-01	0
-46	Bertinato	Adele	2022-11-03	0
-30	Cappuccio	Greta	2022-11-03	1
-48	Dainese	Alice	2022-11-03	1
-9	Leoni	Emma	2022-11-03	1
-28	Margarotto	Sara	2022-11-03	1
-36	Marengo	Alessia	2022-11-03	1
-31	Natoli	Alice	2022-11-03	0
-34	Pascarella	Noemi	2022-11-03	0
-27	Pau	Sofia	2022-11-03	0
-7	Ravazzi	Marta	2022-11-03	0
-0	Ravazzi	Teresa	2022-11-03	1
-40	Suriani	Sofia	2022-11-03	0
-46	Bertinato	Adele	2022-11-04	0
-30	Cappuccio	Greta	2022-11-04	1
-48	Dainese	Alice	2022-11-04	0
-9	Leoni	Emma	2022-11-04	1
-28	Margarotto	Sara	2022-11-04	0
-36	Marengo	Alessia	2022-11-04	1
-31	Natoli	Alice	2022-11-04	0
-34	Pascarella	Noemi	2022-11-04	1
-27	Pau	Sofia	2022-11-04	1
-7	Ravazzi	Marta	2022-11-04	1
-0	Ravazzi	Teresa	2022-11-04	0
-40	Suriani	Sofia	2022-11-04	0
-46	Bertinato	Adele	2022-11-01	0
-30	Cappuccio	Greta	2022-11-01	0
-48	Dainese	Alice	2022-11-01	0
-9	Leoni	Emma	2022-11-01	1
-28	Margarotto	Sara	2022-11-01	0
-36	Marengo	Alessia	2022-11-01	0
-31	Natoli	Alice	2022-11-01	1
-34	Pascarella	Noemi	2022-11-01	0
-27	Pau	Sofia	2022-11-01	1
-7	Ravazzi	Marta	2022-11-01	0
-0	Ravazzi	Teresa	2022-11-01	0
-40	Suriani	Sofia	2022-11-01	1
-46	Bertinato	Adele	2022-11-15	1
-30	Cappuccio	Greta	2022-11-15	0
-48	Dainese	Alice	2022-11-15	0
-9	Leoni	Emma	2022-11-15	0
-28	Margarotto	Sara	2022-11-15	0
-36	Marengo	Alessia	2022-11-15	1
-31	Natoli	Alice	2022-11-15	0
-34	Pascarella	Noemi	2022-11-15	1
-27	Pau	Sofia	2022-11-15	0
-7	Ravazzi	Marta	2022-11-15	0
-0	Ravazzi	Teresa	2022-11-15	0
-40	Suriani	Sofia	2022-11-15	0
-46	Bertinato	Adele	2022-11-17	0
-30	Cappuccio	Greta	2022-11-17	0
-48	Dainese	Alice	2022-11-17	0
-9	Leoni	Emma	2022-11-17	0
-28	Margarotto	Sara	2022-11-17	1
-36	Marengo	Alessia	2022-11-17	0
-31	Natoli	Alice	2022-11-17	0
-34	Pascarella	Noemi	2022-11-17	1
-27	Pau	Sofia	2022-11-17	0
-7	Ravazzi	Marta	2022-11-17	1
-0	Ravazzi	Teresa	2022-11-17	0
-40	Suriani	Sofia	2022-11-17	0
-46	Bertinato	Adele	2022-11-18	0
-30	Cappuccio	Greta	2022-11-18	1
-48	Dainese	Alice	2022-11-18	0
-9	Leoni	Emma	2022-11-18	0
-28	Margarotto	Sara	2022-11-18	0
-36	Marengo	Alessia	2022-11-18	1
-31	Natoli	Alice	2022-11-18	1
-34	Pascarella	Noemi	2022-11-18	0
-27	Pau	Sofia	2022-11-18	1
-7	Ravazzi	Marta	2022-11-18	1
-0	Ravazzi	Teresa	2022-11-18	0
-40	Suriani	Sofia	2022-11-18	0
-46	Bertinato	Adele	2022-11-18	0
-30	Cappuccio	Greta	2022-11-18	0
-48	Dainese	Alice	2022-11-18	0
-9	Leoni	Emma	2022-11-18	0
-28	Margarotto	Sara	2022-11-18	0
-36	Marengo	Alessia	2022-11-18	0
-31	Natoli	Alice	2022-11-18	1
-34	Pascarella	Noemi	2022-11-18	0
-27	Pau	Sofia	2022-11-18	0
-7	Ravazzi	Marta	2022-11-18	0
-0	Ravazzi	Teresa	2022-11-18	0
-40	Suriani	Sofia	2022-11-18	0
-46	Bertinato	Adele	2022-12-02	0
-30	Cappuccio	Greta	2022-12-02	1
-48	Dainese	Alice	2022-12-02	0
-9	Leoni	Emma	2022-12-02	0
-28	Margarotto	Sara	2022-12-02	0
-36	Marengo	Alessia	2022-12-02	1
-31	Natoli	Alice	2022-12-02	1
-34	Pascarella	Noemi	2022-12-02	0
-27	Pau	Sofia	2022-12-02	1
-7	Ravazzi	Marta	2022-12-02	0
-0	Ravazzi	Teresa	2022-12-02	0
-40	Suriani	Sofia	2022-12-02	0
-46	Bertinato	Adele	2022-12-06	0
-30	Cappuccio	Greta	2022-12-06	0
-48	Dainese	Alice	2022-12-06	0
-9	Leoni	Emma	2022-12-06	0
-28	Margarotto	Sara	2022-12-06	0
-36	Marengo	Alessia	2022-12-06	0
-31	Natoli	Alice	2022-12-06	0
-34	Pascarella	Noemi	2022-12-06	0
-27	Pau	Sofia	2022-12-06	0
-7	Ravazzi	Marta	2022-12-06	0
-0	Ravazzi	Teresa	2022-12-06	0
-40	Suriani	Sofia	2022-12-06	0
-46	Bertinato	Adele	2022-12-09	0
-30	Cappuccio	Greta	2022-12-09	0
-48	Dainese	Alice	2022-12-09	1
-9	Leoni	Emma	2022-12-09	1
-28	Margarotto	Sara	2022-12-09	0
-36	Marengo	Alessia	2022-12-09	1
-31	Natoli	Alice	2022-12-09	0
-34	Pascarella	Noemi	2022-12-09	0
-27	Pau	Sofia	2022-12-09	0
-7	Ravazzi	Marta	2022-12-09	0
-0	Ravazzi	Teresa	2022-12-09	0
-40	Suriani	Sofia	2022-12-09	0
-46	Bertinato	Adele	2022-12-13	1
-30	Cappuccio	Greta	2022-12-13	1
-48	Dainese	Alice	2022-12-13	0
-9	Leoni	Emma	2022-12-13	1
-28	Margarotto	Sara	2022-12-13	0
-36	Marengo	Alessia	2022-12-13	0
-31	Natoli	Alice	2022-12-13	0
-34	Pascarella	Noemi	2022-12-13	1
-27	Pau	Sofia	2022-12-13	0
-7	Ravazzi	Marta	2022-12-13	0
-0	Ravazzi	Teresa	2022-12-13	0
-40	Suriani	Sofia	2022-12-13	1
-46	Bertinato	Adele	2022-12-16	0
-30	Cappuccio	Greta	2022-12-16	1
-48	Dainese	Alice	2022-12-16	1
-9	Leoni	Emma	2022-12-16	1
-28	Margarotto	Sara	2022-12-16	0
-36	Marengo	Alessia	2022-12-16	1
-31	Natoli	Alice	2022-12-16	1
-34	Pascarella	Noemi	2022-12-16	0
-27	Pau	Sofia	2022-12-16	0
-7	Ravazzi	Marta	2022-12-16	0
-0	Ravazzi	Teresa	2022-12-16	0
-40	Suriani	Sofia	2022-12-16	0
-46	Bertinato	Adele	2022-12-20	0
-30	Cappuccio	Greta	2022-12-20	0
-48	Dainese	Alice	2022-12-20	0
-9	Leoni	Emma	2022-12-20	0
-28	Margarotto	Sara	2022-12-20	0
-36	Marengo	Alessia	2022-12-20	1
-31	Natoli	Alice	2022-12-20	1
-34	Pascarella	Noemi	2022-12-20	0
-27	Pau	Sofia	2022-12-20	0
-7	Ravazzi	Marta	2022-12-20	1
-0	Ravazzi	Teresa	2022-12-20	0
-40	Suriani	Sofia	2022-12-20	0
-46	Bertinato	Adele	2023-01-10	0
-30	Cappuccio	Greta	2023-01-10	0
-48	Dainese	Alice	2023-01-10	0
-9	Leoni	Emma	2023-01-10	0
-28	Margarotto	Sara	2023-01-10	0
-36	Marengo	Alessia	2023-01-10	1
-31	Natoli	Alice	2023-01-10	1
-34	Pascarella	Noemi	2023-01-10	0
-27	Pau	Sofia	2023-01-10	0
-7	Ravazzi	Marta	2023-01-10	1
-35	Alice	Ciravolo	2023-01-10	0
-40	Suriani	Sofia	2023-01-10	0
-46	Bertinato	Adele	2023-01-12	0
-30	Cappuccio	Greta	2023-01-12	0
-48	Dainese	Alice	2023-01-12	0
-9	Leoni	Emma	2023-01-12	1
-28	Margarotto	Sara	2023-01-12	0
-36	Marengo	Alessia	2023-01-12	0
-31	Natoli	Alice	2023-01-12	1
-34	Pascarella	Noemi	2023-01-12	0
-27	Pau	Sofia	2023-01-12	1
-7	Ravazzi	Marta	2023-01-12	0
-35	Alice	Ciravolo	2023-01-12	0
-40	Suriani	Sofia	2023-01-12	0
-46	Bertinato	Adele	2023-01-20	0
-30	Cappuccio	Greta	2023-01-20	0
-48	Dainese	Alice	2023-01-20	1
-9	Leoni	Emma	2023-01-20	0
-28	Margarotto	Sara	2023-01-20	1
-36	Marengo	Alessia	2023-01-20	1
-31	Natoli	Alice	2023-01-20	0
-34	Pascarella	Noemi	2023-01-20	0
-27	Pau	Sofia	2023-01-20	0
-7	Ravazzi	Marta	2023-01-20	0
-35	Alice	Ciravolo	2023-01-20	0
-40	Suriani	Sofia	2023-01-20	0
-46	Bertinato	Adele	2023-01-19	0
-30	Cappuccio	Greta	2023-01-19	1
-48	Dainese	Alice	2023-01-19	0
-9	Leoni	Emma	2023-01-19	0
-28	Margarotto	Sara	2023-01-19	0
-36	Marengo	Alessia	2023-01-19	1
-31	Natoli	Alice	2023-01-19	1
-34	Pascarella	Noemi	2023-01-19	0
-27	Pau	Sofia	2023-01-19	0
-7	Ravazzi	Marta	2023-01-19	0
-35	Alice	Ciravolo	2023-01-19	0
-40	Suriani	Sofia	2023-01-19	0
-46	Bertinato	Adele	2023-01-24	0
-30	Cappuccio	Greta	2023-01-24	0
-48	Dainese	Alice	2023-01-24	1
-9	Leoni	Emma	2023-01-24	0
-28	Margarotto	Sara	2023-01-24	0
-36	Marengo	Alessia	2023-01-24	1
-31	Natoli	Alice	2023-01-24	1
-34	Pascarella	Noemi	2023-01-24	0
-27	Pau	Sofia	2023-01-24	0
-7	Ravazzi	Marta	2023-01-24	1
-35	Alice	Ciravolo	2023-01-24	1
-40	Suriani	Sofia	2023-01-24	0
-46	Bertinato	Adele	2023-01-26	0
-30	Cappuccio	Greta	2023-01-26	0
-48	Dainese	Alice	2023-01-26	0
-9	Leoni	Emma	2023-01-26	1
-28	Margarotto	Sara	2023-01-26	0
-36	Marengo	Alessia	2023-01-26	1
-31	Natoli	Alice	2023-01-26	0
-34	Pascarella	Noemi	2023-01-26	0
-27	Pau	Sofia	2023-01-26	1
-7	Ravazzi	Marta	2023-01-26	0
-35	Alice	Ciravolo	2023-01-26	0
-40	Suriani	Sofia	2023-01-26	1
-46	Bertinato	Adele	2023-01-27	0
-30	Cappuccio	Greta	2023-01-27	1
-48	Dainese	Alice	2023-01-27	0
-9	Leoni	Emma	2023-01-27	0
-28	Margarotto	Sara	2023-01-27	0
-36	Marengo	Alessia	2023-01-27	0
-31	Natoli	Alice	2023-01-27	1
-34	Pascarella	Noemi	2023-01-27	0
-27	Pau	Sofia	2023-01-27	0
-7	Ravazzi	Marta	2023-01-27	0
-35	Alice	Ciravolo	2023-01-27	1
-40	Suriani	Sofia	2023-01-27	0
-46	Bertinato	Adele	2023-01-31	0
-30	Cappuccio	Greta	2023-01-31	1
-48	Dainese	Alice	2023-01-31	1
-9	Leoni	Emma	2023-01-31	0
-28	Margarotto	Sara	2023-01-31	1
-36	Marengo	Alessia	2023-01-31	1
-31	Natoli	Alice	2023-01-31	0
-34	Pascarella	Noemi	2023-01-31	1
-27	Pau	Sofia	2023-01-31	0
-7	Ravazzi	Marta	2023-01-31	0
-35	Alice	Ciravolo	2023-01-31	0
-40	Suriani	Sofia	2023-01-31	0
+Numero	Cognome	Nome	date	vincitori	Ruolo
+22	Bertinato	Adele	2022-09-16	0	NA
+42	Cappuccio	Greta	2022-09-16	1	NA
+65	Dainese	Alice	2022-09-16	0	NA
+11	Leoni	Emma	2022-09-16	0	NA
+28	Margarotto	Sara	2022-09-16	1	NA
+56	Marengo	Alessia	2022-09-16	0	NA
+32	Natoli	Alice	2022-09-16	0	NA
+14	Pascarella	Noemi	2022-09-16	1	NA
+27	Pau	Sofia	2022-09-16	0	NA
+5	Ravazzi	Marta	2022-09-16	1	NA
+0	Ravazzi	Teresa	2022-09-16	1	NA
+54	Suriani	Sofia	2022-09-16	1	NA
+22	Bertinato	Adele	2022-09-20	1	NA
+42	Cappuccio	Greta	2022-09-20	0	NA
+65	Dainese	Alice	2022-09-20	0	NA
+11	Leoni	Emma	2022-09-20	1	NA
+28	Margarotto	Sara	2022-09-20	0	NA
+56	Marengo	Alessia	2022-09-20	0	NA
+32	Natoli	Alice	2022-09-20	0	NA
+14	Pascarella	Noemi	2022-09-20	0	NA
+27	Pau	Sofia	2022-09-20	1	NA
+5	Ravazzi	Marta	2022-09-20	0	NA
+0	Ravazzi	Teresa	2022-09-20	0	NA
+54	Suriani	Sofia	2022-09-20	0	NA
+22	Bertinato	Adele	2022-09-27	1	NA
+42	Cappuccio	Greta	2022-09-27	0	NA
+65	Dainese	Alice	2022-09-27	0	NA
+11	Leoni	Emma	2022-09-27	1	NA
+28	Margarotto	Sara	2022-09-27	1	NA
+56	Marengo	Alessia	2022-09-27	0	NA
+32	Natoli	Alice	2022-09-27	0	NA
+14	Pascarella	Noemi	2022-09-27	1	NA
+27	Pau	Sofia	2022-09-27	0	NA
+5	Ravazzi	Marta	2022-09-27	0	NA
+0	Ravazzi	Teresa	2022-09-27	1	NA
+54	Suriani	Sofia	2022-09-27	0	NA
+22	Bertinato	Adele	2022-09-30	0	NA
+42	Cappuccio	Greta	2022-09-30	1	NA
+65	Dainese	Alice	2022-09-30	0	NA
+11	Leoni	Emma	2022-09-30	1	NA
+28	Margarotto	Sara	2022-09-30	0	NA
+56	Marengo	Alessia	2022-09-30	0	NA
+32	Natoli	Alice	2022-09-30	0	NA
+14	Pascarella	Noemi	2022-09-30	0	NA
+27	Pau	Sofia	2022-09-30	1	NA
+5	Ravazzi	Marta	2022-09-30	1	NA
+0	Ravazzi	Teresa	2022-09-30	0	NA
+54	Suriani	Sofia	2022-09-30	1	NA
+22	Bertinato	Adele	2022-10-07	1	NA
+42	Cappuccio	Greta	2022-10-07	0	NA
+65	Dainese	Alice	2022-10-07	1	NA
+11	Leoni	Emma	2022-10-07	0	NA
+28	Margarotto	Sara	2022-10-07	1	NA
+56	Marengo	Alessia	2022-10-07	1	NA
+32	Natoli	Alice	2022-10-07	0	NA
+14	Pascarella	Noemi	2022-10-07	0	NA
+27	Pau	Sofia	2022-10-07	0	NA
+5	Ravazzi	Marta	2022-10-07	0	NA
+0	Ravazzi	Teresa	2022-10-07	0	NA
+54	Suriani	Sofia	2022-10-07	1	NA
+22	Bertinato	Adele	2022-10-11	0	NA
+42	Cappuccio	Greta	2022-10-11	0	NA
+65	Dainese	Alice	2022-10-11	0	NA
+11	Leoni	Emma	2022-10-11	1	NA
+28	Margarotto	Sara	2022-10-11	1	NA
+56	Marengo	Alessia	2022-10-11	0	NA
+32	Natoli	Alice	2022-10-11	0	NA
+14	Pascarella	Noemi	2022-10-11	0	NA
+27	Pau	Sofia	2022-10-11	0	NA
+5	Ravazzi	Marta	2022-10-11	0	NA
+0	Ravazzi	Teresa	2022-10-11	0	NA
+54	Suriani	Sofia	2022-10-11	1	NA
+22	Bertinato	Adele	2022-10-14	0	NA
+42	Cappuccio	Greta	2022-10-14	0	NA
+65	Dainese	Alice	2022-10-14	0	NA
+11	Leoni	Emma	2022-10-14	0	NA
+28	Margarotto	Sara	2022-10-14	1	NA
+56	Marengo	Alessia	2022-10-14	0	NA
+32	Natoli	Alice	2022-10-14	0	NA
+14	Pascarella	Noemi	2022-10-14	0	NA
+27	Pau	Sofia	2022-10-14	0	NA
+5	Ravazzi	Marta	2022-10-14	0	NA
+0	Ravazzi	Teresa	2022-10-14	0	NA
+54	Suriani	Sofia	2022-10-14	0	NA
+46	Bertinato	Adele	2022-10-18	0	NA
+30	Cappuccio	Greta	2022-10-18	0	NA
+48	Dainese	Alice	2022-10-18	0	NA
+9	Leoni	Emma	2022-10-18	1	NA
+28	Margarotto	Sara	2022-10-18	1	NA
+36	Marengo	Alessia	2022-10-18	0	NA
+31	Natoli	Alice	2022-10-18	1	NA
+34	Pascarella	Noemi	2022-10-18	1	NA
+27	Pau	Sofia	2022-10-18	0	NA
+7	Ravazzi	Marta	2022-10-18	0	NA
+0	Ravazzi	Teresa	2022-10-18	0	NA
+40	Suriani	Sofia	2022-10-18	0	NA
+46	Bertinato	Adele	2022-10-20	0	NA
+30	Cappuccio	Greta	2022-10-20	0	NA
+48	Dainese	Alice	2022-10-20	0	NA
+9	Leoni	Emma	2022-10-20	1	NA
+28	Margarotto	Sara	2022-10-20	0	NA
+36	Marengo	Alessia	2022-10-20	1	NA
+31	Natoli	Alice	2022-10-20	1	NA
+34	Pascarella	Noemi	2022-10-20	1	NA
+27	Pau	Sofia	2022-10-20	0	NA
+7	Ravazzi	Marta	2022-10-20	1	NA
+0	Ravazzi	Teresa	2022-10-20	0	NA
+40	Suriani	Sofia	2022-10-20	0	NA
+46	Bertinato	Adele	2022-10-21	0	NA
+30	Cappuccio	Greta	2022-10-21	1	NA
+48	Dainese	Alice	2022-10-21	0	NA
+9	Leoni	Emma	2022-10-21	1	NA
+28	Margarotto	Sara	2022-10-21	0	NA
+36	Marengo	Alessia	2022-10-21	0	NA
+31	Natoli	Alice	2022-10-21	1	NA
+34	Pascarella	Noemi	2022-10-21	1	NA
+27	Pau	Sofia	2022-10-21	0	NA
+7	Ravazzi	Marta	2022-10-21	0	NA
+0	Ravazzi	Teresa	2022-10-21	0	NA
+40	Suriani	Sofia	2022-10-21	1	NA
+46	Bertinato	Adele	2022-10-25	0	NA
+30	Cappuccio	Greta	2022-10-25	0	NA
+48	Dainese	Alice	2022-10-25	1	NA
+9	Leoni	Emma	2022-10-25	0	NA
+28	Margarotto	Sara	2022-10-25	1	NA
+36	Marengo	Alessia	2022-10-25	1	NA
+31	Natoli	Alice	2022-10-25	1	NA
+34	Pascarella	Noemi	2022-10-25	0	NA
+27	Pau	Sofia	2022-10-25	0	NA
+7	Ravazzi	Marta	2022-10-25	0	NA
+0	Ravazzi	Teresa	2022-10-25	1	NA
+40	Suriani	Sofia	2022-10-25	0	NA
+46	Bertinato	Adele	2022-10-28	1	NA
+30	Cappuccio	Greta	2022-10-28	0	NA
+48	Dainese	Alice	2022-10-28	1	NA
+9	Leoni	Emma	2022-10-28	1	NA
+28	Margarotto	Sara	2022-10-28	0	NA
+36	Marengo	Alessia	2022-10-28	0	NA
+31	Natoli	Alice	2022-10-28	0	NA
+34	Pascarella	Noemi	2022-10-28	0	NA
+27	Pau	Sofia	2022-10-28	0	NA
+7	Ravazzi	Marta	2022-10-28	0	NA
+0	Ravazzi	Teresa	2022-10-28	0	NA
+40	Suriani	Sofia	2022-10-28	0	NA
+46	Bertinato	Adele	2022-11-01	0	NA
+30	Cappuccio	Greta	2022-11-01	0	NA
+48	Dainese	Alice	2022-11-01	0	NA
+9	Leoni	Emma	2022-11-01	1	NA
+28	Margarotto	Sara	2022-11-01	0	NA
+36	Marengo	Alessia	2022-11-01	0	NA
+31	Natoli	Alice	2022-11-01	1	NA
+34	Pascarella	Noemi	2022-11-01	0	NA
+27	Pau	Sofia	2022-11-01	0	NA
+7	Ravazzi	Marta	2022-11-01	0	NA
+0	Ravazzi	Teresa	2022-11-01	0	NA
+40	Suriani	Sofia	2022-11-01	0	NA
+46	Bertinato	Adele	2022-11-03	0	NA
+30	Cappuccio	Greta	2022-11-03	1	NA
+48	Dainese	Alice	2022-11-03	1	NA
+9	Leoni	Emma	2022-11-03	1	NA
+28	Margarotto	Sara	2022-11-03	1	NA
+36	Marengo	Alessia	2022-11-03	1	NA
+31	Natoli	Alice	2022-11-03	0	NA
+34	Pascarella	Noemi	2022-11-03	0	NA
+27	Pau	Sofia	2022-11-03	0	NA
+7	Ravazzi	Marta	2022-11-03	0	NA
+0	Ravazzi	Teresa	2022-11-03	1	NA
+40	Suriani	Sofia	2022-11-03	0	NA
+46	Bertinato	Adele	2022-11-04	0	NA
+30	Cappuccio	Greta	2022-11-04	1	NA
+48	Dainese	Alice	2022-11-04	0	NA
+9	Leoni	Emma	2022-11-04	1	NA
+28	Margarotto	Sara	2022-11-04	0	NA
+36	Marengo	Alessia	2022-11-04	1	NA
+31	Natoli	Alice	2022-11-04	0	NA
+34	Pascarella	Noemi	2022-11-04	1	NA
+27	Pau	Sofia	2022-11-04	1	NA
+7	Ravazzi	Marta	2022-11-04	1	NA
+0	Ravazzi	Teresa	2022-11-04	0	NA
+40	Suriani	Sofia	2022-11-04	0	NA
+46	Bertinato	Adele	2022-11-01	0	NA
+30	Cappuccio	Greta	2022-11-01	0	NA
+48	Dainese	Alice	2022-11-01	0	NA
+9	Leoni	Emma	2022-11-01	1	NA
+28	Margarotto	Sara	2022-11-01	0	NA
+36	Marengo	Alessia	2022-11-01	0	NA
+31	Natoli	Alice	2022-11-01	1	NA
+34	Pascarella	Noemi	2022-11-01	0	NA
+27	Pau	Sofia	2022-11-01	1	NA
+7	Ravazzi	Marta	2022-11-01	0	NA
+0	Ravazzi	Teresa	2022-11-01	0	NA
+40	Suriani	Sofia	2022-11-01	1	NA
+46	Bertinato	Adele	2022-11-15	1	NA
+30	Cappuccio	Greta	2022-11-15	0	NA
+48	Dainese	Alice	2022-11-15	0	NA
+9	Leoni	Emma	2022-11-15	0	NA
+28	Margarotto	Sara	2022-11-15	0	NA
+36	Marengo	Alessia	2022-11-15	1	NA
+31	Natoli	Alice	2022-11-15	0	NA
+34	Pascarella	Noemi	2022-11-15	1	NA
+27	Pau	Sofia	2022-11-15	0	NA
+7	Ravazzi	Marta	2022-11-15	0	NA
+0	Ravazzi	Teresa	2022-11-15	0	NA
+40	Suriani	Sofia	2022-11-15	0	NA
+46	Bertinato	Adele	2022-11-17	0	NA
+30	Cappuccio	Greta	2022-11-17	0	NA
+48	Dainese	Alice	2022-11-17	0	NA
+9	Leoni	Emma	2022-11-17	0	NA
+28	Margarotto	Sara	2022-11-17	1	NA
+36	Marengo	Alessia	2022-11-17	0	NA
+31	Natoli	Alice	2022-11-17	0	NA
+34	Pascarella	Noemi	2022-11-17	1	NA
+27	Pau	Sofia	2022-11-17	0	NA
+7	Ravazzi	Marta	2022-11-17	1	NA
+0	Ravazzi	Teresa	2022-11-17	0	NA
+40	Suriani	Sofia	2022-11-17	0	NA
+46	Bertinato	Adele	2022-11-18	0	NA
+30	Cappuccio	Greta	2022-11-18	1	NA
+48	Dainese	Alice	2022-11-18	0	NA
+9	Leoni	Emma	2022-11-18	0	NA
+28	Margarotto	Sara	2022-11-18	0	NA
+36	Marengo	Alessia	2022-11-18	1	NA
+31	Natoli	Alice	2022-11-18	1	NA
+34	Pascarella	Noemi	2022-11-18	0	NA
+27	Pau	Sofia	2022-11-18	1	NA
+7	Ravazzi	Marta	2022-11-18	1	NA
+0	Ravazzi	Teresa	2022-11-18	0	NA
+40	Suriani	Sofia	2022-11-18	0	NA
+46	Bertinato	Adele	2022-11-18	0	NA
+30	Cappuccio	Greta	2022-11-18	0	NA
+48	Dainese	Alice	2022-11-18	0	NA
+9	Leoni	Emma	2022-11-18	0	NA
+28	Margarotto	Sara	2022-11-18	0	NA
+36	Marengo	Alessia	2022-11-18	0	NA
+31	Natoli	Alice	2022-11-18	1	NA
+34	Pascarella	Noemi	2022-11-18	0	NA
+27	Pau	Sofia	2022-11-18	0	NA
+7	Ravazzi	Marta	2022-11-18	0	NA
+0	Ravazzi	Teresa	2022-11-18	0	NA
+40	Suriani	Sofia	2022-11-18	0	NA
+46	Bertinato	Adele	2022-12-02	0	NA
+30	Cappuccio	Greta	2022-12-02	1	NA
+48	Dainese	Alice	2022-12-02	0	NA
+9	Leoni	Emma	2022-12-02	0	NA
+28	Margarotto	Sara	2022-12-02	0	NA
+36	Marengo	Alessia	2022-12-02	1	NA
+31	Natoli	Alice	2022-12-02	1	NA
+34	Pascarella	Noemi	2022-12-02	0	NA
+27	Pau	Sofia	2022-12-02	1	NA
+7	Ravazzi	Marta	2022-12-02	0	NA
+0	Ravazzi	Teresa	2022-12-02	0	NA
+40	Suriani	Sofia	2022-12-02	0	NA
+46	Bertinato	Adele	2022-12-06	0	NA
+30	Cappuccio	Greta	2022-12-06	0	NA
+48	Dainese	Alice	2022-12-06	0	NA
+9	Leoni	Emma	2022-12-06	0	NA
+28	Margarotto	Sara	2022-12-06	0	NA
+36	Marengo	Alessia	2022-12-06	0	NA
+31	Natoli	Alice	2022-12-06	0	NA
+34	Pascarella	Noemi	2022-12-06	0	NA
+27	Pau	Sofia	2022-12-06	0	NA
+7	Ravazzi	Marta	2022-12-06	0	NA
+0	Ravazzi	Teresa	2022-12-06	0	NA
+40	Suriani	Sofia	2022-12-06	0	NA
+46	Bertinato	Adele	2022-12-09	0	NA
+30	Cappuccio	Greta	2022-12-09	0	NA
+48	Dainese	Alice	2022-12-09	1	NA
+9	Leoni	Emma	2022-12-09	1	NA
+28	Margarotto	Sara	2022-12-09	0	NA
+36	Marengo	Alessia	2022-12-09	1	NA
+31	Natoli	Alice	2022-12-09	0	NA
+34	Pascarella	Noemi	2022-12-09	0	NA
+27	Pau	Sofia	2022-12-09	0	NA
+7	Ravazzi	Marta	2022-12-09	0	NA
+0	Ravazzi	Teresa	2022-12-09	0	NA
+40	Suriani	Sofia	2022-12-09	0	NA
+46	Bertinato	Adele	2022-12-13	1	NA
+30	Cappuccio	Greta	2022-12-13	1	NA
+48	Dainese	Alice	2022-12-13	0	NA
+9	Leoni	Emma	2022-12-13	1	NA
+28	Margarotto	Sara	2022-12-13	0	NA
+36	Marengo	Alessia	2022-12-13	0	NA
+31	Natoli	Alice	2022-12-13	0	NA
+34	Pascarella	Noemi	2022-12-13	1	NA
+27	Pau	Sofia	2022-12-13	0	NA
+7	Ravazzi	Marta	2022-12-13	0	NA
+0	Ravazzi	Teresa	2022-12-13	0	NA
+40	Suriani	Sofia	2022-12-13	1	NA
+46	Bertinato	Adele	2022-12-16	0	NA
+30	Cappuccio	Greta	2022-12-16	1	NA
+48	Dainese	Alice	2022-12-16	1	NA
+9	Leoni	Emma	2022-12-16	1	NA
+28	Margarotto	Sara	2022-12-16	0	NA
+36	Marengo	Alessia	2022-12-16	1	NA
+31	Natoli	Alice	2022-12-16	1	NA
+34	Pascarella	Noemi	2022-12-16	0	NA
+27	Pau	Sofia	2022-12-16	0	NA
+7	Ravazzi	Marta	2022-12-16	0	NA
+0	Ravazzi	Teresa	2022-12-16	0	NA
+40	Suriani	Sofia	2022-12-16	0	NA
+46	Bertinato	Adele	2022-12-20	0	NA
+30	Cappuccio	Greta	2022-12-20	0	NA
+48	Dainese	Alice	2022-12-20	0	NA
+9	Leoni	Emma	2022-12-20	0	NA
+28	Margarotto	Sara	2022-12-20	0	NA
+36	Marengo	Alessia	2022-12-20	1	NA
+31	Natoli	Alice	2022-12-20	1	NA
+34	Pascarella	Noemi	2022-12-20	0	NA
+27	Pau	Sofia	2022-12-20	0	NA
+7	Ravazzi	Marta	2022-12-20	1	NA
+0	Ravazzi	Teresa	2022-12-20	0	NA
+40	Suriani	Sofia	2022-12-20	0	NA
+46	Bertinato	Adele	2023-01-10	0	NA
+30	Cappuccio	Greta	2023-01-10	0	NA
+48	Dainese	Alice	2023-01-10	0	NA
+9	Leoni	Emma	2023-01-10	0	NA
+28	Margarotto	Sara	2023-01-10	0	NA
+36	Marengo	Alessia	2023-01-10	1	NA
+31	Natoli	Alice	2023-01-10	1	NA
+34	Pascarella	Noemi	2023-01-10	0	NA
+27	Pau	Sofia	2023-01-10	0	NA
+7	Ravazzi	Marta	2023-01-10	1	NA
+35	Alice	Ciravolo	2023-01-10	0	NA
+40	Suriani	Sofia	2023-01-10	0	NA
+46	Bertinato	Adele	2023-01-12	0	NA
+30	Cappuccio	Greta	2023-01-12	0	NA
+48	Dainese	Alice	2023-01-12	0	NA
+9	Leoni	Emma	2023-01-12	1	NA
+28	Margarotto	Sara	2023-01-12	0	NA
+36	Marengo	Alessia	2023-01-12	0	NA
+31	Natoli	Alice	2023-01-12	1	NA
+34	Pascarella	Noemi	2023-01-12	0	NA
+27	Pau	Sofia	2023-01-12	1	NA
+7	Ravazzi	Marta	2023-01-12	0	NA
+35	Alice	Ciravolo	2023-01-12	0	NA
+40	Suriani	Sofia	2023-01-12	0	NA
+46	Bertinato	Adele	2023-01-20	0	NA
+30	Cappuccio	Greta	2023-01-20	0	NA
+48	Dainese	Alice	2023-01-20	1	NA
+9	Leoni	Emma	2023-01-20	0	NA
+28	Margarotto	Sara	2023-01-20	1	NA
+36	Marengo	Alessia	2023-01-20	1	NA
+31	Natoli	Alice	2023-01-20	0	NA
+34	Pascarella	Noemi	2023-01-20	0	NA
+27	Pau	Sofia	2023-01-20	0	NA
+7	Ravazzi	Marta	2023-01-20	0	NA
+35	Alice	Ciravolo	2023-01-20	0	NA
+40	Suriani	Sofia	2023-01-20	0	NA
+46	Bertinato	Adele	2023-01-19	0	NA
+30	Cappuccio	Greta	2023-01-19	1	NA
+48	Dainese	Alice	2023-01-19	0	NA
+9	Leoni	Emma	2023-01-19	0	NA
+28	Margarotto	Sara	2023-01-19	0	NA
+36	Marengo	Alessia	2023-01-19	1	NA
+31	Natoli	Alice	2023-01-19	1	NA
+34	Pascarella	Noemi	2023-01-19	0	NA
+27	Pau	Sofia	2023-01-19	0	NA
+7	Ravazzi	Marta	2023-01-19	0	NA
+35	Alice	Ciravolo	2023-01-19	0	NA
+40	Suriani	Sofia	2023-01-19	0	NA
+46	Bertinato	Adele	2023-01-24	0	NA
+30	Cappuccio	Greta	2023-01-24	0	NA
+48	Dainese	Alice	2023-01-24	1	NA
+9	Leoni	Emma	2023-01-24	0	NA
+28	Margarotto	Sara	2023-01-24	0	NA
+36	Marengo	Alessia	2023-01-24	1	NA
+31	Natoli	Alice	2023-01-24	1	NA
+34	Pascarella	Noemi	2023-01-24	0	NA
+27	Pau	Sofia	2023-01-24	0	NA
+7	Ravazzi	Marta	2023-01-24	1	NA
+35	Alice	Ciravolo	2023-01-24	1	NA
+40	Suriani	Sofia	2023-01-24	0	NA
+46	Bertinato	Adele	2023-01-26	0	NA
+30	Cappuccio	Greta	2023-01-26	0	NA
+48	Dainese	Alice	2023-01-26	0	NA
+9	Leoni	Emma	2023-01-26	1	NA
+28	Margarotto	Sara	2023-01-26	0	NA
+36	Marengo	Alessia	2023-01-26	1	NA
+31	Natoli	Alice	2023-01-26	0	NA
+34	Pascarella	Noemi	2023-01-26	0	NA
+27	Pau	Sofia	2023-01-26	1	NA
+7	Ravazzi	Marta	2023-01-26	0	NA
+35	Alice	Ciravolo	2023-01-26	0	NA
+40	Suriani	Sofia	2023-01-26	1	NA
+46	Bertinato	Adele	2023-01-27	0	NA
+30	Cappuccio	Greta	2023-01-27	1	NA
+48	Dainese	Alice	2023-01-27	0	NA
+9	Leoni	Emma	2023-01-27	0	NA
+28	Margarotto	Sara	2023-01-27	0	NA
+36	Marengo	Alessia	2023-01-27	0	NA
+31	Natoli	Alice	2023-01-27	1	NA
+34	Pascarella	Noemi	2023-01-27	0	NA
+27	Pau	Sofia	2023-01-27	0	NA
+7	Ravazzi	Marta	2023-01-27	0	NA
+35	Alice	Ciravolo	2023-01-27	1	NA
+40	Suriani	Sofia	2023-01-27	0	NA
+46	Bertinato	Adele	2023-01-31	0	NA
+30	Cappuccio	Greta	2023-01-31	1	NA
+48	Dainese	Alice	2023-01-31	1	NA
+9	Leoni	Emma	2023-01-31	0	NA
+28	Margarotto	Sara	2023-01-31	1	NA
+36	Marengo	Alessia	2023-01-31	1	NA
+31	Natoli	Alice	2023-01-31	0	NA
+34	Pascarella	Noemi	2023-01-31	1	NA
+27	Pau	Sofia	2023-01-31	0	NA
+7	Ravazzi	Marta	2023-01-31	0	NA
+35	Alice	Ciravolo	2023-01-31	0	NA
+40	Suriani	Sofia	2023-01-31	0	NA
+46	Bertinato	Adele	2023-02-07	0	libero
+30	Cappuccio	Greta	2023-02-07	0	centrale
+48	Dainese	Alice	2023-02-07	1	opposto
+9	Leoni	Emma	2023-02-07	0	ala
+28	Margarotto	Sara	2023-02-07	0	opposto
+36	Marengo	Alessia	2023-02-07	0	palleggiatore
+31	Natoli	Alice	2023-02-07	1	ala
+34	Pascarella	Noemi	2023-02-07	1	ala
+27	Pau	Sofia	2023-02-07	0	centrale
+7	Ravazzi	Marta	2023-02-07	1	ala
+35	Alice	Ciravolo	2023-02-07	0	ala
+40	Suriani	Sofia	2023-02-07	1	palleggiatore
