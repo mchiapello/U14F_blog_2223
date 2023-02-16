@@ -13,7 +13,7 @@ execute:
   echo: false
   warning: false
   message: false
-draft: true
+draft: false
 ---
 
 ## Informazioni generali
