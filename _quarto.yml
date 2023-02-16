@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "Progetto Basso Canavese"
+  title: "Basso Canavese Volley Foglizzo"
   favicon: data/004_images/foxvolleyball3.png
   navbar:
     logo: "foxvolleyball3.png"
