@@ -1,0 +1,20 @@
+---
+title: "ValSusa Oulx - BCV Foglizzo"
+author: "Marco Chiapello"
+date: "2023-02-18"
+categories: ["U14F", "2022-2023", "PGS Foglizzese", "Partita"]
+format:
+  html:
+    toc: false
+    theme: journal
+    page-layout: article
+    number-sections: false
+execute: 
+  echo: false
+  warning: false
+  message: false
+---
+
+Abbiamo perso 3-0.
+
+La partita non è stata registrata quindi non ci sono le statistiche.
