@@ -21,8 +21,8 @@ saveRDS(refx, paste0(out, "/mrefx.RDS"))
 
 ## enter the team lineups for set 1
 x <- dv_set_lineups(x, set_number = 1, 
-                    lineups = list(c(31,30,40,9,48,28), 
-                                   c(67,36,95,88,68,60)), 
+                    lineups = list(c(31,30,36,9,48,28), 
+                                   c(66,3,5,44,7,83)), 
                     setter_positions = c(3, 3))
 
 # Subset the attacks
@@ -37,7 +37,7 @@ ov_scouter(x, video_file = video_file,
            launch_browser = TRUE)
 
 # Restart scouting
-ov_scouter("data/002_Partite/2023-02-12_PVL/20230212_BVCFoglizzo_PVL.ovs",
+ov_scouter("data/002_Partite/2023-02-25_Alto Canavese/20230225_AltoCanavese.ovs",
            scouting_options = list(transition_sets = TRUE,
                                    attack_table = read_csv("data/003_dati/myAttacks.csv")),
            app_styling = list(review_pane_width = 50),
