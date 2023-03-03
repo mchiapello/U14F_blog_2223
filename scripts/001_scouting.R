@@ -5,8 +5,8 @@ video_file  <- dir_ls(out, regexp = "*mp4$")
 ## BVC Foglizzese
 elat("data/003_dati/players.tsv", team = "BCV Foglizzo", out = out)
 ## Avversari
-prelat(paste0(out, "/opp.txt", pathout = out, team = teams$team[teams$team != "BCV Foglizzo"])
-elat(paste0(out, "/opp.tsv"), team = teams$team[teams$team != "BCV Foglizzo"], out = out)
+prelat(paste0(out, "/opp.txt"), pathout = out, team = teams$team[teams$team != "BCV Foglizzo"])
+elat(paste0(out, "/", teams$team[teams$team != "BCV Foglizzo"], ".tsv"), team = teams$team[teams$team != "BCV Foglizzo"], out = out)
 
 
 x <- dv_create(match = match, 
