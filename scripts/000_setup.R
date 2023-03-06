@@ -23,9 +23,9 @@ pp <- ma(date = date,
          home_away = TRUE,
          day_number = 4,
          match_number = 2273,
-         set_won = c(3, 0),
-         home_away_team  = c("a", "*"),
-         won_match = c(TRUE, FALSE),
+         set_won = c(3, 2),
+         home_away_team  = c("*", "a"),
+         won_match = c(FALSE, TRUE),
          coach = c("Chiapello", "Callegher"),
          assistent = c("Bernardi", "Mura"))
 
