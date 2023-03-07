@@ -21,7 +21,7 @@ library(gtExtras)
 library(patchwork)
 source(paste0(here::here(), "/scripts/999_utils.R"))
 # Read data
-file <- fs::dir_ls(paste0(here::here(), "/data/002_Partite/2023-02-25_Alto Canavese"), 
+file <- fs::dir_ls("~/Documents/personale/PALLAVOLO/U14F_blog_2223/data/002_Partite/2023-03-05_To.volley/", 
                    regexp = "dvw$")
 x <- dv_read(file)
 noi <- teams(x)[1]
