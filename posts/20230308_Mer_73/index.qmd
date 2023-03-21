@@ -1,0 +1,13 @@
+---
+title: "Sessantatresimo Allenamento"
+author: "Marco Chiapello"
+date: "2023-03-08"
+date-format: full
+categories: ["U14F", "2022-2023", "PGS Foglizzese", "Allenamento"]
+execute: 
+  echo: false
+  message: false
+  warning: false
+---
+
+Allenamento congiunto con il Calton
