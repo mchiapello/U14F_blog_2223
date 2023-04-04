@@ -1,0 +1,19 @@
+---
+title: "BCV Foglizzo - Oulx"
+author: "Marco Chiapello"
+date: "2023-03-25"
+categories: ["U14F", "2022-2023", "PGS Foglizzese", "Partita"]
+format:
+  html:
+    toc: false
+    theme: journal
+    page-layout: article
+    number-sections: false
+execute: 
+  echo: false
+  warning: false
+  message: false
+draft: false
+---
+
+Per problemi lavorativi non ho potuto fare lo scout, ma abbiamo vinto 3-1

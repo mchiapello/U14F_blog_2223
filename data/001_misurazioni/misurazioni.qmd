@@ -21,28 +21,27 @@ library(gtExtras)
 ```
 
 
-# Settembre
-
 ```{r}
-# Create data
-x <- read_csv(paste0(here::here(), "/data/001_misurazioni/20220906.csv")) %>% 
-    janitor::clean_names() %>% 
-    mutate(data = "20220906")
+x <- read_csv(paste0(here::here(), "/data/001_misurazioni/20220906.csv")) |> 
+    janitor::clean_names() |> 
+    mutate(data = lubridate::dmy(data)) |> 
+    filter(data == max(data)) |> 
+    select(-number, -nascita, - peso) 
 
-x %>% 
-    # drop_na() %>% 
-    mutate(jumpRincorsa = rincorsa - reach,
-           jumpMuro = muro - reach) %>% 
-    select(-yo_yo_test, -data) %>% 
-    arrange(desc(jumpRincorsa)) %>% 
-    gt() %>% 
-    # HIGHLIGHT massima altezza 
-    gt_theme_538()
+x2 <- x |> 
+    mutate(altezza = NA,
+           reach = NA,
+           rincorsa = NA,
+           muro = NA,
+           yo_yo_test = NA,
+           data = lubridate::ymd("20230321"))
+
+x |> 
+    bind_rows(x2) |> 
+    arrange(cognome) |> 
+    filter(!cognome %in% c("Ciravolo", "Pascarella", "Ravazzi")) |> 
+    select(cognome, nome, altezza, reach, muro, rincorsa, yo_yo_test, data) |> 
+    write_csv(paste0(here::here(), "/data/001_misurazioni/masterMarzo.csv"))
 
 ```
 
-
-# Mid-season
-
-
-# End-season
